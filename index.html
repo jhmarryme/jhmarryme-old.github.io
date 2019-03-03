@@ -263,6 +263,165 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/03/04/mybatis学习记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/04/mybatis学习记录/" itemprop="url">mybatis学习记录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-03T19:27:06Z">
+                2019-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">javaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="day1"><a href="#day1" class="headerlink" title="day1"></a>day1</h1><h2 id="mybatis的理解"><a href="#mybatis的理解" class="headerlink" title="mybatis的理解"></a>mybatis的理解</h2><h2 id="使用mybatis的步骤"><a href="#使用mybatis的步骤" class="headerlink" title="使用mybatis的步骤"></a>使用mybatis的步骤</h2><p>主要按照这个步骤来做, 在其中具体配置文件的编写中, 参考<a href="http://www.mybatis.org/mybatis-3/zh/getting-started.html" target="_blank" rel="noopener">mybatis中文网</a>的内容填写, 注意其中的一些细节, 顺利完成. 在配置SqlMapConfig.xml中的properties属性时, 使用resource标签外部引用.properties文件.<br>第一步：创建 maven 工程<br>第二步：导入坐标<br>第三步：编写必要代码（实体类和持久层接口）<br>第四步：编写 SqlMapConfig.xml<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;? xml version = <span class="string">"1.0"</span> encoding = <span class="string">"UTF-8"</span> ?&gt;</span><br><span class="line">&lt; !DOCTYPE configuration</span><br><span class="line">PUBLIC <span class="string">"-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="line"><span class="string">"http://mybatis.org/dtd/mybatis-3-config.dtd"</span> &gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	&lt;configuration&gt;</span><br><span class="line">		&lt;properties resource=<span class="string">"jdbcConfig.properties"</span> /&gt;</span><br><span class="line"></span><br><span class="line">		&lt;typeAliases&gt;</span><br><span class="line">			&lt;!--&lt;typeAlias <span class="built_in">type</span>=<span class="string">"jhmarryme.domain.User"</span> <span class="built_in">alias</span>=<span class="string">"user"</span> /&gt;--&gt;</span><br><span class="line">		&lt;package name=<span class="string">"jhmarryme.domain"</span> /&gt;</span><br><span class="line">		&lt;/typeAliases&gt;</span><br><span class="line">		&lt;environments default=<span class="string">"mysql"</span>&gt;</span><br><span class="line">			&lt;environment id=<span class="string">"mysql"</span>&gt;</span><br><span class="line">				&lt;transactionManager <span class="built_in">type</span>=<span class="string">"JDBC"</span> /&gt;</span><br><span class="line">				&lt;dataSource <span class="built_in">type</span>=<span class="string">"POOLED"</span>&gt;</span><br><span class="line">					&lt;property name=<span class="string">"driver"</span> value=<span class="string">"<span class="variable">$&#123;driver&#125;</span>"</span> /&gt;</span><br><span class="line">					&lt;property name=<span class="string">"url"</span> value=<span class="string">"<span class="variable">$&#123;url&#125;</span>"</span> /&gt;</span><br><span class="line">					&lt;property name=<span class="string">"username"</span> value=<span class="string">"<span class="variable">$&#123;username&#125;</span>"</span> /&gt;</span><br><span class="line">					&lt;property name=<span class="string">"password"</span> value=<span class="string">"<span class="variable">$&#123;password&#125;</span>"</span> /&gt;</span><br><span class="line">				&lt;/dataSource&gt;</span><br><span class="line">			&lt;/environment&gt;</span><br><span class="line">		&lt;/environments&gt;</span><br><span class="line">		&lt;mappers&gt;</span><br><span class="line">			&lt;package name=<span class="string">"jhmarryme.dao"</span> /&gt;</span><br><span class="line">			&lt;!--&lt;mapper resource=<span class="string">"jhmarryme/dao/IUserDao.xml"</span> /&gt;--&gt;</span><br><span class="line">	&lt;/mappers&gt;</span><br><span class="line">	&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></p>
+<p>第五步：编写映射配置文件<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> ?&gt;</span><br><span class="line">&lt;!DOCTYPE mapper</span><br><span class="line">		PUBLIC <span class="string">"-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line">		<span class="string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span>&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;mapper namespace=<span class="string">"jhmarryme.dao.IUserDao"</span>&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- 查找所有用户信息--&gt;</span><br><span class="line">	&lt;select id=<span class="string">"findAllUser"</span> resultType=<span class="string">"jhmarryme.domain.User"</span>&gt;</span><br><span class="line">	select * from user</span><br><span class="line">&lt;/select&gt;</span><br><span class="line">&lt;!--查询总用户数--&gt;</span><br><span class="line">	&lt;select id=<span class="string">"findTotalUser"</span> resultType=<span class="string">"int"</span>&gt;</span><br><span class="line">	select count(id) from user</span><br><span class="line">&lt;/select&gt;</span><br><span class="line">	&lt;!--保存一个用户, 并返回表中自增的id--&gt;</span><br><span class="line">	&lt;insert id=<span class="string">"saveUser"</span> parameterType=<span class="string">"jhmarryme.domain.User"</span>&gt;</span><br><span class="line">		&lt;selectKey keyProperty=<span class="string">"id"</span> keyColumn=<span class="string">"id"</span> resultType=<span class="string">"int"</span>&gt;</span><br><span class="line">			select last_insert_id();</span><br><span class="line">		&lt;/selectKey&gt;</span><br><span class="line">		insert into user(username, address, birthday, sex)</span><br><span class="line">		values(<span class="comment">#&#123;username&#125;, #&#123;address&#125;, #&#123;birthday&#125;, #&#123;sex&#125;)</span></span><br><span class="line">	&lt;/insert&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- 根据条件查询相关的用户 --&gt;</span><br><span class="line">	&lt;select id=<span class="string">"findUserByCondition"</span> resultType=<span class="string">"user"</span> parameterType=<span class="string">"user"</span>&gt;</span><br><span class="line">		select * from user</span><br><span class="line">		&lt;<span class="built_in">where</span>&gt;</span><br><span class="line">			&lt;<span class="keyword">if</span> <span class="built_in">test</span>=<span class="string">"username != null"</span>&gt;</span><br><span class="line">			and username like <span class="comment">#&#123;username&#125;</span></span><br><span class="line">			&lt;/<span class="keyword">if</span>&gt;</span><br><span class="line">			&lt;<span class="keyword">if</span> <span class="built_in">test</span>=<span class="string">"address != null"</span>&gt;</span><br><span class="line">				and address like <span class="comment">#&#123;address&#125;</span></span><br><span class="line">			&lt;/<span class="keyword">if</span>&gt;</span><br><span class="line">		&lt;/<span class="built_in">where</span>&gt;</span><br><span class="line">	&lt;/select&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!--查询id在集合中的用户--&gt;</span><br><span class="line">	&lt;select id=<span class="string">"findUserInIds"</span> parameterType=<span class="string">"pojovo"</span> resultType=<span class="string">"user"</span>&gt;</span><br><span class="line">		select * from user</span><br><span class="line">		&lt;<span class="built_in">where</span>&gt;</span><br><span class="line">			&lt;<span class="keyword">if</span> <span class="built_in">test</span>=<span class="string">"ids != null and ids.size() &gt;0"</span>&gt;</span><br><span class="line">				&lt;foreach collection=<span class="string">"ids"</span> open=<span class="string">"and id in("</span> close=<span class="string">")"</span> item=<span class="string">"id"</span> separator=<span class="string">","</span>&gt;</span><br><span class="line">					<span class="comment">#&#123;id&#125;</span></span><br><span class="line">				&lt;/foreach&gt;</span><br><span class="line">			&lt;/<span class="keyword">if</span>&gt;</span><br><span class="line">		&lt;/<span class="built_in">where</span>&gt;</span><br><span class="line">	&lt;/select&gt;</span><br><span class="line">&lt;/mapper&gt;</span><br></pre></td></tr></table></figure></p>
+<p>第六步：编写测试类</p>
+<h2 id="Mybatis基本用法记录"><a href="#Mybatis基本用法记录" class="headerlink" title="Mybatis基本用法记录"></a>Mybatis基本用法记录</h2><h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ol>
+<li>导入坐标时没有mybatis的提示, 第一反应肯定是仓库里找不到这个包, 打开设置, 找到maven的设置, 发现maven使用的是默认的版本, 于是乎更换之前下载的版本, 其中配置好了本地仓库的位置. 问题解决</li>
+</ol>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ol>
+<li>SqlMapConfig.xml 中配置的内容和顺序<br> -properties（属性）<pre><code>--property
+</code></pre> -settings（全局配置参数）<pre><code>--setting
+</code></pre> -typeAliases（类型别名）<pre><code>--typeAliase
+--package
+</code></pre> -typeHandlers（类型处理器）<br> -objectFactory（对象工厂）<br> -plugins（插件）<br> -environments（环境集合属性对象）<pre><code>--environment（环境子属性对象）
+    ---transactionManager（事务管理）
+    ---dataSource（数据源）
+</code></pre> -mappers（映射器）<pre><code>--mapper
+--package
+</code></pre></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/02/27/hexo使用记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1224,7 +1383,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
