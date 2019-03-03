@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="jhmarryme&#39;s blog">
 <meta property="og:description" content="day1mybatis的理解使用mybatis的步骤主要按照这个步骤来做, 在其中具体配置文件的编写中, 参考mybatis中文网的内容填写, 注意其中的一些细节, 顺利完成. 在配置SqlMapConfig.xml中的properties属性时, 使用resource标签外部引用.properties文件.第一步：创建 maven 工程第二步：导入坐标第三步：编写必要代码（实体类和持久层接口）第">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-03T11:37:09.123Z">
+<meta property="og:updated_time" content="2019-03-03T11:38:24.547Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mybatis学习1">
 <meta name="twitter:description" content="day1mybatis的理解使用mybatis的步骤主要按照这个步骤来做, 在其中具体配置文件的编写中, 参考mybatis中文网的内容填写, 注意其中的一些细节, 顺利完成. 在配置SqlMapConfig.xml中的properties属性时, 使用resource标签外部引用.properties文件.第一步：创建 maven 工程第二步：导入坐标第三步：编写必要代码（实体类和持久层接口）第">
@@ -360,17 +360,11 @@
 <li>导入坐标时没有mybatis的提示, 第一反应肯定是仓库里找不到这个包, 打开设置, 找到maven的设置, 发现maven使用的是默认的版本, 于是乎更换之前下载的版本, 其中配置好了本地仓库的位置. 问题解决</li>
 </ol>
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ol>
-<li>SqlMapConfig.xml 中配置的内容和顺序<br> -properties（属性）<pre><code>--property
-</code></pre> -settings（全局配置参数）<pre><code>--setting
-</code></pre> -typeAliases（类型别名）<pre><code>--typeAliase
---package
-</code></pre> -typeHandlers（类型处理器）<br> -objectFactory（对象工厂）<br> -plugins（插件）<br> -environments（环境集合属性对象）<pre><code>--environment（环境子属性对象）
-    ---transactionManager（事务管理）
-    ---dataSource（数据源）
-</code></pre> -mappers（映射器）<pre><code>--mapper
---package
-</code></pre></li>
-<li>jdbcConfig.properties<br>如下: <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jdbc.driver=com.mysql.jdbc.Driver</span><br><span class="line">jdbc.url=jdbc:mysql://localhost:3306/ee42</span><br><span class="line">jdbc.username=root</span><br><span class="line">jdbc.password=1234</span><br></pre></td></tr></table></figure>
+<li><p>SqlMapConfig.xml 中配置的内容和顺序</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">-properties（属性）</span><br><span class="line">    --property</span><br><span class="line">-settings（全局配置参数）</span><br><span class="line">    --setting</span><br><span class="line">-typeAliases（类型别名）</span><br><span class="line">    --typeAliase</span><br><span class="line">    --package</span><br><span class="line">-typeHandlers（类型处理器）</span><br><span class="line">-objectFactory（对象工厂）</span><br><span class="line">-plugins（插件）</span><br><span class="line">-environments（环境集合属性对象）</span><br><span class="line">    --environment（环境子属性对象）</span><br><span class="line">        ---transactionManager（事务管理）</span><br><span class="line">        ---dataSource（数据源）</span><br><span class="line">-mappers（映射器）</span><br><span class="line">    --mapper</span><br><span class="line">    --package</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>jdbcConfig.properties<br>如下:</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jdbc.driver=com.mysql.jdbc.Driver</span><br><span class="line">jdbc.url=jdbc:mysql://localhost:3306/ee42</span><br><span class="line">jdbc.username=root</span><br><span class="line">jdbc.password=1234</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 
@@ -407,8 +401,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/04/mybatis学习记录/" rel="next" title="mybatis学习记录">
-                <i class="fa fa-chevron-left"></i> mybatis学习记录
+              <a href="/2019/02/27/hexo使用记录/" rel="next" title="hexo使用记录">
+                <i class="fa fa-chevron-left"></i> hexo使用记录
               </a>
             
           </div>
@@ -492,7 +486,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
