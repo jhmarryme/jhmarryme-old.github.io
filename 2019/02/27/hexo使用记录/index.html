@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="jhmarryme&#39;s blog">
 <meta property="og:description" content="添加分类及标签创建“分类”选项 生成“分类”页并添加tpye属性 打开命令行，进入博客所在文件夹。执行命令  1hexo new page categories  根据提示信息找到index.md, 添加type: “categories”到内容中，添加后是这样的：  12345---title: 文章分类date: 2017-05-27 13:47:40type: &quot;categories&quot;---">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-26T15:55:04.721Z">
+<meta property="og:updated_time" content="2019-03-04T10:17:34.674Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo使用记录">
 <meta name="twitter:description" content="添加分类及标签创建“分类”选项 生成“分类”页并添加tpye属性 打开命令行，进入博客所在文件夹。执行命令  1hexo new page categories  根据提示信息找到index.md, 添加type: “categories”到内容中，添加后是这样的：  12345---title: 文章分类date: 2017-05-27 13:47:40type: &quot;categories&quot;---">
@@ -355,13 +355,13 @@
       
         <h2 id="添加分类及标签"><a href="#添加分类及标签" class="headerlink" title="添加分类及标签"></a>添加分类及标签</h2><h3 id="创建“分类”选项"><a href="#创建“分类”选项" class="headerlink" title="创建“分类”选项"></a>创建“分类”选项</h3><ol>
 <li><p><strong>生成“分类”页并添加tpye属性</strong><br> 打开命令行，进入博客所在文件夹。执行命令</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page categories</span><br></pre></td></tr></table></figure>
 <p> 根据提示信息找到index.md, 添加type: “categories”到内容中，添加后是这样的：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2017-05-27 13:47:40</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"categories"</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: <span class="number">2017</span>-<span class="number">05</span>-<span class="number">27</span> <span class="number">13</span>:<span class="number">47</span>:<span class="number">40</span></span><br><span class="line">type: <span class="string">"categories"</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 <p> 保存并关闭文件。</p>
 </li>
 <li><p><strong>给文章添加“categories”属性</strong><br>打开需要添加分类的文章，为其添加categories属性。下方的categories: web前端表示添加这篇文章到“web前端”这个分类。注意：hexo一篇文章只能属于一个分类，也就是说如果在“- web前端”下方添加“-xxx”，hexo不会产生两个分类，而是把分类嵌套（即该文章属于 “- web前端”下的 “-xxx ”分类）。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: hexo使用记录</span><br><span class="line">date: 2019-02-26 23:43:53</span><br><span class="line">categories:</span><br><span class="line">- hexo</span><br><span class="line">tags:</span><br><span class="line">- hexo</span><br><span class="line">- 博客</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: hexo使用记录</span><br><span class="line">date: <span class="number">2019</span>-<span class="number">02</span>-<span class="number">26</span> <span class="number">23</span>:<span class="number">43</span>:<span class="number">53</span></span><br><span class="line">categories:</span><br><span class="line">- hexo</span><br><span class="line">tags:</span><br><span class="line">- hexo</span><br><span class="line">- 博客</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h3 id="创建“标签”选项"><a href="#创建“标签”选项" class="headerlink" title="创建“标签”选项"></a>创建“标签”选项</h3><p>同上, 只需要把categories替换为tags即可</p>
