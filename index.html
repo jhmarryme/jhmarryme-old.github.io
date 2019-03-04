@@ -263,6 +263,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/03/04/spring第二天/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/04/spring第二天/" itemprop="url">spring第二天</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T12:46:21Z">
+                2019-03-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">javaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="今日任务概览"><a href="#今日任务概览" class="headerlink" title="今日任务概览"></a>今日任务概览</h1><p>1、完善我们的account案例<br>2、分析案例中问题<br>3、回顾之前讲过的一个技术：动态代理<br>4、动态代理另一种实现方式<br>5、解决案例中的问题<br>6、AOP的概念<br>7、spring中的AOP相关术语<br>8、spring中基于XML和注解的AOP配置</p>
+<h2 id="对动态代理的学习"><a href="#对动态代理的学习" class="headerlink" title="对动态代理的学习"></a>对动态代理的学习</h2><ol>
+<li><p>基于接口的实现</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">       final Producer producer = new Producer();</span><br><span class="line"></span><br><span class="line">       /**</span><br><span class="line">        * 动态代理：</span><br><span class="line">        *  特点：字节码随用随创建，随用随加载</span><br><span class="line">        *  作用：不修改源码的基础上对方法增强</span><br><span class="line">        *  分类：</span><br><span class="line">        *      基于接口的动态代理</span><br><span class="line">        *      基于子类的动态代理</span><br><span class="line">        *  基于接口的动态代理：</span><br><span class="line">        *      涉及的类：Proxy</span><br><span class="line">        *      提供者：JDK官方</span><br><span class="line">        *  如何创建代理对象：</span><br><span class="line">        *      使用Proxy类中的newProxyInstance方法</span><br><span class="line">        *  创建代理对象的要求：</span><br><span class="line">        *      被代理类最少实现一个接口，如果没有则不能使用</span><br><span class="line">        *  newProxyInstance方法的参数：</span><br><span class="line">        *      ClassLoader：类加载器</span><br><span class="line">        *          它是用于加载代理对象字节码的。和被代理对象使用相同的类加载器。固定写法。</span><br><span class="line">        *      Class[]：字节码数组</span><br><span class="line">        *          它是用于让代理对象和被代理对象有相同方法。固定写法。</span><br><span class="line">        *      InvocationHandler：用于提供增强的代码</span><br><span class="line">        *          它是让我们写如何代理。我们一般都是些一个该接口的实现类，通常情况下都是匿名内部类，但不是必须的。</span><br><span class="line">        *          此接口的实现类都是谁用谁写。</span><br><span class="line">        */</span><br><span class="line">      IProducer proxyProducer = (IProducer) Proxy.newProxyInstance(producer.getClass().getClassLoader(),</span><br><span class="line">               producer.getClass().getInterfaces(),</span><br><span class="line">               new <span class="function"><span class="title">InvocationHandler</span></span>() &#123;</span><br><span class="line">                   /**</span><br><span class="line">                    * 作用：执行被代理对象的任何接口方法都会经过该方法</span><br><span class="line">                    * 方法参数的含义</span><br><span class="line">                    * @param proxy   代理对象的引用</span><br><span class="line">                    * @param method  当前执行的方法</span><br><span class="line">                    * @param args    当前执行方法所需的参数</span><br><span class="line">                    * @<span class="built_in">return</span>        和被代理对象方法有相同的返回值</span><br><span class="line">                    * @throws Throwable</span><br><span class="line">                    */</span><br><span class="line">                   public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;</span><br><span class="line">                       //提供增强的代码</span><br><span class="line">                       Object returnValue = null;</span><br><span class="line"></span><br><span class="line">                       //1.获取方法执行的参数</span><br><span class="line">                       Float money = (Float)args[0];</span><br><span class="line">                       //2.判断当前方法是不是销售</span><br><span class="line">                       <span class="keyword">if</span>(<span class="string">"saleProduct"</span>.equals(method.getName())) &#123;</span><br><span class="line">                           returnValue = method.invoke(producer, money*0.8f);</span><br><span class="line">                       &#125;</span><br><span class="line">                       <span class="built_in">return</span> returnValue;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;);</span><br><span class="line">       proxyProducer.saleProduct(10000f);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>基于子类的实现</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">       final Producer producer = new Producer();</span><br><span class="line"></span><br><span class="line">       /**</span><br><span class="line">        * 动态代理：</span><br><span class="line">        *  特点：字节码随用随创建，随用随加载</span><br><span class="line">        *  作用：不修改源码的基础上对方法增强</span><br><span class="line">        *  分类：</span><br><span class="line">        *      基于接口的动态代理</span><br><span class="line">        *      基于子类的动态代理</span><br><span class="line">        *  基于子类的动态代理：</span><br><span class="line">        *      涉及的类：Enhancer</span><br><span class="line">        *      提供者：第三方cglib库</span><br><span class="line">        *  如何创建代理对象：</span><br><span class="line">        *      使用Enhancer类中的create方法</span><br><span class="line">        *  创建代理对象的要求：</span><br><span class="line">        *      被代理类不能是最终类</span><br><span class="line">        *  create方法的参数：</span><br><span class="line">        *      Class：字节码</span><br><span class="line">        *          它是用于指定被代理对象的字节码。</span><br><span class="line">        *</span><br><span class="line">        *      Callback：用于提供增强的代码</span><br><span class="line">        *          它是让我们写如何代理。我们一般都是些一个该接口的实现类，通常情况下都是匿名内部类，但不是必须的。</span><br><span class="line">        *          此接口的实现类都是谁用谁写。</span><br><span class="line">        *          我们一般写的都是该接口的子接口实现类：MethodInterceptor</span><br><span class="line">        */</span><br><span class="line">       Producer cglibProducer = (Producer)Enhancer.create(producer.getClass(), new <span class="function"><span class="title">MethodInterceptor</span></span>() &#123;</span><br><span class="line">           /**</span><br><span class="line">            * 执行被代理  对象的任何方法都会经过该方法</span><br><span class="line">            * @param proxy</span><br><span class="line">            * @param method</span><br><span class="line">            * @param args</span><br><span class="line">            *    以上三个参数和基于接口的动态代理中invoke方法的参数是一样的</span><br><span class="line">            * @param methodProxy ：当前执行方法的代理对象</span><br><span class="line">            * @<span class="built_in">return</span></span><br><span class="line">            * @throws Throwable</span><br><span class="line">            */</span><br><span class="line">           public Object intercept(Object proxy, Method method, Object[] args, MethodProxy methodProxy) throws Throwable &#123;</span><br><span class="line">               //提供增强的代码</span><br><span class="line">               Object returnValue = null;</span><br><span class="line"></span><br><span class="line">               //1.获取方法执行的参数</span><br><span class="line">               Float money = (Float)args[0];</span><br><span class="line">               //2.判断当前方法是不是销售</span><br><span class="line">               <span class="keyword">if</span>(<span class="string">"saleProduct"</span>.equals(method.getName())) &#123;</span><br><span class="line">                   returnValue = method.invoke(producer, money*0.8f);</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="built_in">return</span> returnValue;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">       cglibProducer.saleProduct(12000f);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实例中的使用</p>
+<ol>
+<li><p>beanFactory的编写:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">	public class BeanFactory &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    private IAccountService accountService;</span><br><span class="line"></span><br><span class="line">    public void setTransactionManager(TransactionManager transactionManager) &#123;</span><br><span class="line">        this.transactionManager = transactionManager;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private TransactionManager transactionManager;</span><br><span class="line">    public void setAccountService(IAccountService accountService) &#123;</span><br><span class="line">        this.accountService = accountService;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 获取service代理对象</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public IAccountService <span class="function"><span class="title">getAccountService</span></span>()&#123;</span><br><span class="line">        <span class="built_in">return</span> (IAccountService) Proxy.newProxyInstance(accountService.getClass().getClassLoader(), accountService.getClass().getInterfaces(), new <span class="function"><span class="title">InvocationHandler</span></span>() &#123;</span><br><span class="line">            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;</span><br><span class="line">                //增强service中的方法</span><br><span class="line">                Object returnVal = null;</span><br><span class="line">                try&#123;</span><br><span class="line">//                    1. 开启事务</span><br><span class="line">                    transactionManager.beginTransaction();</span><br><span class="line">//                    2. 执行操作</span><br><span class="line">                    returnVal = method.invoke(accountService, args);</span><br><span class="line">                    int i = 1 / 0;</span><br><span class="line">//                    3. 提交事务</span><br><span class="line">                    transactionManager.commit();</span><br><span class="line">//                    4. 返回结果</span><br><span class="line">                    <span class="built_in">return</span> returnVal;</span><br><span class="line">                &#125; catch (Exception e)&#123;</span><br><span class="line">//                    5. 回滚事务</span><br><span class="line">                    transactionManager.rollback();</span><br><span class="line">                    throw new RuntimeException(e);</span><br><span class="line">                &#125; finally &#123;</span><br><span class="line">//                    6. 关闭连接</span><br><span class="line">                    transactionManager.release();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>bean.xml的配置<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--配置accountService对象--&gt;</span><br><span class="line">   &lt;bean id=<span class="string">"accountService"</span> class=<span class="string">"jhmarryme.service.impl.AccountServiceImpl"</span>&gt;</span><br><span class="line">       &lt;!--注入accountDao对象--&gt;</span><br><span class="line">       &lt;property name=<span class="string">"accountDao"</span> ref=<span class="string">"accountDao"</span>&gt;&lt;/property&gt;</span><br><span class="line">   &lt;/bean&gt;</span><br><span class="line">   &lt;!--配置accounDao对象--&gt;</span><br><span class="line">   &lt;bean id=<span class="string">"accountDao"</span> class=<span class="string">"jhmarryme.dao.impl.AccountDaoImpl"</span>&gt;</span><br><span class="line">       &lt;!--注入conn--&gt;</span><br><span class="line">       &lt;property name=<span class="string">"connectionUtils"</span> ref=<span class="string">"conn"</span>&gt;&lt;/property&gt;</span><br><span class="line">       &lt;!--注入runner--&gt;</span><br><span class="line">       &lt;property name=<span class="string">"runner"</span> ref=<span class="string">"runner"</span>&gt;&lt;/property&gt;</span><br><span class="line">   &lt;/bean&gt;</span><br><span class="line">   &lt;!--配置连接工具类--&gt;</span><br><span class="line">   &lt;bean id=<span class="string">"conn"</span> class=<span class="string">"jhmarryme.utils.ConnectionUtils"</span>&gt;</span><br><span class="line">       &lt;!--注入数据源--&gt;</span><br><span class="line">       &lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSource"</span>&gt;&lt;/property&gt;</span><br><span class="line">   &lt;/bean&gt;</span><br><span class="line">   &lt;!--配置QueryRunner对象--&gt;</span><br><span class="line">   &lt;bean id=<span class="string">"runner"</span> class=<span class="string">"org.apache.commons.dbutils.QueryRunner"</span>&gt;</span><br><span class="line">   &lt;/bean&gt;</span><br><span class="line">   &lt;!--配置数据源--&gt;</span><br><span class="line">   &lt;bean id=<span class="string">"dataSource"</span> class=<span class="string">"com.mchange.v2.c3p0.ComboPooledDataSource"</span>&gt;</span><br><span class="line">       &lt;!--注入属性--&gt;</span><br><span class="line">       &lt;property name=<span class="string">"driverClass"</span> value=<span class="string">"com.mysql.jdbc.Driver"</span>/&gt;</span><br><span class="line">       &lt;property name=<span class="string">"jdbcUrl"</span> value=<span class="string">"jdbc:mysql://localhost:3306/test"</span>/&gt;</span><br><span class="line">       &lt;property name=<span class="string">"user"</span> value=<span class="string">"root"</span>/&gt;</span><br><span class="line">       &lt;property name=<span class="string">"password"</span> value=<span class="string">"541224"</span>/&gt;</span><br><span class="line">   &lt;/bean&gt;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">   &lt;!--配置事务管理类--&gt;</span><br><span class="line">   &lt;bean id=<span class="string">"transactionManager"</span> class=<span class="string">"jhmarryme.utils.TransactionManager"</span>&gt;</span><br><span class="line">       &lt;property name=<span class="string">"connectionUtils"</span> ref=<span class="string">"conn"</span>/&gt;</span><br><span class="line">   &lt;/bean&gt;</span><br><span class="line">	</span><br><span class="line">   &lt;!--配置代理的service--&gt;</span><br><span class="line">   &lt;bean id=<span class="string">"proxyAccountService"</span> factory-bean=<span class="string">"beanFactory"</span> factory-method=<span class="string">"getAccountService"</span>&gt;</span><br><span class="line">	</span><br><span class="line">   &lt;/bean&gt;</span><br><span class="line">   &lt;!--配置代理beanFactory--&gt;</span><br><span class="line">   &lt;bean id=<span class="string">"beanFactory"</span> class=<span class="string">"jhmarryme.factoty.BeanFactory"</span>&gt;</span><br><span class="line">       &lt;property name=<span class="string">"accountService"</span> ref=<span class="string">"accountService"</span>/&gt;</span><br><span class="line">       &lt;property name=<span class="string">"transactionManager"</span> ref=<span class="string">"transactionManager"</span>/&gt;</span><br><span class="line">   &lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/03/04/spring第一天/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -304,6 +465,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">javaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -399,6 +582,9 @@ classes：指定注解类所在地位置
 <li>遇到的异常<br>Spring版本与Junit版本冲突会导致一些奇怪的异常:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java.lang.NoClassDefFoundError: org/springframework/web/context/request/RequestAttributes</span><br><span class="line">java.lang.NoClassDefFoundError: javax/servlet/ServletContext</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+</li>
+<li><p>当bean的对象是由方法创建时<br>需要进行如下配置:</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--配置代理的service--&gt;</span><br><span class="line">   &lt;bean id=<span class="string">"proxyAccountService"</span> factory-bean=<span class="string">"beanFactory"</span> factory-method=<span class="string">"getAccountService"</span>&gt;</span><br><span class="line"></span><br><span class="line">   &lt;/bean&gt;</span><br><span class="line">   &lt;!--配置代理beanFactory--&gt;</span><br><span class="line">   &lt;bean id=<span class="string">"beanFactory"</span> class=<span class="string">"jhmarryme.factoty.BeanFactory"</span>&gt;</span><br><span class="line">       &lt;property name=<span class="string">"accountService"</span> ref=<span class="string">"accountService"</span>/&gt;</span><br><span class="line">       &lt;property name=<span class="string">"transactionManager"</span> ref=<span class="string">"transactionManager"</span>/&gt;</span><br><span class="line">   &lt;/bean&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ol>
@@ -1371,7 +1557,7 @@ classes：指定注解类所在地位置
 </li>
 </ol>
 <h3 id="无法访问"><a href="#无法访问" class="headerlink" title="无法访问"></a>无法访问</h3><ul>
-<li>github pages中 出现Domain does not resolve to the GitHub Pages server.<br>在群里大佬帮助下找到问题所在, 将域名解析删除, 留下一个CNAME, 只填写wangdaye7.github.io<br>, 检查hexo/source文件夹下的CNAME文件.完成后cmd中运行ipconfig /flushdns, 然后Chrome中Ctrl+Shift+R不使用缓存.问题解决</li>
+<li>github pages中 出现Domain does not resolve to the GitHub Pages server.<br>在群里大佬帮助下找到问题所在, 将域名解析删除, 留下一个CNAME, 只填写wangdaye7.github.io<br>, 检查hexo/source文件夹下的CNAME文件.完成后cmd中运行ipconfig /flushdns, 然后Chrome中Ctrl+Shift+R不使用缓存.问题解决<br><a href="http://pnu39ljha.bkt.clouddn.com/hexo%E5%BC%82%E5%B8%B81.png" target="_blank" rel="noopener">hexoError</a><br><a href="http://pnu39ljha.bkt.clouddn.com/githubPage%E5%BC%82%E5%B8%B81.png" target="_blank" rel="noopener">githubPagesError</a></li>
 </ul>
 
           
@@ -1582,7 +1768,7 @@ classes：指定注解类所在地位置
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1604,7 +1790,7 @@ classes：指定注解类所在地位置
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

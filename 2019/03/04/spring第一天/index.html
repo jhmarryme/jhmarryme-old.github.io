@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="javaWeb,Spring,框架,">
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="Spring的理解使用Spring的步骤编写bean.xml123456789101112&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&amp;lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema">
+<meta name="keywords" content="javaWeb,Spring,框架">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring第一天">
 <meta property="og:url" content="https://wangdaye7.github.io/2019/03/04/spring第一天/index.html">
 <meta property="og:site_name" content="jhmarryme&#39;s blog">
 <meta property="og:description" content="Spring的理解使用Spring的步骤编写bean.xml123456789101112&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&amp;lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-03T16:14:15.110Z">
+<meta property="og:updated_time" content="2019-03-04T08:26:04.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring第一天">
 <meta name="twitter:description" content="Spring的理解使用Spring的步骤编写bean.xml123456789101112&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&amp;lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema">
@@ -292,7 +293,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-03T19:49:55Z">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T03:49:55+08:00">
                 2019-03-03
               </time>
             
@@ -302,6 +303,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">javaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -396,6 +419,9 @@ classes：指定注解类所在地位置
 </li>
 </ol>
 </li>
+<li><p>当bean的对象是由方法创建时<br>需要进行如下配置:</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--配置代理的service--&gt;</span><br><span class="line">   &lt;bean id=<span class="string">"proxyAccountService"</span> factory-bean=<span class="string">"beanFactory"</span> factory-method=<span class="string">"getAccountService"</span>&gt;</span><br><span class="line"></span><br><span class="line">   &lt;/bean&gt;</span><br><span class="line">   &lt;!--配置代理beanFactory--&gt;</span><br><span class="line">   &lt;bean id=<span class="string">"beanFactory"</span> class=<span class="string">"jhmarryme.factoty.BeanFactory"</span>&gt;</span><br><span class="line">       &lt;property name=<span class="string">"accountService"</span> ref=<span class="string">"accountService"</span>/&gt;</span><br><span class="line">       &lt;property name=<span class="string">"transactionManager"</span> ref=<span class="string">"transactionManager"</span>/&gt;</span><br><span class="line">   &lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ol>
 <li><p>BeanFactory 和 ApplicationContext 的区别</p>
@@ -429,6 +455,16 @@ classes：指定注解类所在地位置
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/javaWeb/" rel="tag"># javaWeb</a>
+          
+            <a href="/tags/Spring/" rel="tag"># Spring</a>
+          
+            <a href="/tags/框架/" rel="tag"># 框架</a>
+          
+        </div>
+      
 
       
       
@@ -447,6 +483,10 @@ classes：指定注解类所在地位置
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/04/spring第二天/" rel="prev" title="spring第二天">
+                spring第二天 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -523,7 +563,7 @@ classes：指定注解类所在地位置
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -545,7 +585,7 @@ classes：指定注解类所在地位置
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
