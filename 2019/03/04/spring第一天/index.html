@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="jhmarryme&#39;s blog">
 <meta property="og:description" content="Spring的理解使用Spring的步骤编写bean.xml123456789101112&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&amp;lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-04T12:01:30.328Z">
+<meta property="og:updated_time" content="2019-03-05T06:07:50.172Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring第一天">
 <meta name="twitter:description" content="Spring的理解使用Spring的步骤编写bean.xml123456789101112&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&amp;lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema">
@@ -269,7 +269,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="http://pnu39ljha.bkt.clouddn.com/jh.JPG">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -372,6 +372,16 @@ init-method：指定类中的初始化方法名称。
 destroy-method：指定类中销毁方法名称。
 </code></pre></li>
 <li><p>实例化 Bean 的三种方式 </p>
+<ol>
+<li><p>默认使用无参构造函数</p>
+</li>
+<li><p>使用静态工厂的方法创建对象</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 模拟一个静态工厂，创建业务层实现类</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticFactory</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> IAccountService <span class="title">createAccountService</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">new</span> AccountServiceImpl();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;!-- 此种方式是:</span><br><span class="line">使用 StaticFactory 类中的静态方法 createAccountService 创建对象，并存入 spring 容器</span><br><span class="line">id 属性：指定 bean 的 id，用于从容器中获取</span><br><span class="line"><span class="class"><span class="keyword">class</span> 属性：指定静态工厂的全限定类名</span></span><br><span class="line"><span class="class"><span class="title">factory</span>-<span class="title">method</span> 属性：指定生产对象的静态方法</span></span><br><span class="line"><span class="class">--&gt;</span></span><br><span class="line"><span class="class">&lt;<span class="title">bean</span> <span class="title">id</span></span>=<span class="string">"accountService"</span></span><br><span class="line"><span class="class"><span class="keyword">class</span></span>=<span class="string">"com.itheima.factory.StaticFactory"</span></span><br><span class="line">factory-method="createAccountService"&gt;&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用实例工厂的方法创建对象</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 模拟一个实例工厂，创建业务层实现类</span></span><br><span class="line"><span class="comment">* 此工厂创建对象，必须现有工厂实例对象，再调用方法</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InstanceFactory</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> IAccountService <span class="title">createAccountService</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">new</span> AccountServiceImpl();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;!-- 此种方式是：</span><br><span class="line">先把工厂的创建交给 spring 来管理。</span><br><span class="line">然后在使用工厂的 bean 来调用里面的方法</span><br><span class="line">factory-bean 属性：用于指定实例工厂 bean 的 id。</span><br><span class="line">factory-method 属性：用于指定实例工厂中创建对象的方法。</span><br><span class="line">--&gt;</span><br><span class="line">&lt;bean id="instancFactory" class="com.itheima.factory.InstanceFactory"&gt;&lt;/bean&gt;</span><br><span class="line">&lt;bean id=<span class="string">"accountService"</span></span><br><span class="line">factory-bean=<span class="string">"instancFactory"</span></span><br><span class="line">factory-method="createAccountService"&gt;&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 </li>
 <li><p>依赖注入</p>
 <ol>
@@ -380,6 +390,9 @@ destroy-method：指定类中销毁方法名称。
 </li>
 <li><p>set注入</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=<span class="string">"accountService"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"com.itheima.service.impl.AccountServiceImpl"</span>&gt;</span><br><span class="line">    &lt;property name="name" value="test"&gt;&lt;/property&gt;</span><br><span class="line">    &lt;property name="age" value="21"&gt;&lt;/property&gt;</span><br><span class="line">    &lt;property name="birthday" ref="now"&gt;&lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;bean id="now" class="java.util.Date"&gt;&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>p空间注入<br>等同于set方法注入</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=<span class="string">"accountService"</span></span><br><span class="line"><span class="class"><span class="keyword">class</span></span>=<span class="string">"com.itheima.service.impl.AccountServiceImpl4"</span></span><br><span class="line">p:name=<span class="string">"test"</span> p:age=<span class="string">"21"</span> p:birthday-ref=<span class="string">"now"</span>/&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>集合的注入<br>待补充</p>
 </li>
@@ -552,6 +565,8 @@ classes：指定注解类所在地位置
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image" src="http://pnu39ljha.bkt.clouddn.com/jh.JPG" alt="Jiahao Wang">
+            
               <p class="site-author-name" itemprop="name">Jiahao Wang</p>
               <p class="site-description motion-element" itemprop="description">blog</p>
           </div>
@@ -563,7 +578,7 @@ classes：指定注解类所在地位置
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
