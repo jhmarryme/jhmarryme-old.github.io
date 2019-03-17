@@ -263,6 +263,806 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/02/27/hexo使用记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://pnu39ljha.bkt.clouddn.com/jh.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/27/hexo使用记录/" itemprop="url">hexo使用记录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-26T23:43:53Z">
+                2019-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="添加分类及标签"><a href="#添加分类及标签" class="headerlink" title="添加分类及标签"></a>添加分类及标签</h2><h3 id="创建“分类”选项"><a href="#创建“分类”选项" class="headerlink" title="创建“分类”选项"></a>创建“分类”选项</h3><ol>
+<li><p><strong>生成“分类”页并添加tpye属性</strong><br> 打开命令行，进入博客所在文件夹。执行命令</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page categories</span><br></pre></td></tr></table></figure>
+<p> 根据提示信息找到index.md, 添加type: “categories”到内容中，添加后是这样的：</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: <span class="number">2017</span>-<span class="number">05</span>-<span class="number">27</span> <span class="number">13</span>:<span class="number">47</span>:<span class="number">40</span></span><br><span class="line">type: <span class="string">"categories"</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p> 保存并关闭文件。</p>
+</li>
+<li><p><strong>给文章添加“categories”属性</strong><br>打开需要添加分类的文章，为其添加categories属性。下方的categories: web前端表示添加这篇文章到“web前端”这个分类。注意：hexo一篇文章只能属于一个分类，也就是说如果在“- web前端”下方添加“-xxx”，hexo不会产生两个分类，而是把分类嵌套（即该文章属于 “- web前端”下的 “-xxx ”分类）。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: hexo使用记录</span><br><span class="line">date: <span class="number">2019</span>-<span class="number">02</span>-<span class="number">26</span> <span class="number">23</span>:<span class="number">43</span>:<span class="number">53</span></span><br><span class="line">categories:</span><br><span class="line">- hexo</span><br><span class="line">tags:</span><br><span class="line">- hexo</span><br><span class="line">- 博客</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="创建“标签”选项"><a href="#创建“标签”选项" class="headerlink" title="创建“标签”选项"></a>创建“标签”选项</h3><p>同上, 只需要把categories替换为tags即可</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/02/26/vue入门学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://pnu39ljha.bkt.clouddn.com/jh.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/26/vue入门学习/" itemprop="url">vue入门学习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-26T12:24:13Z">
+                2019-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">javaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="学习的路线"><a href="#学习的路线" class="headerlink" title="学习的路线"></a>学习的路线</h2><ol>
+<li>Vue概述</li>
+<li>Vue的快速入门</li>
+<li>Vue的语法<ul>
+<li>插值表达式</li>
+<li>事件的绑定</li>
+<li>数据的显示</li>
+<li>逻辑判断和循环输出</li>
+</ul>
+</li>
+<li>Vue的生命周期<ul>
+<li>8个生命周期的执行点<ul>
+<li>4个基本的</li>
+<li>4个特殊的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>axios的ajax异步请求<ul>
+<li>它和jquery的ajax比较相似</li>
+</ul>
+</li>
+<li>综合案例<ul>
+<li>实现用户的查询列表和更新操作<ul>
+<li>前端：Vue</li>
+<li>后端：ssm</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="helloWord的创建"><a href="#helloWord的创建" class="headerlink" title="helloWord的创建"></a>helloWord的创建</h3><ol>
+<li>选择maven-&gt;webapp模板, 补全java, resources, test文件夹</li>
+<li>run -&gt; edit configuration-&gt;添加tomcat local</li>
+<li><p>script代码</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">		<span class="comment">//view model</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">//创建一个vue对象</span></span><br><span class="line">		<span class="keyword">new</span> Vue(&#123;</span><br><span class="line">			el:<span class="string">"#app"</span>, <span class="comment">//接管id为app的区域</span></span><br><span class="line">			data:&#123;</span><br><span class="line">			    message:<span class="string">"Hello world, Vue"</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>html代码</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">	&#123;&#123;message&#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>补充tomcat的设置, 使代码更新后无需重新部署即可同步更新到浏览器</p>
+<ul>
+<li>run -&gt; edit configuration-&gt;Tomcat 下的deployment 选择后缀为explode的 项目war</li>
+<li>在server进行更新设置</li>
+</ul>
+</li>
+</ol>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><h4 id="keyDown事件的用法"><a href="#keyDown事件的用法" class="headerlink" title="keyDown事件的用法"></a>keyDown事件的用法</h4><p>使用event.keyCode获取按下的键, 对按下的键进行控制, event.preventDefault()阻止事件, .stopPopagation()阻止传播</p>
+<h4 id="vue接收event需要加上-并且可使用-代替v-on"><a href="#vue接收event需要加上-并且可使用-代替v-on" class="headerlink" title="vue接收event需要加上$, 并且可使用@代替v:on"></a>vue接收<strong>event</strong>需要加上<strong>$</strong>, 并且可使用<strong>@</strong>代替v:on</h4><h4 id="按键修饰符的使用"><a href="#按键修饰符的使用" class="headerlink" title="按键修饰符的使用"></a>按键修饰符的使用</h4><p>@keyDown.enter=”fun1” 当回车被按下的时候执行fun1函数</p>
+<h4 id="使用v-bind给标签的属性赋值"><a href="#使用v-bind给标签的属性赋值" class="headerlink" title="使用v-bind给标签的属性赋值"></a>使用v-bind给标签的属性赋值</h4><ul>
+<li>可用:简化书写</li>
+<li>:color=”ys1”, 在Vue对象中定义ys1的值</li>
+<li>直接使用插值表达式不会生效</li>
+</ul>
+<h4 id="v-on的事件修饰符"><a href="#v-on的事件修饰符" class="headerlink" title="v-on的事件修饰符"></a>v-on的事件修饰符</h4><p>常用的两个:</p>
+<ul>
+<li>.stop</li>
+<li>.prevent<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;form <span class="meta">@submit</span>.prevent action=<span class="string">"http://www.itcast.cn"</span> method=<span class="string">"get"</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">"submit"</span> value=<span class="string">"提交"</span> /&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">    &lt;div <span class="meta">@click</span>=<span class="string">"fun1"</span>&gt;</span><br><span class="line">        &lt;a @click.stop href="http://www.itcast.cn"&gt;itcast&lt;/a&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">'#app'</span>, <span class="comment">//表示当前vue对象接管了div区域</span></span><br><span class="line">        methods: &#123;</span><br><span class="line">            fun1: function () &#123;</span><br><span class="line">                alert(<span class="string">"hello itcast"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="v-text和v-html"><a href="#v-text和v-html" class="headerlink" title="v-text和v-html"></a>v-text和v-html</h4><p>在标签内使用v-text=”message”, message在Vue对象中赋值</p>
+<h4 id="v-for的使用"><a href="#v-for的使用" class="headerlink" title="v-for的使用"></a>v-for的使用</h4><ol>
+<li><p>列表中的使用</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-<span class="keyword">for</span>=<span class="string">"(item, index) in list"</span>&gt; <span class="comment">//索引在后</span></span><br><span class="line">    &#123;&#123;index + <span class="string">"  "</span> + item&#125;&#125;</span><br><span class="line">&lt;/li&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象中的使用</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-<span class="keyword">for</span>=<span class="string">"(value, key) in wjh"</span>&gt;</span><br><span class="line">    &#123;&#123;key + <span class="string">"  "</span> + value&#125;&#125;</span><br><span class="line">&lt;/li&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象数组中的使用</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">    &lt;tr v-<span class="keyword">for</span>=<span class="string">"p in person"</span>&gt;</span><br><span class="line">        &lt;td&gt;&#123;&#123;p.name&#125;&#125;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;&#123;&#123;p.age&#125;&#125;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;&#123;&#123;p.sex&#125;&#125;&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="v-model的使用"><a href="#v-model的使用" class="headerlink" title="v-model的使用"></a>v-model的使用</h4><p>用于控制表单input中的value<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">    姓名:&lt;input type=<span class="string">"text"</span> id=<span class="string">"username"</span> v-model=<span class="string">"user.username"</span>&gt;&lt;br&gt;</span><br><span class="line">    密码:&lt;input type=<span class="string">"password"</span> id=<span class="string">"password"</span> v-model=<span class="string">"user.password"</span>&gt;&lt;br&gt;</span><br><span class="line">    &lt;input type=<span class="string">"button"</span> <span class="meta">@click</span>=<span class="string">"fun"</span> value=<span class="string">"获取"</span>&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	el:<span class="string">'#app'</span>, <span class="comment">//表示当前vue对象接管了div区域</span></span><br><span class="line">	data:&#123;</span><br><span class="line">	user:&#123;username:<span class="string">""</span>,password:<span class="string">""</span>&#125;</span><br><span class="line">&#125;,</span><br><span class="line">methods:&#123;</span><br><span class="line">fun:function()&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.user.username+<span class="string">" "</span>+<span class="keyword">this</span>.user.password);</span><br><span class="line">	<span class="keyword">this</span>.user.username=<span class="string">"tom"</span>;</span><br><span class="line">	<span class="keyword">this</span>.user.password=<span class="string">"11111111"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h4 id="v-if与v-show"><a href="#v-if与v-show" class="headerlink" title="v-if与v-show"></a>v-if与v-show</h4><p>v-if=”true/false” 控制元素是否显示, 可以使用vue对象的data控制</p>
+<h4 id="声明周期"><a href="#声明周期" class="headerlink" title="声明周期"></a>声明周期</h4><p>vue对象初始化过程中，会执行到beforeCreate,created,beforeMount,mounted 这几个钩子的内容</p>
+<ul>
+<li>beforeCreate ：数据还没有监听，没有绑定到vue对象实例，同时也没有挂载对象</li>
+<li>created ：数据已经绑定到了对象实例，但是还没有挂载对象</li>
+<li>beforeMount: 模板已经编译好了，根据数据和模板已经生成了对应的元素对象，将数据对象关联到了对象的<br>el属性，el属性是一个HTMLElement对象，也就是这个阶段，vue实例通过原生的createElement等方法来创<br>建这个html片段，准备注入到我们vue实例指明的el属性所对应的挂载点</li>
+<li>mounted:将el的内容挂载到了el，相当于我们在jquery执行了(el).html(el),生成页面上真正的dom，上面我们<br>就会发现dom的元素和我们el的元素是一致的。在此之后，我们能够用方法来获取到el元素下的dom对象，并<br>进 行各种操作</li>
+<li><p>当我们的data发生改变时，会调用beforeUpdate和updated方法</p>
+<ul>
+<li><p>beforeUpdate ：数据更新到dom之前，我们可以看到$el对象已经修改，但是我们页面上dom的数据还<br>没有发生改变</p>
+</li>
+<li><p>updated: dom结构会通过虚拟dom的原则，找到需要更新页面dom结构的最小路径，将改变更新到<br>dom上面，完成更新</p>
+</li>
+</ul>
+</li>
+<li>beforeDestroy,destroed :实例的销毁，vue实例还是存在的，只是解绑了事件的监听还有watcher对象数据<br>与view的绑定，即数据驱动</li>
+</ul>
+<h4 id="ajax的应用"><a href="#ajax的应用" class="headerlink" title="ajax的应用"></a>ajax的应用</h4><ul>
+<li><p>引入axios<br>Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中<br>axios的github:<a href="https://github.com/axios/axios" target="_blank" rel="noopener">https://github.com/axios/axios</a></p>
+<ul>
+<li><p>get</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过给定的ID来发送请求</span></span><br><span class="line">axios.get(<span class="string">'/user?ID=12345'</span>)</span><br><span class="line">.then(function(response)&#123;</span><br><span class="line">	console.log(response);</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="keyword">catch</span>(function(err)&#123;</span><br><span class="line">	console.log(err);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//以上请求也可以通过这种方式来发送</span></span><br><span class="line">axios.get(<span class="string">'/user'</span>,&#123;</span><br><span class="line">	params:&#123;</span><br><span class="line">	ID:<span class="number">12345</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line">.then(function(response)&#123; <span class="comment">//回调函数</span></span><br><span class="line">	console.log(response);</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="keyword">catch</span>(function(err)&#123; <span class="comment">//捕获异常</span></span><br><span class="line">	console.log(err);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>post</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">axios.post(<span class="string">'/user'</span>,&#123;</span><br><span class="line">	firstName:<span class="string">'Fred'</span>,</span><br><span class="line">	lastName:<span class="string">'Flintstone'</span></span><br><span class="line">&#125;)</span><br><span class="line">.then(function(res)&#123;</span><br><span class="line">	console.log(res);</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="keyword">catch</span>(function(err)&#123;</span><br><span class="line">	console.log(err);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/02/25/旅游网项目记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://pnu39ljha.bkt.clouddn.com/jh.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/25/旅游网项目记录/" itemprop="url">旅游网项目记录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T23:26:40Z">
+                2019-02-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="基于黑马java的一个初始项目完成-只完成后台功能-复习之前学习的一些内容-巩固知识"><a href="#基于黑马java的一个初始项目完成-只完成后台功能-复习之前学习的一些内容-巩固知识" class="headerlink" title="基于黑马java的一个初始项目完成, 只完成后台功能, 复习之前学习的一些内容, 巩固知识"></a>基于黑马java的一个初始项目完成, 只完成后台功能, 复习之前学习的一些内容, 巩固知识</h2><h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><ol>
+<li>Web层<ul>
+<li>Servlet：前端控制器</li>
+<li>html：视图</li>
+<li>Filter：过滤器</li>
+<li>BeanUtils：数据封装</li>
+<li>Jackson：json序列化工具</li>
+</ul>
+</li>
+<li>Service层<ul>
+<li>Javamail：java发送邮件工具</li>
+<li>Redis：nosql内存数据库</li>
+<li>Jedis：java的redis客户端</li>
+</ul>
+</li>
+<li>Dao层<ul>
+<li>Mysql：数据库</li>
+<li>Druid：数据库连接池</li>
+<li>JdbcTemplate：jdbc的工具</li>
+</ul>
+</li>
+</ol>
+<h2 id="项目准备阶段"><a href="#项目准备阶段" class="headerlink" title="项目准备阶段"></a>项目准备阶段</h2><ol>
+<li>项目导入<ul>
+<li>项目存在于<a href>项目地址</a> 补充:待上传</li>
+<li>使用idea右侧的maven projects入口中的+, 选中项目根文件夹下的pom.xml, 完成导入</li>
+</ul>
+</li>
+<li>项目启动</li>
+<li>创建数据库相关, 根据提供的SQL文件完成</li>
+</ol>
+<h2 id="相应功能实现"><a href="#相应功能实现" class="headerlink" title="相应功能实现"></a>相应功能实现</h2><h3 id="注册功能"><a href="#注册功能" class="headerlink" title="注册功能"></a>注册功能</h3><ul>
+<li>页面效果<img src="./旅游网项目记录/注册表单.png" alt="页面效果"></li>
+<li>功能分析</li>
+<li><p>代码实现</p>
+<ul>
+<li><p>前台代码实现</p>
+<ul>
+<li>表单校验</li>
+<li>异步ajax提交表单<br>在这里我采用首先设置jQuery对象插件的方式实现check功能, 对输入框的校验功能和设置样式通过调用check完成<br>部分代码如下:<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">$.fn.extend(&#123;</span><br><span class="line">	<span class="comment">//判断正则表达式是否匹配</span></span><br><span class="line">	<span class="comment">//当不匹配时, 将输入框边框置红</span></span><br><span class="line">	check: function (reg) &#123;</span><br><span class="line">		<span class="keyword">var</span> flag = reg.test($(<span class="keyword">this</span>).val());</span><br><span class="line">		<span class="comment">//当正则匹配时, 恢复边框</span></span><br><span class="line">		<span class="keyword">if</span> (flag) &#123;</span><br><span class="line">			$(<span class="keyword">this</span>).css(<span class="string">"border"</span>, <span class="string">""</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;<span class="comment">//置红</span></span><br><span class="line">			$(<span class="keyword">this</span>).css(<span class="string">"border"</span>, <span class="string">"1px solid red"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> flag;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="function">function <span class="title">checkForm</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">//校验表单</span></span><br><span class="line">	<span class="keyword">return</span> (checkUsername() &amp;&amp; checkPassword() &amp;&amp; checkEmail());</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">function <span class="title">checkUsername</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> $(<span class="string">"#username"</span>).check(/^\w&#123;<span class="number">8</span>,<span class="number">20</span>&#125;$/);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">function <span class="title">checkPassword</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> $(<span class="string">"#password"</span>).check(/^\w&#123;<span class="number">8</span>,<span class="number">20</span>&#125;$/);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">function <span class="title">checkEmail</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> $(<span class="string">"#email"</span>).check(/^([A-Za-z0-<span class="number">9</span>_\-\.])+\@([A-Za-z0-<span class="number">9</span>_\-\.])+\.([A-Za-z]&#123;<span class="number">2</span>,<span class="number">4</span>&#125;)$/);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//入口函数</span></span><br><span class="line">$(function () &#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	设置各个输入框的失去焦点的校验事件</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">	$(<span class="string">"#username"</span>).blur(checkUsername);</span><br><span class="line">	$(<span class="string">"#password"</span>).blur(checkPassword);</span><br><span class="line">	$(<span class="string">"#email"</span>).blur(checkEmail);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">//定义表单的提交</span></span><br><span class="line">	$(<span class="string">"#registerForm"</span>).submit(function () &#123;</span><br><span class="line">		<span class="comment">//如果表单校验通过, 则使用ajax方式提交表单数据</span></span><br><span class="line">		<span class="keyword">if</span> (checkForm()) &#123;</span><br><span class="line">			$.post(<span class="string">"servlet/registerUserServlet"</span>, $(<span class="string">"#registerForm"</span>).serialize(), function (data) &#123;</span><br><span class="line">				<span class="comment">//处理返回的数据</span></span><br><span class="line"></span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//不使用常规方式提交</span></span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>后台代码实现</p>
+<ul>
+<li><p>编写registUserServlet<br>部分代码如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	校验验证码    **待完成</span></span><br><span class="line"><span class="comment">		*/</span></span><br><span class="line"><span class="comment">//封装表单数据</span></span><br><span class="line">User user = <span class="keyword">new</span> User();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	BeanUtils.populate(user, request.getParameterMap());</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">	e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//判断用户是否可注册</span></span><br><span class="line">UserService userService = <span class="keyword">new</span> UserServiceImpl();</span><br><span class="line">Boolean flag = userService.regist(user);</span><br><span class="line"><span class="comment">//创建结果集</span></span><br><span class="line">ResultInfo info = <span class="keyword">new</span> ResultInfo();</span><br><span class="line"><span class="comment">//如果flag=true, 注册成功</span></span><br><span class="line"><span class="keyword">if</span> (flag) &#123;</span><br><span class="line">	info.setFlag(<span class="keyword">true</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	info.setFlag(<span class="keyword">false</span>);</span><br><span class="line">	info.setErrorMsg(<span class="string">"注册失败, 用户名已存在"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 错误信息存放在ResultInfo对象中, 将此对象转换为json, 使用输出流输出</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">ObjectMapper mapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line">String str_info = mapper.writeValueAsString(info);</span><br><span class="line">response.getWriter().write(str_info);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>service<br>部分代码如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	* 完成注册功能</span></span><br><span class="line"><span class="comment">	* <span class="doctag">@param</span> user</span></span><br><span class="line"><span class="comment">	* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Boolean <span class="title">regist</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">	User u_find = userDao.findUserByUsername(user);</span><br><span class="line">	<span class="keyword">if</span> (u_find != <span class="keyword">null</span>) &#123;</span><br><span class="line">		<span class="comment">//用户名不可用, 注册失败</span></span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		* 在完成注册最后一步之前, 设置用户的激活状态, 验证码, 完成发送邮件功能</span></span><br><span class="line"><span class="comment">		*/</span></span><br><span class="line">		user.setStatus(<span class="string">"N"</span>);</span><br><span class="line"></span><br><span class="line">		String code = UuidUtil.getUuid();</span><br><span class="line">		user.setCode(code);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		String email = <span class="string">"&lt;a href='http://localhost/travel/activeUserServlet?code="</span> + user.getCode() + <span class="string">"'&gt;点击激活&lt;/a&gt;"</span>;</span><br><span class="line">		MailUtils.sendMail(user.getEmail(), email, <span class="string">"test"</span>);</span><br><span class="line">		System.out.println(user.getEmail());</span><br><span class="line">		<span class="comment">//完成注册功能</span></span><br><span class="line">		userDao.saveUser(user);</span><br><span class="line"></span><br><span class="line">	&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">		<span class="comment">//出现异常, 注册失败</span></span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="邮箱验证"><a href="#邮箱验证" class="headerlink" title="邮箱验证"></a>邮箱验证</h3><p>当账号注册后往用户填写的邮箱中发送一封<strong>激活邮件</strong>, 只有当用户点击了激活邮件时, 才算是注册完成.<br>所以在Service层的注册功能中添加此功能, 通过设置user.status为’N’, 表示用户现在尚未激活, 此时生成一个激活码, 并将此激活码存入用户信息中, 在向用户发送邮件的时候使用此验证码作为激活的标准.</p>
+<ul>
+<li>发送邮件<br>  使用java的邮件工具类<em>MailUtils</em>, 调用其中sendMail方法可以完成邮件发送<ul>
+<li>无法发送邮件 提示非法地址<br>  没有正确填写邮件地址</li>
+<li>无法发送邮件 错误代码535<br>  需要在邮箱内开启授权码, 然后填写在配置中 </li>
+<li>接受到的邮件乱码<br>  需要将发送邮件所在函数的文件格式改为UTF-8</li>
+</ul>
+<ul>
+<li>用户点击邮件激活<br>  设置status的状态值为’Y’, 完成激活</li>
+<li>修改userDao中的save方法, 加上status, code<br>部分代码如下:<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">active</span><span class="params">(String code)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//判断code是否有效, 有效则接受一个user对象</span></span><br><span class="line">	User user = userDao.findUserByCode(code);</span><br><span class="line">	<span class="keyword">if</span> (user == <span class="keyword">null</span>) &#123;</span><br><span class="line">		<span class="comment">//验证码无效, 激活失败</span></span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//设置用户的status为'Y' 激活用户</span></span><br><span class="line">	userDao.updateUserStatus(user);</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="登陆功能"><a href="#登陆功能" class="headerlink" title="登陆功能"></a>登陆功能</h3><p>根据用户输入的账号密码进行登陆</p>
+<ul>
+<li>前台代码实现<ol>
+<li>给登陆按钮绑定一个提交事件<ul>
+<li>使用ajax进行提交</li>
+<li>对响应的信息进行处理<ul>
+<li>登陆成功, 跳转到首页</li>
+<li>登陆失败, 显示提示信息</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>后台代码实现<ul>
+<li>servlet<ol>
+<li>接收用户的账户和密码</li>
+<li>调用service层进行登陆, 返回一个user<ul>
+<li>登陆成功, 设置info, 并且将用户存入session.</li>
+<li>登陆失败, 设置ResultInfo对象提示信息</li>
+<li>尚未激活, 提示进行激活</li>
+</ul>
+</li>
+<li>将ResultInfo用json方式响应</li>
+</ol>
+</li>
+<li>service<ol>
+<li>根据账号密码查询用户 findUserByUsernameAndPassword(user……)</li>
+<li>返回查找的user对象</li>
+</ol>
+</li>
+<li>dao<br>完成对应功能</li>
+</ul>
+</li>
+</ul>
+<p>部分代码如下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		request.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//      1. 接收用户的账户和密码</span></span><br><span class="line">		User user = <span class="keyword">new</span> User();</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			BeanUtils.populate(user, request.getParameterMap());</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//        2. 调用service层进行登陆, 返回一个user</span></span><br><span class="line">		UserService userService = <span class="keyword">new</span> UserServiceImpl();</span><br><span class="line">		user = userService.login(user);</span><br><span class="line"></span><br><span class="line">		ResultInfo info = <span class="keyword">new</span> ResultInfo();</span><br><span class="line">		<span class="keyword">if</span> (user == <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="comment">//                * 登陆失败, 设置ResultInfo对象提示信息</span></span><br><span class="line">			info.setFlag(<span class="keyword">false</span>);</span><br><span class="line">			info.setErrorMsg(<span class="string">"用户名或密码错误"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (user != <span class="keyword">null</span> &amp;&amp; !<span class="string">"Y"</span>.equals(user.getStatus())) &#123;</span><br><span class="line">			<span class="comment">//                * 尚未激活, 提示进行激活</span></span><br><span class="line">			info.setFlag(<span class="keyword">false</span>);</span><br><span class="line">			info.setErrorMsg(<span class="string">"尚未激活的账户"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (user != <span class="keyword">null</span> &amp;&amp; <span class="string">"Y"</span>.equals(user.getStatus())) &#123;</span><br><span class="line">			<span class="comment">//  登陆成功, 设置info, 并且将用户存入session.</span></span><br><span class="line">			info.setFlag(<span class="keyword">true</span>);</span><br><span class="line">			request.getSession().setAttribute(<span class="string">"user"</span>, user);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//        3. 将ResultInfo用json方式响应</span></span><br><span class="line">		response.setContentType(<span class="string">"application/json;charset=utf-8"</span>);</span><br><span class="line">		ObjectMapper mapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line">		mapper.writeValue(response.getOutputStream(), info);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		doPost(request, response);</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	*********************************************</span><br><span class="line">	<span class="function"><span class="keyword">public</span> User <span class="title">login</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//        1. 根据账号密码查询用户 findUserByUsernameAndPassword(user......)</span></span><br><span class="line">    <span class="comment">//        2. 返回查找的user对象</span></span><br><span class="line">    <span class="keyword">return</span> userDao.finUserByUsernameAndPassword(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="退出功能"><a href="#退出功能" class="headerlink" title="退出功能"></a>退出功能</h3><ol>
+<li><p>前台<br> button绑定一个事件, 点击后跳转到exitServlet</p>
+ <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href="javascript:location.href='exitServlet';"&gt;退出&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>servlet<br> 销毁session对象</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.getSession().invalidate();</span><br></pre></td></tr></table></figure>
+<p> 重定向到登陆界面, 不使用转发</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(request.getContextPath() + <span class="string">"/login.html"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="header中的姓名提示功能"><a href="#header中的姓名提示功能" class="headerlink" title="header中的姓名提示功能"></a>header中的姓名提示功能</h3><p>因为是HTML文件, 不能使用域对象, 在这里采取ajax的方式请求findUserServlet,然后在servlet中查找域对象, 用json响应回HTML.</p>
+<ul>
+<li><p>jQuery</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$(function () &#123;</span><br><span class="line">	<span class="comment">//加载页面时发送ajax请求显示用户名</span></span><br><span class="line">	$.get(<span class="string">"findUserServlet"</span>, &#123;&#125;,</span><br><span class="line">		function (data) &#123;</span><br><span class="line">			<span class="comment">//将用户名显示到界面上</span></span><br><span class="line">			$(<span class="string">"#user_msg"</span>).text(<span class="string">"欢迎回来,"</span> + data.username);</span><br><span class="line">		&#125;</span><br><span class="line">	);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>servlet</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//取出session中的user对象</span></span><br><span class="line">User user = (User) request.getSession().getAttribute(<span class="string">"user"</span>);</span><br><span class="line"></span><br><span class="line">ObjectMapper mapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line"><span class="comment">//设置响应信息格式</span></span><br><span class="line">response.setContentType(<span class="string">"application/json;charset=utf-8"</span>);</span><br><span class="line">mapper.writeValue(response.getOutputStream(), user);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="犯的错误"><a href="#犯的错误" class="headerlink" title="犯的错误"></a>犯的错误</h2><pre><code>多次在dao层进行查询的时候只创建了user对象, 却没有使用此对象接收查询的结果
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/02/25/hexo入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://pnu39ljha.bkt.clouddn.com/jh.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/25/hexo入门/" itemprop="url">hexo入门</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T21:23:30Z">
+                2019-02-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="参考网址"><a href="#参考网址" class="headerlink" title="参考网址"></a>参考网址</h2><ul>
+<li><a href="https://hexo.io/zh-cn/docs" target="_blank" rel="noopener">hexo中文网</a></li>
+<li><a href="https://theme-next.iissnan.com" target="_blank" rel="noopener">next主题</a></li>
+</ul>
+<h2 id="遇到的一些问题"><a href="#遇到的一些问题" class="headerlink" title="遇到的一些问题"></a>遇到的一些问题</h2><h3 id="主题设置"><a href="#主题设置" class="headerlink" title="主题设置"></a>主题设置</h3><ol>
+<li>设置主题后本地预览没有效果<ul>
+<li>重新生成整个博客文档解决, 暂无找到其他方法</li>
+</ul>
+</li>
+</ol>
+<h3 id="编写文章"><a href="#编写文章" class="headerlink" title="编写文章"></a>编写文章</h3><ol>
+<li>语法不熟悉<ul>
+<li>在使用标记后必须空格, 随意缩进会导致没有格式, markdown有严格的缩进要求</li>
+</ul>
+</li>
+</ol>
+<h3 id="无法访问"><a href="#无法访问" class="headerlink" title="无法访问"></a>无法访问</h3><ul>
+<li>github pages中 出现Domain does not resolve to the GitHub Pages server.<br>在群里大佬帮助下找到问题所在, 将域名解析删除, 留下一个CNAME, 只填写wangdaye7.github.io<br>, 检查hexo/source文件夹下的CNAME文件.完成后cmd中运行ipconfig /flushdns, 然后Chrome中Ctrl+Shift+R不使用缓存.问题解决<br><a href="http://pnu39ljha.bkt.clouddn.com/hexo%E5%BC%82%E5%B8%B81.png" target="_blank" rel="noopener">hexoError</a><br><a href="http://pnu39ljha.bkt.clouddn.com/githubPage%E5%BC%82%E5%B8%B81.png" target="_blank" rel="noopener">githubPagesError</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/02/24/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -430,7 +1230,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -452,7 +1252,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
