@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="javaWeb,框架,ssm,Spring,">
 
 
 
@@ -79,18 +79,19 @@
 
 
 
-<meta name="description" content="记录注解中的使用1. 当结果对象中的属性与表中的数据 类型不一致时(表中存放的是外键 引用其他表中的id, 而结果集对象中存放的是根据这个id对应的对象)12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152/**     * 查询所有订单信息, 其中根据产品id">
+<meta name="description" content="注解中的使用当结果对象中的属性与表中的数据 类型不一致时(表中存放的是外键 引用其他表中的id, 而结果集对象中存放的是根据这个id对应的对象)12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152/**     * 查询所有订单信息, 其中根据产品id又查询产品">
+<meta name="keywords" content="javaWeb,框架,ssm,Spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jhmarryme&#39;s blog">
+<meta property="og:title" content="mybatis使用记录">
 <meta property="og:url" content="https://wangdaye7.github.io/2019/03/17/mybatis使用记录/index.html">
 <meta property="og:site_name" content="jhmarryme&#39;s blog">
-<meta property="og:description" content="记录注解中的使用1. 当结果对象中的属性与表中的数据 类型不一致时(表中存放的是外键 引用其他表中的id, 而结果集对象中存放的是根据这个id对应的对象)12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152/**     * 查询所有订单信息, 其中根据产品id">
+<meta property="og:description" content="注解中的使用当结果对象中的属性与表中的数据 类型不一致时(表中存放的是外键 引用其他表中的id, 而结果集对象中存放的是根据这个id对应的对象)12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152/**     * 查询所有订单信息, 其中根据产品id又查询产品">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://pnu39ljha.bkt.clouddn.com/6.PageHelper%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4.bmp">
-<meta property="og:updated_time" content="2019-03-21T10:23:10.272Z">
+<meta property="og:updated_time" content="2019-03-25T10:05:32.079Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jhmarryme&#39;s blog">
-<meta name="twitter:description" content="记录注解中的使用1. 当结果对象中的属性与表中的数据 类型不一致时(表中存放的是外键 引用其他表中的id, 而结果集对象中存放的是根据这个id对应的对象)12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152/**     * 查询所有订单信息, 其中根据产品id">
+<meta name="twitter:title" content="mybatis使用记录">
+<meta name="twitter:description" content="注解中的使用当结果对象中的属性与表中的数据 类型不一致时(表中存放的是外键 引用其他表中的id, 而结果集对象中存放的是根据这个id对应的对象)12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152/**     * 查询所有订单信息, 其中根据产品id又查询产品">
 <meta name="twitter:image" content="http://pnu39ljha.bkt.clouddn.com/6.PageHelper%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4.bmp">
 
 
@@ -127,7 +128,7 @@
 
 
 
-  <title> | jhmarryme's blog</title>
+  <title>mybatis使用记录 | jhmarryme's blog</title>
   
 
 
@@ -282,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">mybatis使用记录</h1>
         
 
         <div class="post-meta">
@@ -294,7 +295,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T20:41:42+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T20:46:21+08:00">
                 2019-03-17
               </time>
             
@@ -304,6 +305,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ssm练习/" itemprop="url" rel="index">
+                    <span itemprop="name">ssm练习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -332,22 +355,22 @@
       
 
       
-        <h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><h3 id="注解中的使用"><a href="#注解中的使用" class="headerlink" title="注解中的使用"></a>注解中的使用</h3><p><strong>1. 当结果对象中的属性与表中的数据 类型不一致时(表中存放的是外键 引用其他表中的id, 而结果集对象中存放的是根据这个id对应的对象)</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询所有订单信息, 其中根据产品id又查询产品, 并将产品一并封装到结果集中了. 相当于两次查询</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="meta">@Select</span>(<span class="string">"select * from orders"</span>)</span><br><span class="line">    <span class="meta">@Results</span>(&#123;</span><br><span class="line">            <span class="meta">@Result</span>(id = <span class="keyword">true</span>, column = <span class="string">"id"</span>, property = <span class="string">"id"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderNum"</span>, property = <span class="string">"orderNum"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderTime"</span>, property = <span class="string">"orderTime"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderStatus"</span>, property = <span class="string">"orderStatus"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"peopleCount"</span>, property = <span class="string">"peopleCount"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"payType"</span>, property = <span class="string">"payType"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderDesc"</span>, property = <span class="string">"orderDesc"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"peopleCount"</span>, property = <span class="string">"peopleCount"</span>),</span><br><span class="line">            <span class="comment">// 表中存放的为外键, 引用产品id, 但是要将这个id重新映射为结果集中对应的类型product 需要进行第二次查询并封装@One适用于一对一映射 @Many为多对多</span></span><br><span class="line">            <span class="comment">//其中的select为相应dao的全限定类名, 可以用JavaType指定内部查询的返回类型</span></span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"productId"</span>, property = <span class="string">"product"</span>, one = <span class="meta">@One</span>(</span><br><span class="line">                    select = <span class="string">"jhmarryme.dao.ProductDao.findById"</span></span><br><span class="line">            )),</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Orders&gt; <span class="title">findAll</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据id查找订单</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"select * from orders where id in (select orderId from order_traveller where orderId = #&#123;id&#125;)"</span>)</span><br><span class="line">    <span class="meta">@Results</span>(&#123;</span><br><span class="line">            <span class="meta">@Result</span>(id = <span class="keyword">true</span>, column = <span class="string">"id"</span>, property = <span class="string">"id"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderTime"</span>, property = <span class="string">"orderTime"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderNum"</span>, property = <span class="string">"orderNum"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderStatus"</span>, property = <span class="string">"orderStatus"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"peopleCount"</span>, property = <span class="string">"peopleCount"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"payType"</span>, property = <span class="string">"payType"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderDesc"</span>, property = <span class="string">"orderDesc"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"productId"</span>, property = <span class="string">"product"</span>, one = <span class="meta">@One</span>(</span><br><span class="line">                    select = <span class="string">"jhmarryme.dao.ProductDao.findById"</span></span><br><span class="line">            )),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"memberId"</span>, property = <span class="string">"member"</span>, one = <span class="meta">@One</span>(</span><br><span class="line">                    select = <span class="string">"jhmarryme.dao.MemberDao.findById"</span></span><br><span class="line">            )),</span><br><span class="line">            <span class="comment">//此处当返回值为list集合的时候, 如果要写JavaType值必须是List.class  不是查找的类.class, 可以不写</span></span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"id"</span>, property = <span class="string">"travellers"</span>, many = <span class="meta">@Many</span>(</span><br><span class="line">                    select = <span class="string">"jhmarryme.dao.TravellerDao.findByOrdersId"</span></span><br><span class="line">            ))</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Orders <span class="title">findById</span><span class="params">(String id)</span></span>;</span><br></pre></td></tr></table></figure></p>
-<p><strong>2. 复习SQL语法</strong></p>
-<ul>
+        <h2 id="注解中的使用"><a href="#注解中的使用" class="headerlink" title="注解中的使用"></a>注解中的使用</h2><h3 id="当结果对象中的属性与表中的数据-类型不一致时-表中存放的是外键-引用其他表中的id-而结果集对象中存放的是根据这个id对应的对象"><a href="#当结果对象中的属性与表中的数据-类型不一致时-表中存放的是外键-引用其他表中的id-而结果集对象中存放的是根据这个id对应的对象" class="headerlink" title="当结果对象中的属性与表中的数据 类型不一致时(表中存放的是外键 引用其他表中的id, 而结果集对象中存放的是根据这个id对应的对象)"></a>当结果对象中的属性与表中的数据 类型不一致时(表中存放的是外键 引用其他表中的id, 而结果集对象中存放的是根据这个id对应的对象)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询所有订单信息, 其中根据产品id又查询产品, 并将产品一并封装到结果集中了. 相当于两次查询</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="meta">@Select</span>(<span class="string">"select * from orders"</span>)</span><br><span class="line">    <span class="meta">@Results</span>(&#123;</span><br><span class="line">            <span class="meta">@Result</span>(id = <span class="keyword">true</span>, column = <span class="string">"id"</span>, property = <span class="string">"id"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderNum"</span>, property = <span class="string">"orderNum"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderTime"</span>, property = <span class="string">"orderTime"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderStatus"</span>, property = <span class="string">"orderStatus"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"peopleCount"</span>, property = <span class="string">"peopleCount"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"payType"</span>, property = <span class="string">"payType"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderDesc"</span>, property = <span class="string">"orderDesc"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"peopleCount"</span>, property = <span class="string">"peopleCount"</span>),</span><br><span class="line">            <span class="comment">// 表中存放的为外键, 引用产品id, 但是要将这个id重新映射为结果集中对应的类型product 需要进行第二次查询并封装@One适用于一对一映射 @Many为多对多</span></span><br><span class="line">            <span class="comment">//其中的select为相应dao的全限定类名, 可以用JavaType指定内部查询的返回类型</span></span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"productId"</span>, property = <span class="string">"product"</span>, one = <span class="meta">@One</span>(</span><br><span class="line">                    select = <span class="string">"jhmarryme.dao.ProductDao.findById"</span></span><br><span class="line">            )),</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Orders&gt; <span class="title">findAll</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据id查找订单</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"select * from orders where id in (select orderId from order_traveller where orderId = #&#123;id&#125;)"</span>)</span><br><span class="line">    <span class="meta">@Results</span>(&#123;</span><br><span class="line">            <span class="meta">@Result</span>(id = <span class="keyword">true</span>, column = <span class="string">"id"</span>, property = <span class="string">"id"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderTime"</span>, property = <span class="string">"orderTime"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderNum"</span>, property = <span class="string">"orderNum"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderStatus"</span>, property = <span class="string">"orderStatus"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"peopleCount"</span>, property = <span class="string">"peopleCount"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"payType"</span>, property = <span class="string">"payType"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderDesc"</span>, property = <span class="string">"orderDesc"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"productId"</span>, property = <span class="string">"product"</span>, one = <span class="meta">@One</span>(</span><br><span class="line">                    select = <span class="string">"jhmarryme.dao.ProductDao.findById"</span></span><br><span class="line">            )),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"memberId"</span>, property = <span class="string">"member"</span>, one = <span class="meta">@One</span>(</span><br><span class="line">                    select = <span class="string">"jhmarryme.dao.MemberDao.findById"</span></span><br><span class="line">            )),</span><br><span class="line">            <span class="comment">//此处当返回值为list集合的时候, 如果要写JavaType值必须是List.class  不是查找的类.class, 可以不写</span></span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"id"</span>, property = <span class="string">"travellers"</span>, many = <span class="meta">@Many</span>(</span><br><span class="line">                    select = <span class="string">"jhmarryme.dao.TravellerDao.findByOrdersId"</span></span><br><span class="line">            ))</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Orders <span class="title">findById</span><span class="params">(String id)</span></span>;</span><br></pre></td></tr></table></figure>
+<h3 id="复习SQL语法"><a href="#复习SQL语法" class="headerlink" title="复习SQL语法"></a>复习SQL语法</h3><ul>
 <li>left join(左联接) 返回包括左表中的所有记录和右表中联结字段相等的记录 </li>
 <li>right join(右联接) 返回包括右表中的所有记录和左表中联结字段相等的记录</li>
 <li>inner join(等值连接) 只返回两个表中联结字段相等的行</li>
 </ul>
-<p><strong>3. pageHelper插件的使用</strong><br>        在调用service时使用插件, 当controller收到了返回的参数result时, 使用new PageInfo(result) 将此bean传到jsp页面,  这个就是分页的bean, 具体属性查看该对象<br>        <img src="http://pnu39ljha.bkt.clouddn.com/6.PageHelper%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4.bmp" alt="使用步骤"><br>        <a href="https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/HowToUse.md" target="_blank" rel="noopener">git中文文档</a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//controller中</span></span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> OrdersService ordersService;</span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/findAll.do"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">findAll</span><span class="params">(@RequestParam(name = <span class="string">"page"</span>, required = <span class="keyword">true</span>, defaultValue = <span class="string">"1"</span>)</span> Integer page, @<span class="title">RequestParam</span><span class="params">(name = <span class="string">"size"</span>, required = <span class="keyword">true</span>, defaultValue = <span class="string">"4"</span>)</span> Integer size) <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        ModelAndView view = <span class="keyword">new</span> ModelAndView();</span><br><span class="line">        List&lt;Orders&gt; ordersList = ordersService.findAll(page, size);</span><br><span class="line">        <span class="comment">//插件提供的分页Bean对象</span></span><br><span class="line">        PageInfo pageInfo = <span class="keyword">new</span> PageInfo(ordersList);</span><br><span class="line">        view.addObject(<span class="string">"pageInfo"</span>, pageInfo);</span><br><span class="line">        System.out.println(ordersList);</span><br><span class="line">        <span class="keyword">for</span> (Orders order : ordersList)&#123;</span><br><span class="line">            System.out.println(order);</span><br><span class="line">        &#125;</span><br><span class="line">        view.setViewName(<span class="string">"orders-list"</span>);</span><br><span class="line">        <span class="keyword">return</span> view;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//service中</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Orders&gt; <span class="title">findAll</span><span class="params">(<span class="keyword">int</span> page, <span class="keyword">int</span> size)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//使用分页插件</span></span><br><span class="line">        PageHelper.startPage(page, size);</span><br><span class="line">        <span class="keyword">return</span> ordersDao.findAll();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>4. 主键操作</strong></p>
-<ol>
-<li>使用UUID作为主键<br> @Insert(“insert into users(id) values(REPLACE(UUID(),’-‘, ‘’))</li>
-<li>插入数据时返回自增的主键<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Insert</span>(<span class="string">"insert into tbl_user (name, age) values (#&#123;name&#125;, #&#123;age&#125;)"</span>)</span><br><span class="line"><span class="meta">@Options</span>(useGeneratedKeys=<span class="keyword">true</span>, keyProperty=<span class="string">"userId"</span>, keyColumn=<span class="string">"id"</span>)</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertUser</span><span class="params">(User user)</span></span>;</span><br></pre></td></tr></table></figure>
+<h3 id="pageHelper插件的使用"><a href="#pageHelper插件的使用" class="headerlink" title="pageHelper插件的使用"></a>pageHelper插件的使用</h3><p>在调用service时使用插件, 当controller收到了返回的参数result时, 使用new PageInfo(result) 将此bean传到jsp页面,  这个就是分页的bean, 具体属性查看该对象<br><img src="http://pnu39ljha.bkt.clouddn.com/6.PageHelper%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4.bmp" alt="使用步骤"><br><a href="https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/HowToUse.md" target="_blank" rel="noopener">git中文文档</a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//applicationContext.xml中</span></span><br><span class="line">&lt;!-- 把交给IOC管理 SqlSessionFactory --&gt;</span><br><span class="line">&lt;bean id=<span class="string">"sqlSessionFactory"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"org.mybatis.spring.SqlSessionFactoryBean"</span>&gt;</span><br><span class="line">&lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSource"</span> /&gt;</span><br><span class="line">&lt;!-- 传入PageHelper的插件 --&gt;</span><br><span class="line">&lt;property name=<span class="string">"plugins"</span>&gt;</span><br><span class="line">        &lt;array&gt;</span><br><span class="line">        &lt;!-- 传入插件的对象 --&gt;</span><br><span class="line">        &lt;bean <span class="class"><span class="keyword">class</span></span>=<span class="string">"com.github.pagehelper.PageInterceptor"</span>&gt;</span><br><span class="line">                &lt;property name=<span class="string">"properties"</span>&gt;</span><br><span class="line">                &lt;props&gt;</span><br><span class="line">                        &lt;prop key="helperDialect"&gt;mysql&lt;/prop&gt;</span><br><span class="line">                        &lt;prop key="reasonable"&gt;true&lt;/prop&gt;</span><br><span class="line">                &lt;/props&gt;</span><br><span class="line">                &lt;/property&gt;</span><br><span class="line">        &lt;/bean&gt;</span><br><span class="line">        &lt;/array&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//controller中</span></span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> OrdersService ordersService;</span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/findAll.do"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">findAll</span><span class="params">(@RequestParam(name = <span class="string">"page"</span>, required = <span class="keyword">true</span>, defaultValue = <span class="string">"1"</span>)</span> Integer page, @<span class="title">RequestParam</span><span class="params">(name = <span class="string">"size"</span>, required = <span class="keyword">true</span>, defaultValue = <span class="string">"4"</span>)</span> Integer size) <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        ModelAndView view = <span class="keyword">new</span> ModelAndView();</span><br><span class="line">        List&lt;Orders&gt; ordersList = ordersService.findAll(page, size);</span><br><span class="line">        <span class="comment">//插件提供的分页Bean对象</span></span><br><span class="line">        PageInfo pageInfo = <span class="keyword">new</span> PageInfo(ordersList);</span><br><span class="line">        view.addObject(<span class="string">"pageInfo"</span>, pageInfo);</span><br><span class="line">        System.out.println(ordersList);</span><br><span class="line">        <span class="keyword">for</span> (Orders order : ordersList)&#123;</span><br><span class="line">            System.out.println(order);</span><br><span class="line">        &#125;</span><br><span class="line">        view.setViewName(<span class="string">"orders-list"</span>);</span><br><span class="line">        <span class="keyword">return</span> view;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//service中</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Orders&gt; <span class="title">findAll</span><span class="params">(<span class="keyword">int</span> page, <span class="keyword">int</span> size)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//使用分页插件</span></span><br><span class="line">        PageHelper.startPage(page, size);</span><br><span class="line">        <span class="keyword">return</span> ordersDao.findAll();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="主键操作"><a href="#主键操作" class="headerlink" title="主键操作"></a>主键操作</h3><ol>
+<li><p>使用UUID作为主键</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Insert</span>(<span class="string">"insert into users(id) values(REPLACE(UUID(),'-', ''))</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>插入数据时返回自增的主键</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Insert</span>(<span class="string">"insert into tbl_user (name, age) values (#&#123;name&#125;, #&#123;age&#125;)"</span>)</span><br><span class="line"><span class="meta">@Options</span>(useGeneratedKeys=<span class="keyword">true</span>, keyProperty=<span class="string">"userId"</span>, keyColumn=<span class="string">"id"</span>)</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertUser</span><span class="params">(User user)</span></span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><strong>5. 当两个参数都为一般类型时, 需要进行参数的声明</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addRoleToUser</span><span class="params">(@Param(<span class="string">"userId"</span>)</span> String userId, @<span class="title">Param</span><span class="params">(<span class="string">"roleId"</span>)</span> String id)</span>;</span><br></pre></td></tr></table></figure></p>
-
+<h3 id="当两个参数都为一般类型时-需要进行参数的声明"><a href="#当两个参数都为一般类型时-需要进行参数的声明" class="headerlink" title="当两个参数都为一般类型时, 需要进行参数的声明"></a>当两个参数都为一般类型时, 需要进行参数的声明</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addRoleToUser</span><span class="params">(@Param(<span class="string">"userId"</span>)</span> String userId, @<span class="title">Param</span><span class="params">(<span class="string">"roleId"</span>)</span> String id)</span>;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -362,6 +385,18 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/javaWeb/" rel="tag"># javaWeb</a>
+          
+            <a href="/tags/框架/" rel="tag"># 框架</a>
+          
+            <a href="/tags/ssm/" rel="tag"># ssm</a>
+          
+            <a href="/tags/Spring/" rel="tag"># Spring</a>
+          
+        </div>
+      
 
       
       
@@ -371,8 +406,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/14/积累/" rel="next" title>
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2019/03/11/积累/" rel="next" title="积累">
+                <i class="fa fa-chevron-left"></i> 积累
               </a>
             
           </div>
@@ -381,8 +416,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/17/权限管理/" rel="prev" title="ssm权限管理学习">
-                ssm权限管理学习 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/17/LeetCode记录/" rel="prev" title="LeetCode记录">
+                LeetCode记录 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -462,7 +497,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -473,7 +508,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -484,7 +519,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -517,7 +552,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#记录"><span class="nav-number">1.</span> <span class="nav-text">记录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注解中的使用"><span class="nav-number">1.1.</span> <span class="nav-text">注解中的使用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#注解中的使用"><span class="nav-number">1.</span> <span class="nav-text">注解中的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#当结果对象中的属性与表中的数据-类型不一致时-表中存放的是外键-引用其他表中的id-而结果集对象中存放的是根据这个id对应的对象"><span class="nav-number">1.1.</span> <span class="nav-text">当结果对象中的属性与表中的数据 类型不一致时(表中存放的是外键 引用其他表中的id, 而结果集对象中存放的是根据这个id对应的对象)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复习SQL语法"><span class="nav-number">1.2.</span> <span class="nav-text">复习SQL语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pageHelper插件的使用"><span class="nav-number">1.3.</span> <span class="nav-text">pageHelper插件的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主键操作"><span class="nav-number">1.4.</span> <span class="nav-text">主键操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当两个参数都为一般类型时-需要进行参数的声明"><span class="nav-number">1.5.</span> <span class="nav-text">当两个参数都为一般类型时, 需要进行参数的声明</span></a></li></ol></li></ol></div>
             
 
           </div>

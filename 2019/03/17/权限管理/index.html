@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="javaWeb,ssm,框架,Spring,">
+  <meta name="keywords" content="javaWeb,框架,ssm,Spring,">
 
 
 
@@ -80,14 +80,14 @@
 
 
 <meta name="description" content="遇到的问题 不能创建表 error:150  引用的外键类型定义有误, 与其他表中的不符 表名用包裹   由于spring不能自动进行date类型的数据格式注入所以:存入日期型数据时, 需要使用@DateTimeFormat注解, 在实体类的类型中加上此注解, 可以自动进行日期型的数据格式注入 12@DateTimeFormat(pattern = &quot;yyyy-MM-dd&quot;)    private">
-<meta name="keywords" content="javaWeb,ssm,框架,Spring">
+<meta name="keywords" content="javaWeb,框架,ssm,Spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ssm权限管理学习">
 <meta property="og:url" content="https://wangdaye7.github.io/2019/03/17/权限管理/index.html">
 <meta property="og:site_name" content="jhmarryme&#39;s blog">
 <meta property="og:description" content="遇到的问题 不能创建表 error:150  引用的外键类型定义有误, 与其他表中的不符 表名用包裹   由于spring不能自动进行date类型的数据格式注入所以:存入日期型数据时, 需要使用@DateTimeFormat注解, 在实体类的类型中加上此注解, 可以自动进行日期型的数据格式注入 12@DateTimeFormat(pattern = &quot;yyyy-MM-dd&quot;)    private">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-20T13:19:47.490Z">
+<meta property="og:updated_time" content="2019-03-25T10:04:45.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssm权限管理学习">
 <meta name="twitter:description" content="遇到的问题 不能创建表 error:150  引用的外键类型定义有误, 与其他表中的不符 表名用包裹   由于spring不能自动进行date类型的数据格式注入所以:存入日期型数据时, 需要使用@DateTimeFormat注解, 在实体类的类型中加上此注解, 可以自动进行日期型的数据格式注入 12@DateTimeFormat(pattern = &quot;yyyy-MM-dd&quot;)    private">
@@ -316,8 +316,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ssm/" itemprop="url" rel="index">
-                    <span itemprop="name">ssm</span>
+                  <a href="/categories/ssm练习/" itemprop="url" rel="index">
+                    <span itemprop="name">ssm练习</span>
                   </a>
                 </span>
 
@@ -363,6 +363,9 @@
 <li><p>由于spring不能自动进行date类型的数据格式注入所以:<br>存入日期型数据时, 需要使用@DateTimeFormat注解, 在实体类的类型中加上此注解, 可以自动进行日期型的数据格式注入</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@DateTimeFormat</span>(pattern = <span class="string">"yyyy-MM-dd"</span>)</span><br><span class="line">    <span class="keyword">private</span> Date departureTime; <span class="comment">// 出发时间</span></span><br></pre></td></tr></table></figure>
 </li>
+</ol>
+<p>另一种方案, (待确认效果)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@InitBinder</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initBinder</span><span class="params">(WebDataBinder binder)</span> </span>&#123;</span><br><span class="line">binder.registerCustomEditor(Date.class, <span class="keyword">new</span> MyDateEdit(<span class="string">"yyyy-MM-dd HH:mm"</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol start="3">
 <li><p>实现分页功能<br>通过pageHelper实现, 具体用法写在了Mybatis使用记录里</p>
 </li>
 <li><p>使用SpringSecurity实现的登陆验证控制, 存入密码时进行加密.<br>具体用法写在了SpringSecurity使用记录里</p>
@@ -392,9 +395,9 @@
           
             <a href="/tags/javaWeb/" rel="tag"># javaWeb</a>
           
-            <a href="/tags/ssm/" rel="tag"># ssm</a>
-          
             <a href="/tags/框架/" rel="tag"># 框架</a>
+          
+            <a href="/tags/ssm/" rel="tag"># ssm</a>
           
             <a href="/tags/Spring/" rel="tag"># Spring</a>
           
@@ -409,8 +412,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/17/mybatis使用记录/" rel="next" title>
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2019/03/17/LeetCode记录/" rel="next" title="LeetCode记录">
+                <i class="fa fa-chevron-left"></i> LeetCode记录
               </a>
             
           </div>
@@ -500,7 +503,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -511,7 +514,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -522,7 +525,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

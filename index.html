@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/03/20/SpringSecurity使用记录/">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/03/26/ssmAop日志接触/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -282,7 +282,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/20/SpringSecurity使用记录/" itemprop="url">SpringSecurity使用记录</a></h1>
+                <a class="post-title-link" href="/2019/03/26/ssmAop日志接触/" itemprop="url">ssmAop日志接触</a></h1>
         
 
         <div class="post-meta">
@@ -294,8 +294,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-20T03:51:21+08:00">
-                2019-03-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T18:03:13Z">
+                2019-03-25
               </time>
             
 
@@ -317,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ssm/" itemprop="url" rel="index">
-                    <span itemprop="name">ssm</span>
+                  <a href="/categories/ssm练习/" itemprop="url" rel="index">
+                    <span itemprop="name">ssm练习</span>
                   </a>
                 </span>
 
@@ -356,7 +356,148 @@
       
         
           
-            <p>##理解(待完成)<br>当完成配置后,  对权限的控制就完全交给springsecurity管理了, 不需要再用controller进行控制了</p>
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/03/20/SpringSecurity使用记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://pnu39ljha.bkt.clouddn.com/jh.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/20/SpringSecurity使用记录/" itemprop="url">SpringSecurity使用记录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-19T19:51:21Z">
+                2019-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ssm练习/" itemprop="url" rel="index">
+                    <span itemprop="name">ssm练习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##理解(待完成)<br>当完成配置后,  对权限的控制就完全交给springsecurity管理了, 不需要再用controller进行控制了<br>配置access的角色时, 需要加上前缀ROLE_ </p>
 <h2 id="使用记录"><a href="#使用记录" class="headerlink" title="使用记录"></a>使用记录</h2><h3 id="SimpleGrantedAuthority"><a href="#SimpleGrantedAuthority" class="headerlink" title="SimpleGrantedAuthority"></a>SimpleGrantedAuthority</h3><ul>
 <li><p>用于new User() 对象时作为参数传递进去, 我的理解是一个简单的授权信息集合, 传递的类型为List<simplegrantedauthority>集合</simplegrantedauthority></p>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在service中的编写</span></span><br><span class="line"><span class="comment">//此处的&#123;noop&#125;需要加上, 因为使用的是明文</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> UserDetails <span class="title">loadUserByUsername</span><span class="params">(String username)</span> <span class="keyword">throws</span> UsernameNotFoundException </span>&#123;</span><br><span class="line">    UserInfo userInfo = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        userInfo = userDao.findByUsername(username);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//处理自己的用户对象封装成UserDetails 此处的User为框架提供的类, 而为了避免冲突 将自己的User类更名为Users</span></span><br><span class="line">    <span class="comment">//  User user=new User(userInfo.getUsername(),"&#123;noop&#125;"+userInfo.getPassword(),getAuthority(userInfo.getRoles()));</span></span><br><span class="line">    User user = <span class="keyword">new</span> User(userInfo.getUsername(), <span class="string">"&#123;noop&#125;"</span> + userInfo.getPassword(), userInfo.getStatus() == <span class="number">0</span> ? <span class="keyword">false</span> : <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, getAuthority(userInfo.getRoles()));</span><br><span class="line">    <span class="keyword">return</span> user;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//作用就是返回一个List集合，集合中装入的是角色描述</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;SimpleGrantedAuthority&gt; <span class="title">getAuthority</span><span class="params">(List&lt;Role&gt; roles)</span> </span>&#123;</span><br><span class="line">    List&lt;SimpleGrantedAuthority&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (Role role : roles) &#123;</span><br><span class="line">        <span class="comment">//需要加上前缀ROLE_  对应spring-security.xml中的配置</span></span><br><span class="line">        list.add(<span class="keyword">new</span> SimpleGrantedAuthority(<span class="string">"ROLE_"</span> + role.getRoleName()));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -375,7 +516,7 @@
 <h3 id="服务器端方法级权限控制"><a href="#服务器端方法级权限控制" class="headerlink" title="服务器端方法级权限控制"></a>服务器端方法级权限控制</h3><p>Spring Security在方法的权限控制上<br>支持三种类型的注解，JSR-250注解、@Secured注解和支持表达式的注解，这三种注解默认都是没有启用的，需要<br>单独通过global-method-security元素的对应属性进行启用<br><strong>其中JSR-250可以省略前缀ROLE_  而Secured不可以</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//配置文件</span></span><br><span class="line">&lt;security:global-method-security jsr250-annotations=<span class="string">"enabled"</span>/&gt;</span><br><span class="line">&lt;security:global-method-security secured-annotations=<span class="string">"enabled"</span>/&gt;</span><br><span class="line">&lt;security:global-method-security pre-post-annotations=<span class="string">"disabled"</span>/&gt;</span><br><span class="line"><span class="comment">//注解开启</span></span><br><span class="line"><span class="meta">@EnableGlobalMethodSecurity</span> ：Spring Security默认是禁用注解的，要想开启注解，需要在继承</span><br><span class="line">WebSecurityConfigurerAdapter的类上加<span class="meta">@EnableGlobalMethodSecurity</span>注解，并在该类中将</span><br><span class="line">AuthenticationManager定义为Bean。</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li><p>JSR-250注解<br>需要先添加依赖:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;javax.annotation&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;jsr250-api&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"><span class="meta">@RolesAllowed</span>表示访问对应方法时所应该具有的角色</span><br><span class="line">示例：</span><br><span class="line"><span class="meta">@RolesAllowed</span>(&#123;<span class="string">"USER"</span>, <span class="string">"ADMIN"</span>&#125;) 该方法只要具有<span class="string">"USER"</span>, <span class="string">"ADMIN"</span>任意一种权限就可以访问。这里可以省</span><br><span class="line">略前缀ROLE_，实际的权限可能是ROLE_ADMIN</span><br><span class="line"><span class="meta">@PermitAll</span>表示允许所有的角色进行访问，也就是说不进行权限控制</span><br><span class="line"><span class="meta">@DenyAll</span>是和PermitAll相反的，表示无论什么角色都不能访问</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;javax.annotation&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;jsr250-api&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@RolesAllowed</span>表示访问对应方法时所应该具有的角色</span><br><span class="line">示例：</span><br><span class="line"><span class="meta">@RolesAllowed</span>(&#123;<span class="string">"USER"</span>, <span class="string">"ADMIN"</span>&#125;) 该方法只要具有<span class="string">"USER"</span>, <span class="string">"ADMIN"</span>任意一种权限就可以访问。这里可以省</span><br><span class="line">略前缀ROLE_，实际的权限可能是ROLE_ADMIN</span><br><span class="line"><span class="meta">@PermitAll</span>表示允许所有的角色进行访问，也就是说不进行权限控制</span><br><span class="line"><span class="meta">@DenyAll</span>是和PermitAll相反的，表示无论什么角色都不能访问</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>支持表达式的注解</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">示例：</span><br><span class="line"><span class="meta">@PreAuthorize</span>(<span class="string">"#userId == authentication.principal.userId or hasAuthority(‘ADMIN’)"</span>)</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">changePassword</span><span class="params">(@P(<span class="string">"userId"</span>)</span> <span class="keyword">long</span> userId )</span>&#123; &#125;</span><br><span class="line">这里表示在changePassword方法执行之前，判断方法参数userId的值是否等于principal中保存的当前用户的</span><br><span class="line">userId，或者当前用户是否具有ROLE_ADMIN权限，两种符合其一，就可以访问该方法。</span><br><span class="line"><span class="meta">@PostAuthorize</span> 允许方法调用,但是如果表达式计算结果为<span class="keyword">false</span>,将抛出一个安全性异常</span><br><span class="line">示例：</span><br><span class="line"><span class="meta">@PostAuthorize</span></span><br><span class="line"><span class="function">User <span class="title">getUser</span><span class="params">(<span class="string">"returnObject.userId == authentication.principal.userId or</span></span></span></span><br><span class="line"><span class="function"><span class="params"><span class="string">hasPermission(returnObject, 'ADMIN')"</span>)</span></span>;</span><br><span class="line"><span class="meta">@PostFilter</span> 允许方法调用,但必须按照表达式来过滤方法的结果</span><br><span class="line"><span class="meta">@PreFilter</span> 允许方法调用,但必须在进入方法之前过滤输入值</span><br></pre></td></tr></table></figure>
@@ -384,18 +525,20 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Secured</span>注解标注的方法进行权限控制的支持，其值默认为disabled。</span><br><span class="line">示例：</span><br><span class="line"><span class="meta">@Secured</span>(<span class="string">"IS_AUTHENTICATED_ANONYMOUSLY"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Account <span class="title">readAccount</span><span class="params">(Long id)</span></span>;</span><br><span class="line"><span class="meta">@Secured</span>(<span class="string">"ROLE_TELLER"</span>)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>无法进行权限控制, 用注解进行配置后还是所有人都可以访问, 查阅后发现将将注解从controller层移动到service可以解决<br><strong>解决的方法</strong><br>将配置文件:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;security:global-method-security jsr250-annotations=<span class="string">"enabled"</span>/&gt;</span><br><span class="line">&lt;security:global-method-security secured-annotations=<span class="string">"enabled"</span>/&gt;</span><br><span class="line">&lt;security:global-method-security pre-post-annotations=<span class="string">"disabled"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
-<p><strong>放入spring-mvc文件中配置, 而此时不能自动导入命名空间约束, 导入的话运行会报异常</strong><br>手动添加<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">xmlns:security=<span class="string">"http://www.springframework.org/schema/security"</span></span><br><span class="line"></span><br><span class="line">http:<span class="comment">//www.springframework.org/schema/security</span></span><br><span class="line">http:<span class="comment">//www.springframework.org/schema/security/spring-security.xsd</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>无法进行权限控制, 用注解进行配置后还是所有人都可以访问, 查阅后发现将将注解从controller层移动到service可以解决<br>    <strong>解决的方法</strong><br>    将配置文件:<br>    <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;security:global-method-security jsr250-annotations=<span class="string">"enabled"</span>/&gt;</span><br><span class="line">&lt;security:global-method-security secured-annotations=<span class="string">"enabled"</span>/&gt;</span><br><span class="line">&lt;security:global-method-security pre-post-annotations=<span class="string">"disabled"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>放入spring-mvc文件中配置, 而此时不能自动导入命名空间约束, 导入的话运行会报异常</strong><br>手动添加<br>    <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">xmlns:security=<span class="string">"http://www.springframework.org/schema/security"</span></span><br><span class="line"></span><br><span class="line">http:<span class="comment">//www.springframework.org/schema/security</span></span><br><span class="line">http:<span class="comment">//www.springframework.org/schema/security/spring-security.xsd</span></span><br></pre></td></tr></table></figure></p>
 <p>到相应的位置</p>
 <h3 id="页面端标签控制权限"><a href="#页面端标签控制权限" class="headerlink" title="页面端标签控制权限"></a>页面端标签控制权限</h3><ul>
 <li><p>在jsp页面中可以使用spring security提供的权限标签来进行权限控制<br>  maven导入</p>
   <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.security&lt;/groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-security-taglibs&lt;/artifactId&gt;</span><br><span class="line">&lt;version&gt;version&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 <p>  页面导入</p>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@taglib</span> uri=<span class="string">"http://www.springframework.org/security/tags"</span> prefix=<span class="string">"security"</span>%&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>常用标签  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>. authorize</span><br><span class="line">authorize是用来判断普通权限的，通过判断用户是否具有对应的权限而控制其所包含内容的显示</span><br><span class="line">&lt;security:authorize access="" method="" url="" var=""&gt;&lt;/security:authorize&gt;</span><br><span class="line">access： 需要使用表达式来判断权限，当表达式的返回结果为<span class="keyword">true</span>时表示拥有对应的权限</span><br><span class="line">method：method属性是配合url属性一起使用的，表示用户应当具有指定url指定method访问的权限，</span><br><span class="line">method的默认值为GET，可选值为http请求的<span class="number">7</span>种方法</span><br><span class="line">url：url表示如果用户拥有访问指定url的权限即表示可以显示authorize标签包含的内容</span><br><span class="line"><span class="keyword">var</span>：用于指定将权限鉴定的结果存放在pageContext的哪个属性中</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>. accesscontrollist</span><br><span class="line">accesscontrollist标签是用于鉴定ACL权限的。其一共定义了三个属性：hasPermission、domainObject和<span class="keyword">var</span>，</span><br><span class="line">其中前两个是必须指定的</span><br><span class="line">&lt;security:accesscontrollist hasPermission="" domainObject="" var=""&gt;&lt;/security:accesscontrollist&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">hasPermission：hasPermission属性用于指定以逗号分隔的权限列表</span><br><span class="line">domainObject：domainObject用于指定对应的域对象</span><br><span class="line"><span class="keyword">var</span>：<span class="keyword">var</span>则是用以将鉴定的结果以指定的属性名存入pageContext中，以供同一页面的其它地方使用</span><br></pre></td></tr></table></figure>
+<p>  <strong>注意的问题</strong><br>  在jsp页面中使用了SPEL表达式, 需要在spring-security.xml 开启SPEL表达式支持<br>  或者配置一个bean</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=<span class="string">"webexpressionHandler"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"</span> /&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<ul>
+<li>常用标签  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>. authorize</span><br><span class="line">authorize是用来判断普通权限的，通过判断用户是否具有对应的权限而控制其所包含内容的显示</span><br><span class="line">&lt;security:authorize access="" method="" url="" var=""&gt;&lt;/security:authorize&gt;</span><br><span class="line">&lt;security:authorize access="hasRole('ADMIN')" &gt;&lt;/security:authorize&gt; //只有ADMIN用户才能访问</span><br><span class="line">access： 需要使用表达式来判断权限，当表达式的返回结果为<span class="keyword">true</span>时表示拥有对应的权限</span><br><span class="line">method：method属性是配合url属性一起使用的，表示用户应当具有指定url指定method访问的权限，</span><br><span class="line">method的默认值为GET，可选值为http请求的<span class="number">7</span>种方法</span><br><span class="line">url：url表示如果用户拥有访问指定url的权限即表示可以显示authorize标签包含的内容</span><br><span class="line"><span class="keyword">var</span>：用于指定将权限鉴定的结果存放在pageContext的哪个属性中</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>. authentication</span><br><span class="line">&lt;security:authentication property=<span class="string">""</span> htmlEscape=<span class="string">""</span> scope=<span class="string">""</span> <span class="keyword">var</span>=<span class="string">""</span>/&gt;</span><br><span class="line">property： 只允许指定Authentication所拥有的属性，可以进行属性的级联获取，如“principle.username”，</span><br><span class="line">不允许直接通过方法进行调用</span><br><span class="line">htmlEscape：表示是否需要将html进行转义。默认为<span class="keyword">true</span>。</span><br><span class="line">scope：与<span class="keyword">var</span>属性一起使用，用于指定存放获取的结果的属性名的作用范围，默认我pageContext。Jsp中拥</span><br><span class="line">有的作用范围都进行进行指定</span><br><span class="line"><span class="keyword">var</span>： 用于指定一个属性名，这样当获取到了authentication的相关信息后会将其以<span class="keyword">var</span>指定的属性名进行存</span><br><span class="line">放，默认是存放在pageConext中</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="使用前的准备步骤"><a href="#使用前的准备步骤" class="headerlink" title="使用前的准备步骤"></a>使用前的准备步骤</h3><ol>
@@ -403,12 +546,17 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">    &lt;spring.version&gt;5.0.2.RELEASE&lt;/spring.version&gt;</span><br><span class="line">    &lt;spring.security.version&gt;5.0.1.RELEASE&lt;/spring.security.version&gt;</span><br><span class="line">&lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-security-web&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;spring.security.version&#125;&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-security-config&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;spring.security.version&#125;&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>web.xml添加</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;web-app xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">    xmlns=<span class="string">"http://java.sun.com/xml/ns/javaee"</span></span><br><span class="line">    xsi:schemaLocation=<span class="string">"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"</span></span><br><span class="line">    version=<span class="string">"2.5"</span>&gt;</span><br><span class="line"></span><br><span class="line">    &lt;context-param&gt;</span><br><span class="line">        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">        &lt;param-value&gt;classpath:spring-security.xml&lt;/param-value&gt;</span><br><span class="line">    &lt;/context-param&gt;</span><br><span class="line">    &lt;listener&gt;</span><br><span class="line">        &lt;listener-<span class="class"><span class="keyword">class</span>&gt;<span class="title">org</span>.<span class="title">springframework</span>.<span class="title">web</span>.<span class="title">context</span>.<span class="title">ContextLoaderListener</span>&lt;/<span class="title">listener</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;/<span class="title">listener</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">filter</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">filter</span>-<span class="title">name</span>&gt;<span class="title">springSecurityFilterChain</span>&lt;/<span class="title">filter</span>-<span class="title">name</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">filter</span>-<span class="title">class</span>&gt;<span class="title">org</span>.<span class="title">springframework</span>.<span class="title">web</span>.<span class="title">filter</span>.<span class="title">DelegatingFilterProxy</span>&lt;/<span class="title">filter</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;/<span class="title">filter</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">filter</span>-<span class="title">mapping</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">filter</span>-<span class="title">name</span>&gt;<span class="title">springSecurityFilterChain</span>&lt;/<span class="title">filter</span>-<span class="title">name</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">url</span>-<span class="title">pattern</span>&gt;/*&lt;/<span class="title">url</span>-<span class="title">pattern</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;/<span class="title">filter</span>-<span class="title">mapping</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">web</span>-<span class="title">app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;web-app xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">    xmlns=<span class="string">"http://java.sun.com/xml/ns/javaee"</span></span><br><span class="line">    xsi:schemaLocation=<span class="string">"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"</span></span><br><span class="line">    version=<span class="string">"2.5"</span>&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 配置加载类路径的配置文件 --&gt;</span><br><span class="line">    &lt;context-param&gt;</span><br><span class="line">        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">        &lt;param-value&gt;classpath*:applicationContext.xml,classpath*:spring-security.xml&lt;/param-value&gt;</span><br><span class="line">    &lt;/context-param&gt;</span><br><span class="line">    &lt;!-- 配置监听器 --&gt;</span><br><span class="line">    &lt;listener&gt;</span><br><span class="line">        &lt;listener-<span class="class"><span class="keyword">class</span>&gt;<span class="title">org</span>.<span class="title">springframework</span>.<span class="title">web</span>.<span class="title">context</span>.<span class="title">ContextLoaderListener</span>&lt;/<span class="title">listener</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;/<span class="title">listener</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;!-- 配置监听器，监听<span class="title">request</span>域对象的创建和销毁的 --&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">listener</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">listener</span>-<span class="title">class</span>&gt;<span class="title">org</span>.<span class="title">springframework</span>.<span class="title">web</span>.<span class="title">context</span>.<span class="title">request</span>.<span class="title">RequestContextListener</span>&lt;/<span class="title">listener</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;/<span class="title">listener</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">    &lt;<span class="title">filter</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">filter</span>-<span class="title">name</span>&gt;<span class="title">springSecurityFilterChain</span>&lt;/<span class="title">filter</span>-<span class="title">name</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">filter</span>-<span class="title">class</span>&gt;<span class="title">org</span>.<span class="title">springframework</span>.<span class="title">web</span>.<span class="title">filter</span>.<span class="title">DelegatingFilterProxy</span>&lt;/<span class="title">filter</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;/<span class="title">filter</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">filter</span>-<span class="title">mapping</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">filter</span>-<span class="title">name</span>&gt;<span class="title">springSecurityFilterChain</span>&lt;/<span class="title">filter</span>-<span class="title">name</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">url</span>-<span class="title">pattern</span>&gt;/*&lt;/<span class="title">url</span>-<span class="title">pattern</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;/<span class="title">filter</span>-<span class="title">mapping</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">web</span>-<span class="title">app</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>核心文件spring-security.xml文件<br> 示例:</p>
  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">    xmlns:security=<span class="string">"http://www.springframework.org/schema/security"</span></span><br><span class="line">    xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">    xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/beans</span></span><br><span class="line"><span class="string">    http://www.springframework.org/schema/beans/spring-beans.xsd</span></span><br><span class="line"><span class="string">    http://www.springframework.org/schema/security</span></span><br><span class="line"><span class="string">    http://www.springframework.org/schema/security/spring-security.xsd"</span>&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 配置不拦截的资源 --&gt;</span><br><span class="line">    &lt;security:http pattern=<span class="string">"/login.jsp"</span> security=<span class="string">"none"</span>/&gt;</span><br><span class="line">    &lt;security:http pattern=<span class="string">"/failer.jsp"</span> security=<span class="string">"none"</span>/&gt;</span><br><span class="line">    &lt;security:http pattern=<span class="string">"/css/**"</span> security=<span class="string">"none"</span>/&gt;</span><br><span class="line">    &lt;security:http pattern=<span class="string">"/img/**"</span> security=<span class="string">"none"</span>/&gt;</span><br><span class="line">    &lt;security:http pattern=<span class="string">"/plugins/**"</span> security=<span class="string">"none"</span>/&gt;</span><br><span class="line">    &lt;!--</span><br><span class="line">        配置具体的规则</span><br><span class="line">        auto-config=<span class="string">"true"</span>	不用自己编写登录的页面，框架提供默认登录页面</span><br><span class="line">        use-expressions=<span class="string">"false"</span>	是否使用SPEL表达式（没学习过）</span><br><span class="line">    --&gt;</span><br><span class="line">    &lt;security:http auto-config=<span class="string">"true"</span> use-expressions=<span class="string">"false"</span>&gt;</span><br><span class="line">        &lt;!-- 配置具体的拦截的规则 pattern=<span class="string">"请求路径的规则"</span> access=<span class="string">"访问系统的人，必须有ROLE_USER的角色"</span> --&gt;</span><br><span class="line">        &lt;security:intercept-url pattern=<span class="string">"/**"</span> access=<span class="string">"ROLE_USER,ROLE_ADMIN"</span>/&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 定义跳转的具体的页面 --&gt;</span><br><span class="line">        &lt;security:form-login</span><br><span class="line">                login-page=<span class="string">"/login.jsp"</span></span><br><span class="line">                login-processing-url=<span class="string">"/login.do"</span></span><br><span class="line">                <span class="keyword">default</span>-target-url=<span class="string">"/index.jsp"</span></span><br><span class="line">                authentication-failure-url=<span class="string">"/failer.jsp"</span></span><br><span class="line">                authentication-success-forward-url=<span class="string">"/pages/main.jsp"</span></span><br><span class="line">        /&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 关闭跨域请求 --&gt;</span><br><span class="line">        &lt;security:csrf disabled=<span class="string">"true"</span>/&gt;</span><br><span class="line">        &lt;!-- 退出 --&gt;</span><br><span class="line">        &lt;security:logout invalidate-session=<span class="string">"true"</span> logout-url=<span class="string">"/logout.do"</span> logout-success-url=<span class="string">"/login.jsp"</span> /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/security:http&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 切换成数据库中的用户名和密码 --&gt;</span><br><span class="line">    &lt;security:authentication-manager&gt;</span><br><span class="line">        &lt;security:authentication-provider user-service-ref=<span class="string">"userService"</span>&gt;</span><br><span class="line">            &lt;!-- 配置加密的方式</span><br><span class="line">            &lt;security:password-encoder ref=<span class="string">"passwordEncoder"</span>/&gt;--&gt;</span><br><span class="line">        &lt;/security:authentication-provider&gt;</span><br><span class="line">    &lt;/security:authentication-manager&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 配置加密类 --&gt;</span><br><span class="line">    &lt;bean id=<span class="string">"passwordEncoder"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"</span>/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 提供了入门的方式，在内存中存入用户名和密码</span><br><span class="line">    &lt;security:authentication-manager&gt;</span><br><span class="line">        &lt;security:authentication-provider&gt;</span><br><span class="line">            &lt;security:user-service&gt;</span><br><span class="line">                &lt;security:user name=<span class="string">"admin"</span> password=<span class="string">"&#123;noop&#125;admin"</span> authorities=<span class="string">"ROLE_USER"</span>/&gt;</span><br><span class="line">            &lt;/security:user-service&gt;</span><br><span class="line">        &lt;/security:authentication-provider&gt;</span><br><span class="line">    &lt;/security:authentication-manager&gt;</span><br><span class="line">    --&gt;</span><br><span class="line"></span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
-<p> 不经过数据库时:</p>
- <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">    xmlns:security=<span class="string">"http://www.springframework.org/schema/security"</span></span><br><span class="line">    xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">    xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/beans</span></span><br><span class="line"><span class="string">        http://www.springframework.org/schema/beans/spring-beans.xsd</span></span><br><span class="line"><span class="string">        http://www.springframework.org/schema/security</span></span><br><span class="line"><span class="string">        http://www.springframework.org/schema/security/spring-security.xsd"</span>&gt;        </span><br><span class="line">        </span><br><span class="line">    </span><br><span class="line">    &lt;!-- 配置不过滤的资源（静态资源及登录相关） --&gt;</span><br><span class="line">    &lt;security:http security=<span class="string">"none"</span> pattern=<span class="string">"/login.html"</span> /&gt;</span><br><span class="line">    &lt;security:http security=<span class="string">"none"</span> pattern=<span class="string">"/failer.html"</span> /&gt;</span><br><span class="line">    &lt;security:http auto-config=<span class="string">"true"</span> use-expressions=<span class="string">"false"</span> &gt;</span><br><span class="line">        &lt;!-- 配置资料连接，表示任意路径都需要ROLE_USER权限 --&gt;</span><br><span class="line">        &lt;security:intercept-url pattern=<span class="string">"/**"</span> access=<span class="string">"ROLE_USER"</span> /&gt;</span><br><span class="line">        &lt;!-- 自定义登陆页面，login-page 自定义登陆页面 authentication-failure-url 用户权限校验失败之后才会跳转到这个页面，如果数据库中没有这个用户则不会跳转到这个页面。 </span><br><span class="line">            <span class="keyword">default</span>-target-url 登陆成功后跳转的页面。 注：登陆页面用户名固定 username，密码 password，action:login --&gt;</span><br><span class="line">        &lt;security:form-login login-page=<span class="string">"/login.html"</span></span><br><span class="line">            login-processing-url=<span class="string">"/login"</span> username-parameter=<span class="string">"username"</span></span><br><span class="line">            password-parameter=<span class="string">"password"</span> authentication-failure-url=<span class="string">"/failer.html"</span></span><br><span class="line">            <span class="keyword">default</span>-target-url=<span class="string">"/success.html"</span> </span><br><span class="line">            /&gt;</span><br><span class="line">        &lt;!-- 登出， invalidate-session 是否删除session logout-url：登出处理链接 logout-success-url：登出成功页面 </span><br><span class="line">            注：登出操作 只需要链接到 logout即可登出当前用户 --&gt;</span><br><span class="line">        &lt;security:logout invalidate-session=<span class="string">"true"</span> logout-url=<span class="string">"/logout"</span></span><br><span class="line">            logout-success-url=<span class="string">"/login.jsp"</span> /&gt;</span><br><span class="line">        &lt;!-- 关闭CSRF,默认是开启的 --&gt;</span><br><span class="line">        &lt;security:csrf disabled=<span class="string">"true"</span> /&gt;</span><br><span class="line">    &lt;/security:http&gt;</span><br><span class="line">    &lt;security:authentication-manager&gt;</span><br><span class="line">        &lt;security:authentication-provider&gt;</span><br><span class="line">            &lt;security:user-service&gt;</span><br><span class="line">                &lt;security:user name=<span class="string">"user"</span> password=<span class="string">"&#123;noop&#125;user"</span></span><br><span class="line">                    authorities=<span class="string">"ROLE_USER"</span> /&gt;</span><br><span class="line">                &lt;security:user name=<span class="string">"admin"</span> password=<span class="string">"&#123;noop&#125;admin"</span></span><br><span class="line">                    authorities=<span class="string">"ROLE_ADMIN"</span> /&gt;</span><br><span class="line">            &lt;/security:user-service&gt;</span><br><span class="line">        &lt;/security:authentication-provider&gt;</span><br><span class="line">    &lt;/security:authentication-manager&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure></li>
+</li>
+<li><p>UserService需要继承类UserDetailsService</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserService</span> <span class="keyword">extends</span> <span class="title">UserDetailsService</span> </span>&#123;</span><br><span class="line">    <span class="function">List&lt;Users&gt; <span class="title">findAll</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">save</span><span class="params">(Users user)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">Users <span class="title">findById</span><span class="params">(String id)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addRoleToUser</span><span class="params">(String userId, String[] ids)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不经过数据库时:</p>
+ <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">    xmlns:security=<span class="string">"http://www.springframework.org/schema/security"</span></span><br><span class="line">    xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">    xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/beans</span></span><br><span class="line"><span class="string">        http://www.springframework.org/schema/beans/spring-beans.xsd</span></span><br><span class="line"><span class="string">        http://www.springframework.org/schema/security</span></span><br><span class="line"><span class="string">        http://www.springframework.org/schema/security/spring-security.xsd"</span>&gt;        </span><br><span class="line">        </span><br><span class="line">    </span><br><span class="line">    &lt;!-- 配置不过滤的资源（静态资源及登录相关） --&gt;</span><br><span class="line">    &lt;security:http security=<span class="string">"none"</span> pattern=<span class="string">"/login.html"</span> /&gt;</span><br><span class="line">    &lt;security:http security=<span class="string">"none"</span> pattern=<span class="string">"/failer.html"</span> /&gt;</span><br><span class="line">    &lt;security:http auto-config=<span class="string">"true"</span> use-expressions=<span class="string">"false"</span> &gt;</span><br><span class="line">        &lt;!-- 配置资料连接，表示任意路径都需要ROLE_USER权限 --&gt;</span><br><span class="line">        &lt;security:intercept-url pattern=<span class="string">"/**"</span> access=<span class="string">"ROLE_USER"</span> /&gt;</span><br><span class="line">        &lt;!-- 自定义登陆页面，login-page 自定义登陆页面 authentication-failure-url 用户权限校验失败之后才会跳转到这个页面，如果数据库中没有这个用户则不会跳转到这个页面。 </span><br><span class="line">            <span class="keyword">default</span>-target-url 登陆成功后跳转的页面。 注：登陆页面用户名固定 username，密码 password，action:login --&gt;</span><br><span class="line">        &lt;security:form-login login-page=<span class="string">"/login.html"</span></span><br><span class="line">            login-processing-url=<span class="string">"/login"</span> username-parameter=<span class="string">"username"</span></span><br><span class="line">            password-parameter=<span class="string">"password"</span> authentication-failure-url=<span class="string">"/failer.html"</span></span><br><span class="line">            <span class="keyword">default</span>-target-url=<span class="string">"/success.html"</span> </span><br><span class="line">            /&gt;</span><br><span class="line">        &lt;!-- 登出， invalidate-session 是否删除session logout-url：登出处理链接 logout-success-url：登出成功页面 </span><br><span class="line">            注：登出操作 只需要链接到 logout即可登出当前用户 --&gt;</span><br><span class="line">        &lt;security:logout invalidate-session=<span class="string">"true"</span> logout-url=<span class="string">"/logout"</span></span><br><span class="line">            logout-success-url=<span class="string">"/login.jsp"</span> /&gt;</span><br><span class="line">        &lt;!-- 关闭CSRF,默认是开启的 --&gt;</span><br><span class="line">        &lt;security:csrf disabled=<span class="string">"true"</span> /&gt;</span><br><span class="line">    &lt;/security:http&gt;</span><br><span class="line">    &lt;security:authentication-manager&gt;</span><br><span class="line">        &lt;security:authentication-provider&gt;</span><br><span class="line">            &lt;security:user-service&gt;</span><br><span class="line">                &lt;security:user name=<span class="string">"user"</span> password=<span class="string">"&#123;noop&#125;user"</span></span><br><span class="line">                    authorities=<span class="string">"ROLE_USER"</span> /&gt;</span><br><span class="line">                &lt;security:user name=<span class="string">"admin"</span> password=<span class="string">"&#123;noop&#125;admin"</span></span><br><span class="line">                    authorities=<span class="string">"ROLE_ADMIN"</span> /&gt;</span><br><span class="line">            &lt;/security:user-service&gt;</span><br><span class="line">        &lt;/security:authentication-provider&gt;</span><br><span class="line">    &lt;/security:authentication-manager&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 
           
@@ -499,6 +647,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/英语/" itemprop="url" rel="index">
+                    <span itemprop="name">英语</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -632,8 +802,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ssm/" itemprop="url" rel="index">
-                    <span itemprop="name">ssm</span>
+                  <a href="/categories/ssm练习/" itemprop="url" rel="index">
+                    <span itemprop="name">ssm练习</span>
                   </a>
                 </span>
 
@@ -681,6 +851,9 @@
 <li><p>由于spring不能自动进行date类型的数据格式注入所以:<br>存入日期型数据时, 需要使用@DateTimeFormat注解, 在实体类的类型中加上此注解, 可以自动进行日期型的数据格式注入</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@DateTimeFormat</span>(pattern = <span class="string">"yyyy-MM-dd"</span>)</span><br><span class="line">    <span class="keyword">private</span> Date departureTime; <span class="comment">// 出发时间</span></span><br></pre></td></tr></table></figure>
 </li>
+</ol>
+<p>另一种方案, (待确认效果)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@InitBinder</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initBinder</span><span class="params">(WebDataBinder binder)</span> </span>&#123;</span><br><span class="line">binder.registerCustomEditor(Date.class, <span class="keyword">new</span> MyDateEdit(<span class="string">"yyyy-MM-dd HH:mm"</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol start="3">
 <li><p>实现分页功能<br>通过pageHelper实现, 具体用法写在了Mybatis使用记录里</p>
 </li>
 <li><p>使用SpringSecurity实现的登陆验证控制, 存入密码时进行加密.<br>具体用法写在了SpringSecurity使用记录里</p>
@@ -739,7 +912,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/03/17/mybatis使用记录/">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/03/17/LeetCode记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -758,7 +931,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/17/mybatis使用记录/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2019/03/17/LeetCode记录/" itemprop="url">LeetCode记录</a></h1>
         
 
         <div class="post-meta">
@@ -770,7 +943,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T12:41:42Z">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T12:46:21Z">
                 2019-03-17
               </time>
             
@@ -781,259 +954,27 @@
           </span>
 
           
-
-          
+            <span class="post-category">
             
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><h3 id="注解中的使用"><a href="#注解中的使用" class="headerlink" title="注解中的使用"></a>注解中的使用</h3><p><strong>1. 当结果对象中的属性与表中的数据 类型不一致时(表中存放的是外键 引用其他表中的id, 而结果集对象中存放的是根据这个id对应的对象)</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询所有订单信息, 其中根据产品id又查询产品, 并将产品一并封装到结果集中了. 相当于两次查询</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="meta">@Select</span>(<span class="string">"select * from orders"</span>)</span><br><span class="line">    <span class="meta">@Results</span>(&#123;</span><br><span class="line">            <span class="meta">@Result</span>(id = <span class="keyword">true</span>, column = <span class="string">"id"</span>, property = <span class="string">"id"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderNum"</span>, property = <span class="string">"orderNum"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderTime"</span>, property = <span class="string">"orderTime"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderStatus"</span>, property = <span class="string">"orderStatus"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"peopleCount"</span>, property = <span class="string">"peopleCount"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"payType"</span>, property = <span class="string">"payType"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderDesc"</span>, property = <span class="string">"orderDesc"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"peopleCount"</span>, property = <span class="string">"peopleCount"</span>),</span><br><span class="line">            <span class="comment">// 表中存放的为外键, 引用产品id, 但是要将这个id重新映射为结果集中对应的类型product 需要进行第二次查询并封装@One适用于一对一映射 @Many为多对多</span></span><br><span class="line">            <span class="comment">//其中的select为相应dao的全限定类名, 可以用JavaType指定内部查询的返回类型</span></span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"productId"</span>, property = <span class="string">"product"</span>, one = <span class="meta">@One</span>(</span><br><span class="line">                    select = <span class="string">"jhmarryme.dao.ProductDao.findById"</span></span><br><span class="line">            )),</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Orders&gt; <span class="title">findAll</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据id查找订单</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"select * from orders where id in (select orderId from order_traveller where orderId = #&#123;id&#125;)"</span>)</span><br><span class="line">    <span class="meta">@Results</span>(&#123;</span><br><span class="line">            <span class="meta">@Result</span>(id = <span class="keyword">true</span>, column = <span class="string">"id"</span>, property = <span class="string">"id"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderTime"</span>, property = <span class="string">"orderTime"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderNum"</span>, property = <span class="string">"orderNum"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderStatus"</span>, property = <span class="string">"orderStatus"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"peopleCount"</span>, property = <span class="string">"peopleCount"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"payType"</span>, property = <span class="string">"payType"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderDesc"</span>, property = <span class="string">"orderDesc"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"productId"</span>, property = <span class="string">"product"</span>, one = <span class="meta">@One</span>(</span><br><span class="line">                    select = <span class="string">"jhmarryme.dao.ProductDao.findById"</span></span><br><span class="line">            )),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"memberId"</span>, property = <span class="string">"member"</span>, one = <span class="meta">@One</span>(</span><br><span class="line">                    select = <span class="string">"jhmarryme.dao.MemberDao.findById"</span></span><br><span class="line">            )),</span><br><span class="line">            <span class="comment">//此处当返回值为list集合的时候, 如果要写JavaType值必须是List.class  不是查找的类.class, 可以不写</span></span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"id"</span>, property = <span class="string">"travellers"</span>, many = <span class="meta">@Many</span>(</span><br><span class="line">                    select = <span class="string">"jhmarryme.dao.TravellerDao.findByOrdersId"</span></span><br><span class="line">            ))</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Orders <span class="title">findById</span><span class="params">(String id)</span></span>;</span><br></pre></td></tr></table></figure></p>
-<p><strong>2. 复习SQL语法</strong></p>
-<ul>
-<li>left join(左联接) 返回包括左表中的所有记录和右表中联结字段相等的记录 </li>
-<li>right join(右联接) 返回包括右表中的所有记录和左表中联结字段相等的记录</li>
-<li>inner join(等值连接) 只返回两个表中联结字段相等的行</li>
-</ul>
-<p><strong>3. pageHelper插件的使用</strong><br>        在调用service时使用插件, 当controller收到了返回的参数result时, 使用new PageInfo(result) 将此bean传到jsp页面,  这个就是分页的bean, 具体属性查看该对象<br>        <img src="http://pnu39ljha.bkt.clouddn.com/6.PageHelper%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4.bmp" alt="使用步骤"><br>        <a href="https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/HowToUse.md" target="_blank" rel="noopener">git中文文档</a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//controller中</span></span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> OrdersService ordersService;</span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/findAll.do"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">findAll</span><span class="params">(@RequestParam(name = <span class="string">"page"</span>, required = <span class="keyword">true</span>, defaultValue = <span class="string">"1"</span>)</span> Integer page, @<span class="title">RequestParam</span><span class="params">(name = <span class="string">"size"</span>, required = <span class="keyword">true</span>, defaultValue = <span class="string">"4"</span>)</span> Integer size) <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        ModelAndView view = <span class="keyword">new</span> ModelAndView();</span><br><span class="line">        List&lt;Orders&gt; ordersList = ordersService.findAll(page, size);</span><br><span class="line">        <span class="comment">//插件提供的分页Bean对象</span></span><br><span class="line">        PageInfo pageInfo = <span class="keyword">new</span> PageInfo(ordersList);</span><br><span class="line">        view.addObject(<span class="string">"pageInfo"</span>, pageInfo);</span><br><span class="line">        System.out.println(ordersList);</span><br><span class="line">        <span class="keyword">for</span> (Orders order : ordersList)&#123;</span><br><span class="line">            System.out.println(order);</span><br><span class="line">        &#125;</span><br><span class="line">        view.setViewName(<span class="string">"orders-list"</span>);</span><br><span class="line">        <span class="keyword">return</span> view;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//service中</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Orders&gt; <span class="title">findAll</span><span class="params">(<span class="keyword">int</span> page, <span class="keyword">int</span> size)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//使用分页插件</span></span><br><span class="line">        PageHelper.startPage(page, size);</span><br><span class="line">        <span class="keyword">return</span> ordersDao.findAll();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>4. 主键操作</strong></p>
-<ol>
-<li>使用UUID作为主键<br> @Insert(“insert into users(id) values(REPLACE(UUID(),’-‘, ‘’))</li>
-<li>插入数据时返回自增的主键<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Insert</span>(<span class="string">"insert into tbl_user (name, age) values (#&#123;name&#125;, #&#123;age&#125;)"</span>)</span><br><span class="line"><span class="meta">@Options</span>(useGeneratedKeys=<span class="keyword">true</span>, keyProperty=<span class="string">"userId"</span>, keyColumn=<span class="string">"id"</span>)</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertUser</span><span class="params">(User user)</span></span>;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><strong>5. 当两个参数都为一般类型时, 需要进行参数的声明</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addRoleToUser</span><span class="params">(@Param(<span class="string">"userId"</span>)</span> String userId, @<span class="title">Param</span><span class="params">(<span class="string">"roleId"</span>)</span> String id)</span>;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/03/14/积累/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahao Wang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://pnu39ljha.bkt.clouddn.com/jh.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jhmarryme's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/14/积累/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+              <span class="post-meta-divider">|</span>
             
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">分类于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-14T11:15:09Z">
-                2019-03-14
-              </time>
-            
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/面试准备/" itemprop="url" rel="index">
+                    <span itemprop="name">面试准备</span>
+                  </a>
+                </span>
 
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="拓宽知识面"><a href="#拓宽知识面" class="headerlink" title="拓宽知识面:"></a>拓宽知识面:</h2><pre><code>1. 什么是中间件
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/03/14/LeetCode记录/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahao Wang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://pnu39ljha.bkt.clouddn.com/jh.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jhmarryme's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/14/LeetCode记录/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+                
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-14T03:01:11Z">
-                2019-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
+            </span>
           
 
           
@@ -1155,6 +1096,304 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/03/17/mybatis使用记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://pnu39ljha.bkt.clouddn.com/jh.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/17/mybatis使用记录/" itemprop="url">mybatis使用记录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T12:46:21Z">
+                2019-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ssm练习/" itemprop="url" rel="index">
+                    <span itemprop="name">ssm练习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="注解中的使用"><a href="#注解中的使用" class="headerlink" title="注解中的使用"></a>注解中的使用</h2><h3 id="当结果对象中的属性与表中的数据-类型不一致时-表中存放的是外键-引用其他表中的id-而结果集对象中存放的是根据这个id对应的对象"><a href="#当结果对象中的属性与表中的数据-类型不一致时-表中存放的是外键-引用其他表中的id-而结果集对象中存放的是根据这个id对应的对象" class="headerlink" title="当结果对象中的属性与表中的数据 类型不一致时(表中存放的是外键 引用其他表中的id, 而结果集对象中存放的是根据这个id对应的对象)"></a>当结果对象中的属性与表中的数据 类型不一致时(表中存放的是外键 引用其他表中的id, 而结果集对象中存放的是根据这个id对应的对象)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询所有订单信息, 其中根据产品id又查询产品, 并将产品一并封装到结果集中了. 相当于两次查询</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="meta">@Select</span>(<span class="string">"select * from orders"</span>)</span><br><span class="line">    <span class="meta">@Results</span>(&#123;</span><br><span class="line">            <span class="meta">@Result</span>(id = <span class="keyword">true</span>, column = <span class="string">"id"</span>, property = <span class="string">"id"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderNum"</span>, property = <span class="string">"orderNum"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderTime"</span>, property = <span class="string">"orderTime"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderStatus"</span>, property = <span class="string">"orderStatus"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"peopleCount"</span>, property = <span class="string">"peopleCount"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"payType"</span>, property = <span class="string">"payType"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderDesc"</span>, property = <span class="string">"orderDesc"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"peopleCount"</span>, property = <span class="string">"peopleCount"</span>),</span><br><span class="line">            <span class="comment">// 表中存放的为外键, 引用产品id, 但是要将这个id重新映射为结果集中对应的类型product 需要进行第二次查询并封装@One适用于一对一映射 @Many为多对多</span></span><br><span class="line">            <span class="comment">//其中的select为相应dao的全限定类名, 可以用JavaType指定内部查询的返回类型</span></span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"productId"</span>, property = <span class="string">"product"</span>, one = <span class="meta">@One</span>(</span><br><span class="line">                    select = <span class="string">"jhmarryme.dao.ProductDao.findById"</span></span><br><span class="line">            )),</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Orders&gt; <span class="title">findAll</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据id查找订单</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"select * from orders where id in (select orderId from order_traveller where orderId = #&#123;id&#125;)"</span>)</span><br><span class="line">    <span class="meta">@Results</span>(&#123;</span><br><span class="line">            <span class="meta">@Result</span>(id = <span class="keyword">true</span>, column = <span class="string">"id"</span>, property = <span class="string">"id"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderTime"</span>, property = <span class="string">"orderTime"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderNum"</span>, property = <span class="string">"orderNum"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderStatus"</span>, property = <span class="string">"orderStatus"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"peopleCount"</span>, property = <span class="string">"peopleCount"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"payType"</span>, property = <span class="string">"payType"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"orderDesc"</span>, property = <span class="string">"orderDesc"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"productId"</span>, property = <span class="string">"product"</span>, one = <span class="meta">@One</span>(</span><br><span class="line">                    select = <span class="string">"jhmarryme.dao.ProductDao.findById"</span></span><br><span class="line">            )),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"memberId"</span>, property = <span class="string">"member"</span>, one = <span class="meta">@One</span>(</span><br><span class="line">                    select = <span class="string">"jhmarryme.dao.MemberDao.findById"</span></span><br><span class="line">            )),</span><br><span class="line">            <span class="comment">//此处当返回值为list集合的时候, 如果要写JavaType值必须是List.class  不是查找的类.class, 可以不写</span></span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"id"</span>, property = <span class="string">"travellers"</span>, many = <span class="meta">@Many</span>(</span><br><span class="line">                    select = <span class="string">"jhmarryme.dao.TravellerDao.findByOrdersId"</span></span><br><span class="line">            ))</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Orders <span class="title">findById</span><span class="params">(String id)</span></span>;</span><br></pre></td></tr></table></figure>
+<h3 id="复习SQL语法"><a href="#复习SQL语法" class="headerlink" title="复习SQL语法"></a>复习SQL语法</h3><ul>
+<li>left join(左联接) 返回包括左表中的所有记录和右表中联结字段相等的记录 </li>
+<li>right join(右联接) 返回包括右表中的所有记录和左表中联结字段相等的记录</li>
+<li>inner join(等值连接) 只返回两个表中联结字段相等的行</li>
+</ul>
+<h3 id="pageHelper插件的使用"><a href="#pageHelper插件的使用" class="headerlink" title="pageHelper插件的使用"></a>pageHelper插件的使用</h3><p>在调用service时使用插件, 当controller收到了返回的参数result时, 使用new PageInfo(result) 将此bean传到jsp页面,  这个就是分页的bean, 具体属性查看该对象<br><img src="http://pnu39ljha.bkt.clouddn.com/6.PageHelper%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4.bmp" alt="使用步骤"><br><a href="https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/HowToUse.md" target="_blank" rel="noopener">git中文文档</a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//applicationContext.xml中</span></span><br><span class="line">&lt;!-- 把交给IOC管理 SqlSessionFactory --&gt;</span><br><span class="line">&lt;bean id=<span class="string">"sqlSessionFactory"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"org.mybatis.spring.SqlSessionFactoryBean"</span>&gt;</span><br><span class="line">&lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSource"</span> /&gt;</span><br><span class="line">&lt;!-- 传入PageHelper的插件 --&gt;</span><br><span class="line">&lt;property name=<span class="string">"plugins"</span>&gt;</span><br><span class="line">        &lt;array&gt;</span><br><span class="line">        &lt;!-- 传入插件的对象 --&gt;</span><br><span class="line">        &lt;bean <span class="class"><span class="keyword">class</span></span>=<span class="string">"com.github.pagehelper.PageInterceptor"</span>&gt;</span><br><span class="line">                &lt;property name=<span class="string">"properties"</span>&gt;</span><br><span class="line">                &lt;props&gt;</span><br><span class="line">                        &lt;prop key="helperDialect"&gt;mysql&lt;/prop&gt;</span><br><span class="line">                        &lt;prop key="reasonable"&gt;true&lt;/prop&gt;</span><br><span class="line">                &lt;/props&gt;</span><br><span class="line">                &lt;/property&gt;</span><br><span class="line">        &lt;/bean&gt;</span><br><span class="line">        &lt;/array&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//controller中</span></span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> OrdersService ordersService;</span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/findAll.do"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">findAll</span><span class="params">(@RequestParam(name = <span class="string">"page"</span>, required = <span class="keyword">true</span>, defaultValue = <span class="string">"1"</span>)</span> Integer page, @<span class="title">RequestParam</span><span class="params">(name = <span class="string">"size"</span>, required = <span class="keyword">true</span>, defaultValue = <span class="string">"4"</span>)</span> Integer size) <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        ModelAndView view = <span class="keyword">new</span> ModelAndView();</span><br><span class="line">        List&lt;Orders&gt; ordersList = ordersService.findAll(page, size);</span><br><span class="line">        <span class="comment">//插件提供的分页Bean对象</span></span><br><span class="line">        PageInfo pageInfo = <span class="keyword">new</span> PageInfo(ordersList);</span><br><span class="line">        view.addObject(<span class="string">"pageInfo"</span>, pageInfo);</span><br><span class="line">        System.out.println(ordersList);</span><br><span class="line">        <span class="keyword">for</span> (Orders order : ordersList)&#123;</span><br><span class="line">            System.out.println(order);</span><br><span class="line">        &#125;</span><br><span class="line">        view.setViewName(<span class="string">"orders-list"</span>);</span><br><span class="line">        <span class="keyword">return</span> view;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//service中</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Orders&gt; <span class="title">findAll</span><span class="params">(<span class="keyword">int</span> page, <span class="keyword">int</span> size)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//使用分页插件</span></span><br><span class="line">        PageHelper.startPage(page, size);</span><br><span class="line">        <span class="keyword">return</span> ordersDao.findAll();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="主键操作"><a href="#主键操作" class="headerlink" title="主键操作"></a>主键操作</h3><ol>
+<li><p>使用UUID作为主键</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Insert</span>(<span class="string">"insert into users(id) values(REPLACE(UUID(),'-', ''))</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>插入数据时返回自增的主键</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Insert</span>(<span class="string">"insert into tbl_user (name, age) values (#&#123;name&#125;, #&#123;age&#125;)"</span>)</span><br><span class="line"><span class="meta">@Options</span>(useGeneratedKeys=<span class="keyword">true</span>, keyProperty=<span class="string">"userId"</span>, keyColumn=<span class="string">"id"</span>)</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertUser</span><span class="params">(User user)</span></span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="当两个参数都为一般类型时-需要进行参数的声明"><a href="#当两个参数都为一般类型时-需要进行参数的声明" class="headerlink" title="当两个参数都为一般类型时, 需要进行参数的声明"></a>当两个参数都为一般类型时, 需要进行参数的声明</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addRoleToUser</span><span class="params">(@Param(<span class="string">"userId"</span>)</span> String userId, @<span class="title">Param</span><span class="params">(<span class="string">"roleId"</span>)</span> String id)</span>;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/03/11/积累/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://pnu39ljha.bkt.clouddn.com/jh.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/11/积累/" itemprop="url">积累</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-11T15:44:21Z">
+                2019-03-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/面试准备/" itemprop="url" rel="index">
+                    <span itemprop="name">面试准备</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="拓宽知识面"><a href="#拓宽知识面" class="headerlink" title="拓宽知识面:"></a>拓宽知识面:</h2><pre><code>1. 什么是中间件
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/03/07/ssm整合/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1209,8 +1448,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ssm/" itemprop="url" rel="index">
-                    <span itemprop="name">ssm</span>
+                  <a href="/categories/ssm练习/" itemprop="url" rel="index">
+                    <span itemprop="name">ssm练习</span>
                   </a>
                 </span>
 
@@ -1431,6 +1670,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ssm学习/" itemprop="url" rel="index">
+                    <span itemprop="name">ssm学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1667,212 +1928,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/03/04/spring第二天/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahao Wang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://pnu39ljha.bkt.clouddn.com/jh.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jhmarryme's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/04/spring第二天/" itemprop="url">spring第二天</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T12:46:21Z">
-                2019-03-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javaWeb/" itemprop="url" rel="index">
-                    <span itemprop="name">javaWeb</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="今日任务概览"><a href="#今日任务概览" class="headerlink" title="今日任务概览"></a>今日任务概览</h1><p>1、完善account案例<br>2、分析案例中问题<br>3、回顾之前的一个技术：动态代理<br>4、动态代理另一种实现方式<br>5、解决案例中的问题<br>6、AOP的概念<br>7、spring中的AOP相关术语<br>8、spring中基于XML和注解的AOP配置</p>
-<h2 id="spring中基于XML和注解的AOP配置"><a href="#spring中基于XML和注解的AOP配置" class="headerlink" title="spring中基于XML和注解的AOP配置"></a>spring中基于XML和注解的AOP配置</h2><p>在Spring文档中搜索xmlns:aop找到约束.</p>
-<ol>
-<li><p>相关术语<br> Joinpoint(连接点):<br> 所谓连接点是指那些被拦截到的点。在 spring 中,这些点指的是方法,因为 spring 只支持方法类型的<br> 连接点。<br> Pointcut(切入点):<br> 所谓切入点是指我们要对哪些 Joinpoint 进行拦截的定义。<br> Advice(通知/增强):<br> 所谓通知是指拦截到 Joinpoint 之后所要做的事情就是通知。<br> 通知的类型：前置通知,后置通知,异常通知,最终通知,环绕通知。<br> Introduction(引介):<br> 引介是一种特殊的通知在不修改类代码的前提下, Introduction 可以在运行期为类动态地添加一些方<br> 法或 Field。<br> Target(目标对象):<br> 代理的目标对象。<br> Weaving(织入):<br> 是指把增强应用到目标对象来创建新的代理对象的过程。<br> spring 采用动态代理织入，而 AspectJ 采用编译期织入和类装载期织入。<br> Proxy（代理）:<br> 一个类被 AOP 织入增强后，就产生一个结果代理类。<br> Aspect(切面):<br> 是切入点和通知（引介）的结合。</p>
-</li>
-<li><p>导入约束</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">此处要导入 aop 的约束</span><br><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></span><br><span class="line"> xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line"> xmlns:aop=<span class="string">"http://www.springframework.org/schema/aop"</span></span><br><span class="line"> xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/beans</span></span><br><span class="line"><span class="string"> http://www.springframework.org/schema/beans/spring-beans.xsd</span></span><br><span class="line"><span class="string"> http://www.springframework.org/schema/aop</span></span><br><span class="line"><span class="string"> http://www.springframework.org/schema/aop/spring-aop.xsd"</span>&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>XML的AOP配置及使用</p>
-<ol>
-<li><p>常用通知配置<br>XML中的配置:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--配置accountService--&gt;</span><br><span class="line">   &lt;bean id="accountService" class="jhmarryme.service.impl.AccountServiceImpl"&gt;&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">   &lt;!--配置logger对象--&gt;</span><br><span class="line">   &lt;bean id="logger" class="jhmarryme.utils.Logger"&gt;&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   &lt;!--开始Spring的AOP配置--&gt;</span><br><span class="line">   &lt;aop:config&gt;</span><br><span class="line">       &lt;!--配置切入点   此处配置必须在前面--&gt;</span><br><span class="line">       &lt;aop:pointcut id=<span class="string">"pt1"</span> expression=<span class="string">"execution(* jhmarryme.service.impl.*.*(..))"</span>/&gt;</span><br><span class="line">       &lt;aop:aspect id=<span class="string">"logAdvice"</span> ref=<span class="string">"logger"</span>&gt;</span><br><span class="line">           &lt;!-- 配置前置通知：在切入点方法执行之前执行</span><br><span class="line">           &lt;aop:before method="beforePrintLog" pointcut-ref="pt1" &gt;&lt;/aop:before&gt;--&gt;</span><br><span class="line"></span><br><span class="line">           &lt;!-- 配置后置通知：在切入点方法正常执行之后值。它和异常通知永远只能执行一个</span><br><span class="line">           &lt;aop:after-returning method="afterReturningPrintLog" pointcut-ref="pt1"&gt;&lt;/aop:after-returning&gt;--&gt;</span><br><span class="line"></span><br><span class="line">           &lt;!-- 配置异常通知：在切入点方法执行产生异常之后执行。它和后置通知永远只能执行一个</span><br><span class="line">           &lt;aop:after-throwing method="afterThrowingPrintLog" pointcut-ref="pt1"&gt;&lt;/aop:after-throwing&gt;--&gt;</span><br><span class="line">           &lt;!--顺序不能错--&gt;</span><br><span class="line">           &lt;!-- 配置最终通知：无论切入点方法是否正常执行它都会在其后面执行</span><br><span class="line">           &lt;aop:after method="afterPrintLog" pointcut-ref="pt1"&gt;&lt;/aop:after&gt;--&gt;</span><br><span class="line">           &lt;aop:around method=<span class="string">"aroundPringtLog"</span> pointcut-ref=<span class="string">"pt1"</span>/&gt;</span><br><span class="line">       &lt;/aop:aspect&gt;</span><br><span class="line">   &lt;/aop:config&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>环绕通知 XML的配置参照上段代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 环绕通知</span></span><br><span class="line"><span class="comment">    * 问题：</span></span><br><span class="line"><span class="comment">    *      当我们配置了环绕通知之后，切入点方法没有执行，而通知方法执行了。</span></span><br><span class="line"><span class="comment">    * 分析：</span></span><br><span class="line"><span class="comment">    *      通过对比动态代理中的环绕通知代码，发现动态代理的环绕通知有明确的切入点方法调用，而我们的代码中没有。</span></span><br><span class="line"><span class="comment">    * 解决：</span></span><br><span class="line"><span class="comment">    *      Spring框架为我们提供了一个接口：ProceedingJoinPoint。该接口有一个方法proceed()，此方法就相当于明确调用切入点方法。</span></span><br><span class="line"><span class="comment">    *      该接口可以作为环绕通知的方法参数，在程序执行时，spring框架会为我们提供该接口的实现类供我们使用。</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * spring中的环绕通知：</span></span><br><span class="line"><span class="comment">    *      它是spring框架为我们提供的一种可以在代码中手动控制增强方法何时执行的方式。</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Object <span class="title">aroundPringtLog</span><span class="params">(ProceedingJoinPoint point)</span></span>&#123; <span class="comment">//Spring控制传入的参数, 拿来用及可以</span></span><br><span class="line">       <span class="comment">//point中有一个返回参数的方法</span></span><br><span class="line">       Object[] args = point.getArgs();</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           printLog();</span><br><span class="line">           Object proceed = point.proceed(args); <span class="comment">//此处调用service层的方法</span></span><br><span class="line">           afterReturningPrintLog();</span><br><span class="line">           <span class="keyword">return</span> proceed;</span><br><span class="line">       &#125; <span class="keyword">catch</span> (Throwable throwable) &#123; <span class="comment">//此处异常较为特殊</span></span><br><span class="line">           afterThrowingPrintLog();</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</span><br><span class="line">       &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">           afterPrintLog();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-<li><p>XML配置详解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--spring中基于XML的AOP配置步骤</span><br><span class="line">    <span class="number">1</span>、把通知Bean也交给spring来管理</span><br><span class="line">    <span class="number">2</span>、使用aop:config标签表明开始AOP的配置</span><br><span class="line">    <span class="number">3</span>、使用aop:aspect标签表明配置切面</span><br><span class="line">            id属性：是给切面提供一个唯一标识</span><br><span class="line">            ref属性：是指定通知类bean的Id。</span><br><span class="line">    <span class="number">4</span>、在aop:aspect标签的内部使用对应标签来配置通知的类型</span><br><span class="line">           我们现在示例是让printLog方法在切入点方法执行之前之前：所以是前置通知</span><br><span class="line">           aop:before：表示配置前置通知</span><br><span class="line">                method属性：用于指定Logger类中哪个方法是前置通知</span><br><span class="line">                pointcut属性：用于指定切入点表达式，该表达式的含义指的是对业务层中哪些方法增强</span><br><span class="line"></span><br><span class="line">        切入点表达式的写法：</span><br><span class="line">            关键字：execution(表达式)</span><br><span class="line">            表达式：</span><br><span class="line">                访问修饰符  返回值  包名.包名.包名...类名.方法名(参数列表)</span><br><span class="line">            标准的表达式写法：</span><br><span class="line">                <span class="keyword">public</span> <span class="keyword">void</span> com.itheima.service.impl.AccountServiceImpl.saveAccount()</span><br><span class="line">            访问修饰符可以省略</span><br><span class="line">                <span class="keyword">void</span> com.itheima.service.impl.AccountServiceImpl.saveAccount()</span><br><span class="line">            返回值可以使用通配符，表示任意返回值</span><br><span class="line">                * com.itheima.service.impl.AccountServiceImpl.saveAccount()</span><br><span class="line">            包名可以使用通配符，表示任意包。但是有几级包，就需要写几个*.</span><br><span class="line">                * *.*.*.*.AccountServiceImpl.saveAccount())</span><br><span class="line">            包名可以使用..表示当前包及其子包</span><br><span class="line">                * *..AccountServiceImpl.saveAccount()</span><br><span class="line">            类名和方法名都可以使用*来实现通配</span><br><span class="line">                * *..*.*()</span><br><span class="line">            参数列表：</span><br><span class="line">                可以直接写数据类型：</span><br><span class="line">                    基本类型直接写名称           <span class="keyword">int</span></span><br><span class="line">                    引用类型写包名.类名的方式   java.lang.String</span><br><span class="line">                可以使用通配符表示任意类型，但是必须有参数</span><br><span class="line">                可以使用..表示有无参数均可，有参数可以是任意类型</span><br><span class="line">            全通配写法：</span><br><span class="line">                * *..*.*(..)</span><br><span class="line"></span><br><span class="line">            实际开发中切入点表达式的通常写法：</span><br><span class="line">                切到业务层实现类下的所有方法</span><br><span class="line">                    * com.itheima.service.impl.*.*(..)</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>采用注解的方式实现AOP</p>
-<ol>
-<li><p>在XML文件中添加</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 配置spring创建容器时要扫描的包--&gt;</span><br><span class="line">   &lt;context:component-scan base-package="com.itheima"&gt;&lt;/context:component-scan&gt;</span><br><span class="line"></span><br><span class="line">   &lt;!-- 配置spring开启注解AOP的支持 --&gt;</span><br><span class="line">   &lt;aop:aspectj-autoproxy&gt;&lt;/aop:aspectj-autoproxy&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>纯注解方式时<br> 在配置类中添加@EnableAspectJAutoProxy</p>
-</li>
-<li><p>在切面类中的使用</p>
-<ol>
-<li>@Aspect 声明当前类是一个切面类</li>
-<li>@Before(“pt1()”)....@Around(“pt1()”)  注解声明通知类型</li>
-<li><p>指明切入点</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Pointcut</span>(<span class="string">"execution(* jhmarryme.service.impl.*.*(..))"</span>)</span><br><span class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pt1</span><span class="params">()</span></span>&#123; &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用around时, 同xml配置方式的around相应方法</p>
-<h2 id="对动态代理的学习"><a href="#对动态代理的学习" class="headerlink" title="对动态代理的学习"></a>对动态代理的学习</h2></li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>基于接口的实现</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">final</span> Producer producer = <span class="keyword">new</span> Producer();</span><br><span class="line"></span><br><span class="line">       <span class="comment">/**</span></span><br><span class="line"><span class="comment">        * 动态代理：</span></span><br><span class="line"><span class="comment">        *  特点：字节码随用随创建，随用随加载</span></span><br><span class="line"><span class="comment">        *  作用：不修改源码的基础上对方法增强</span></span><br><span class="line"><span class="comment">        *  分类：</span></span><br><span class="line"><span class="comment">        *      基于接口的动态代理</span></span><br><span class="line"><span class="comment">        *      基于子类的动态代理</span></span><br><span class="line"><span class="comment">        *  基于接口的动态代理：</span></span><br><span class="line"><span class="comment">        *      涉及的类：Proxy</span></span><br><span class="line"><span class="comment">        *      提供者：JDK官方</span></span><br><span class="line"><span class="comment">        *  如何创建代理对象：</span></span><br><span class="line"><span class="comment">        *      使用Proxy类中的newProxyInstance方法</span></span><br><span class="line"><span class="comment">        *  创建代理对象的要求：</span></span><br><span class="line"><span class="comment">        *      被代理类最少实现一个接口，如果没有则不能使用</span></span><br><span class="line"><span class="comment">        *  newProxyInstance方法的参数：</span></span><br><span class="line"><span class="comment">        *      ClassLoader：类加载器</span></span><br><span class="line"><span class="comment">        *          它是用于加载代理对象字节码的。和被代理对象使用相同的类加载器。固定写法。</span></span><br><span class="line"><span class="comment">        *      Class[]：字节码数组</span></span><br><span class="line"><span class="comment">        *          它是用于让代理对象和被代理对象有相同方法。固定写法。</span></span><br><span class="line"><span class="comment">        *      InvocationHandler：用于提供增强的代码</span></span><br><span class="line"><span class="comment">        *          它是让我们写如何代理。我们一般都是些一个该接口的实现类，通常情况下都是匿名内部类，但不是必须的。</span></span><br><span class="line"><span class="comment">        *          此接口的实现类都是谁用谁写。</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">      IProducer proxyProducer = (IProducer) Proxy.newProxyInstance(producer.getClass().getClassLoader(),</span><br><span class="line">               producer.getClass().getInterfaces(),</span><br><span class="line">               <span class="keyword">new</span> InvocationHandler() &#123;</span><br><span class="line">                   <span class="comment">/**</span></span><br><span class="line"><span class="comment">                    * 作用：执行被代理对象的任何接口方法都会经过该方法</span></span><br><span class="line"><span class="comment">                    * 方法参数的含义</span></span><br><span class="line"><span class="comment">                    * <span class="doctag">@param</span> proxy   代理对象的引用</span></span><br><span class="line"><span class="comment">                    * <span class="doctag">@param</span> method  当前执行的方法</span></span><br><span class="line"><span class="comment">                    * <span class="doctag">@param</span> args    当前执行方法所需的参数</span></span><br><span class="line"><span class="comment">                    * <span class="doctag">@return</span>        和被代理对象方法有相同的返回值</span></span><br><span class="line"><span class="comment">                    * <span class="doctag">@throws</span> Throwable</span></span><br><span class="line"><span class="comment">                    */</span></span><br><span class="line">                   <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">                       <span class="comment">//提供增强的代码</span></span><br><span class="line">                       Object returnValue = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">                       <span class="comment">//1.获取方法执行的参数</span></span><br><span class="line">                       Float money = (Float)args[<span class="number">0</span>];</span><br><span class="line">                       <span class="comment">//2.判断当前方法是不是销售</span></span><br><span class="line">                       <span class="keyword">if</span>(<span class="string">"saleProduct"</span>.equals(method.getName())) &#123;</span><br><span class="line">                           returnValue = method.invoke(producer, money*<span class="number">0.8f</span>);</span><br><span class="line">                       &#125;</span><br><span class="line">                       <span class="keyword">return</span> returnValue;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;);</span><br><span class="line">       proxyProducer.saleProduct(<span class="number">10000f</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>基于子类的实现</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">final</span> Producer producer = <span class="keyword">new</span> Producer();</span><br><span class="line"></span><br><span class="line">       <span class="comment">/**</span></span><br><span class="line"><span class="comment">        * 动态代理：</span></span><br><span class="line"><span class="comment">        *  特点：字节码随用随创建，随用随加载</span></span><br><span class="line"><span class="comment">        *  作用：不修改源码的基础上对方法增强</span></span><br><span class="line"><span class="comment">        *  分类：</span></span><br><span class="line"><span class="comment">        *      基于接口的动态代理</span></span><br><span class="line"><span class="comment">        *      基于子类的动态代理</span></span><br><span class="line"><span class="comment">        *  基于子类的动态代理：</span></span><br><span class="line"><span class="comment">        *      涉及的类：Enhancer</span></span><br><span class="line"><span class="comment">        *      提供者：第三方cglib库</span></span><br><span class="line"><span class="comment">        *  如何创建代理对象：</span></span><br><span class="line"><span class="comment">        *      使用Enhancer类中的create方法</span></span><br><span class="line"><span class="comment">        *  创建代理对象的要求：</span></span><br><span class="line"><span class="comment">        *      被代理类不能是最终类</span></span><br><span class="line"><span class="comment">        *  create方法的参数：</span></span><br><span class="line"><span class="comment">        *      Class：字节码</span></span><br><span class="line"><span class="comment">        *          它是用于指定被代理对象的字节码。</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        *      Callback：用于提供增强的代码</span></span><br><span class="line"><span class="comment">        *          它是让我们写如何代理。我们一般都是些一个该接口的实现类，通常情况下都是匿名内部类，但不是必须的。</span></span><br><span class="line"><span class="comment">        *          此接口的实现类都是谁用谁写。</span></span><br><span class="line"><span class="comment">        *          我们一般写的都是该接口的子接口实现类：MethodInterceptor</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">       Producer cglibProducer = (Producer)Enhancer.create(producer.getClass(), <span class="keyword">new</span> MethodInterceptor() &#123;</span><br><span class="line">           <span class="comment">/**</span></span><br><span class="line"><span class="comment">            * 执行被代理  对象的任何方法都会经过该方法</span></span><br><span class="line"><span class="comment">            * <span class="doctag">@param</span> proxy</span></span><br><span class="line"><span class="comment">            * <span class="doctag">@param</span> method</span></span><br><span class="line"><span class="comment">            * <span class="doctag">@param</span> args</span></span><br><span class="line"><span class="comment">            *    以上三个参数和基于接口的动态代理中invoke方法的参数是一样的</span></span><br><span class="line"><span class="comment">            * <span class="doctag">@param</span> methodProxy ：当前执行方法的代理对象</span></span><br><span class="line"><span class="comment">            * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">            * <span class="doctag">@throws</span> Throwable</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">           <span class="function"><span class="keyword">public</span> Object <span class="title">intercept</span><span class="params">(Object proxy, Method method, Object[] args, MethodProxy methodProxy)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">               <span class="comment">//提供增强的代码</span></span><br><span class="line">               Object returnValue = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">               <span class="comment">//1.获取方法执行的参数</span></span><br><span class="line">               Float money = (Float)args[<span class="number">0</span>];</span><br><span class="line">               <span class="comment">//2.判断当前方法是不是销售</span></span><br><span class="line">               <span class="keyword">if</span>(<span class="string">"saleProduct"</span>.equals(method.getName())) &#123;</span><br><span class="line">                   returnValue = method.invoke(producer, money*<span class="number">0.8f</span>);</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="keyword">return</span> returnValue;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">       cglibProducer.saleProduct(<span class="number">12000f</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>实例中的使用</p>
-<ol>
-<li><p>beanFactory的编写:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BeanFactory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> IAccountService accountService;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTransactionManager</span><span class="params">(TransactionManager transactionManager)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.transactionManager = transactionManager;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> TransactionManager transactionManager;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAccountService</span><span class="params">(IAccountService accountService)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.accountService = accountService;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取service代理对象</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IAccountService <span class="title">getAccountService</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (IAccountService) Proxy.newProxyInstance(accountService.getClass().getClassLoader(), accountService.getClass().getInterfaces(), <span class="keyword">new</span> InvocationHandler() &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">                <span class="comment">//增强service中的方法</span></span><br><span class="line">                Object returnVal = <span class="keyword">null</span>;</span><br><span class="line">                <span class="keyword">try</span>&#123;</span><br><span class="line"><span class="comment">//                    1. 开启事务</span></span><br><span class="line">                    transactionManager.beginTransaction();</span><br><span class="line"><span class="comment">//                    2. 执行操作</span></span><br><span class="line">                    returnVal = method.invoke(accountService, args);</span><br><span class="line">                    <span class="keyword">int</span> i = <span class="number">1</span> / <span class="number">0</span>;</span><br><span class="line"><span class="comment">//                    3. 提交事务</span></span><br><span class="line">                    transactionManager.commit();</span><br><span class="line"><span class="comment">//                    4. 返回结果</span></span><br><span class="line">                    <span class="keyword">return</span> returnVal;</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line"><span class="comment">//                    5. 回滚事务</span></span><br><span class="line">                    transactionManager.rollback();</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">                &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line"><span class="comment">//                    6. 关闭连接</span></span><br><span class="line">                    transactionManager.release();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>bean.xml的配置<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--配置accountService对象--&gt;</span><br><span class="line">   &lt;bean id=<span class="string">"accountService"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"jhmarryme.service.impl.AccountServiceImpl"</span>&gt;</span><br><span class="line">       &lt;!--注入accountDao对象--&gt;</span><br><span class="line">       &lt;property name="accountDao" ref="accountDao"&gt;&lt;/property&gt;</span><br><span class="line">   &lt;/bean&gt;</span><br><span class="line">   &lt;!--配置accounDao对象--&gt;</span><br><span class="line">   &lt;bean id=<span class="string">"accountDao"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"jhmarryme.dao.impl.AccountDaoImpl"</span>&gt;</span><br><span class="line">       &lt;!--注入conn--&gt;</span><br><span class="line">       &lt;property name="connectionUtils" ref="conn"&gt;&lt;/property&gt;</span><br><span class="line">       &lt;!--注入runner--&gt;</span><br><span class="line">       &lt;property name="runner" ref="runner"&gt;&lt;/property&gt;</span><br><span class="line">   &lt;/bean&gt;</span><br><span class="line">   &lt;!--配置连接工具类--&gt;</span><br><span class="line">   &lt;bean id=<span class="string">"conn"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"jhmarryme.utils.ConnectionUtils"</span>&gt;</span><br><span class="line">       &lt;!--注入数据源--&gt;</span><br><span class="line">       &lt;property name="dataSource" ref="dataSource"&gt;&lt;/property&gt;</span><br><span class="line">   &lt;/bean&gt;</span><br><span class="line">   &lt;!--配置QueryRunner对象--&gt;</span><br><span class="line">   &lt;bean id=<span class="string">"runner"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"org.apache.commons.dbutils.QueryRunner"</span>&gt;</span><br><span class="line">   &lt;/bean&gt;</span><br><span class="line">   &lt;!--配置数据源--&gt;</span><br><span class="line">   &lt;bean id=<span class="string">"dataSource"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"com.mchange.v2.c3p0.ComboPooledDataSource"</span>&gt;</span><br><span class="line">       &lt;!--注入属性--&gt;</span><br><span class="line">       &lt;property name=<span class="string">"driverClass"</span> value=<span class="string">"com.mysql.jdbc.Driver"</span>/&gt;</span><br><span class="line">       &lt;property name=<span class="string">"jdbcUrl"</span> value=<span class="string">"jdbc:mysql://localhost:3306/test"</span>/&gt;</span><br><span class="line">       &lt;property name=<span class="string">"user"</span> value=<span class="string">"root"</span>/&gt;</span><br><span class="line">       &lt;property name=<span class="string">"password"</span> value=<span class="string">"541224"</span>/&gt;</span><br><span class="line">   &lt;/bean&gt;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">   &lt;!--配置事务管理类--&gt;</span><br><span class="line">   &lt;bean id=<span class="string">"transactionManager"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"jhmarryme.utils.TransactionManager"</span>&gt;</span><br><span class="line">       &lt;property name=<span class="string">"connectionUtils"</span> ref=<span class="string">"conn"</span>/&gt;</span><br><span class="line">   &lt;/bean&gt;</span><br><span class="line">	</span><br><span class="line">   &lt;!--配置代理的service--&gt;</span><br><span class="line">   &lt;bean id=<span class="string">"proxyAccountService"</span> factory-bean=<span class="string">"beanFactory"</span> factory-method=<span class="string">"getAccountService"</span>&gt;</span><br><span class="line">	</span><br><span class="line">   &lt;/bean&gt;</span><br><span class="line">   &lt;!--配置代理beanFactory--&gt;</span><br><span class="line">   &lt;bean id=<span class="string">"beanFactory"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"jhmarryme.factoty.BeanFactory"</span>&gt;</span><br><span class="line">       &lt;property name=<span class="string">"accountService"</span> ref=<span class="string">"accountService"</span>/&gt;</span><br><span class="line">       &lt;property name=<span class="string">"transactionManager"</span> ref=<span class="string">"transactionManager"</span>/&gt;</span><br><span class="line">   &lt;/bean&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="对转账事务通过AOP方式的增强"><a href="#对转账事务通过AOP方式的增强" class="headerlink" title="对转账事务通过AOP方式的增强"></a>对转账事务通过AOP方式的增强</h2><pre><code>1. 导入依赖 
-2. 在XML开启切面类的支持&lt;aop:aspectj-autoproxy&gt;&lt;/aop:aspectj-autoproxy&gt;
-3. 编写切面类使用@Aspect注明是一个注解类 注册Bean对象@Component
-4. 完成切面类中的方法调用及注入的管理
-5. 编写测试类
-</code></pre><p>至此今天的学习任务完成, 对AOP的概念了有了一定的理解, 对Spring中的AOP配置有所认识了, 熟练程度还是不够. 基本能完成AOP的关于XML和注解的配置.</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1925,7 +1980,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1936,7 +1991,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1947,7 +2002,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
