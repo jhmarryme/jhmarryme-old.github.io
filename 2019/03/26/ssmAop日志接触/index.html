@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="blog">
+<meta name="description" content="ssm中的AOP日志使用简单日志处理 在spring-mvc.xml中开启AOP注解支持 123456&amp;lt;!--        支持AOP的注解支持，AOP底层使用代理技术        JDK动态代理，要求必须有接口        cglib代理，生成子类对象，proxy-target-class=&quot;true&quot; 默认使用cglib的方式    --&amp;gt;    &amp;lt;aop:aspect">
 <meta name="keywords" content="javaWeb,框架">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ssmAop日志接触">
 <meta property="og:url" content="https://wangdaye7.github.io/2019/03/26/ssmAop日志接触/index.html">
 <meta property="og:site_name" content="jhmarryme&#39;s blog">
-<meta property="og:description" content="blog">
+<meta property="og:description" content="ssm中的AOP日志使用简单日志处理 在spring-mvc.xml中开启AOP注解支持 123456&amp;lt;!--        支持AOP的注解支持，AOP底层使用代理技术        JDK动态代理，要求必须有接口        cglib代理，生成子类对象，proxy-target-class=&quot;true&quot; 默认使用cglib的方式    --&amp;gt;    &amp;lt;aop:aspect">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-25T10:04:37.999Z">
+<meta property="og:updated_time" content="2019-03-25T10:58:58.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssmAop日志接触">
-<meta name="twitter:description" content="blog">
+<meta name="twitter:description" content="ssm中的AOP日志使用简单日志处理 在spring-mvc.xml中开启AOP注解支持 123456&amp;lt;!--        支持AOP的注解支持，AOP底层使用代理技术        JDK动态代理，要求必须有接口        cglib代理，生成子类对象，proxy-target-class=&quot;true&quot; 默认使用cglib的方式    --&amp;gt;    &amp;lt;aop:aspect">
 
 
 
@@ -353,7 +353,15 @@
       
 
       
-        
+        <h2 id="ssm中的AOP日志使用"><a href="#ssm中的AOP日志使用" class="headerlink" title="ssm中的AOP日志使用"></a>ssm中的AOP日志使用</h2><h3 id="简单日志处理"><a href="#简单日志处理" class="headerlink" title="简单日志处理"></a>简单日志处理</h3><ol>
+<li><p>在spring-mvc.xml中开启AOP注解支持</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">        支持AOP的注解支持，AOP底层使用代理技术</span><br><span class="line">        JDK动态代理，要求必须有接口</span><br><span class="line">        cglib代理，生成子类对象，proxy-target-<span class="class"><span class="keyword">class</span></span>=<span class="string">"true"</span> 默认使用cglib的方式</span><br><span class="line">    --&gt;</span><br><span class="line">    &lt;aop:aspectj-autoproxy proxy-target-<span class="class"><span class="keyword">class</span></span>=<span class="string">"true"</span>/&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>切面类的编写</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogAop</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> HttpServletRequest request;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> SysLogService sysLogService;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Date visitTime; <span class="comment">//开始时间</span></span><br><span class="line">    <span class="keyword">private</span> Class clazz; <span class="comment">//访问的类</span></span><br><span class="line">    <span class="keyword">private</span> Method method;<span class="comment">//访问的方法</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//前置通知  主要是获取开始时间，执行的类是哪一个，执行的是哪一个方法</span></span><br><span class="line">    <span class="meta">@Before</span>(<span class="string">"execution(* jhmarryme.controller.*.*(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doBefore</span><span class="params">(JoinPoint jp)</span> <span class="keyword">throws</span> NoSuchMethodException </span>&#123;</span><br><span class="line">        visitTime = <span class="keyword">new</span> Date();<span class="comment">//当前时间就是开始访问的时间</span></span><br><span class="line">        clazz = jp.getTarget().getClass(); <span class="comment">//具体要访问的类</span></span><br><span class="line">        String methodName = jp.getSignature().getName(); <span class="comment">//获取访问的方法的名称</span></span><br><span class="line">        Object[] args = jp.getArgs();<span class="comment">//获取访问的方法的参数</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取具体执行的方法的Method对象</span></span><br><span class="line">        <span class="keyword">if</span> (args == <span class="keyword">null</span> || args.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">//这里只能获取无参数的方法</span></span><br><span class="line">            method = clazz.getMethod(methodName);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            Class[] classArgs = <span class="keyword">new</span> Class[args.length];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; args.length; i++) &#123;</span><br><span class="line">                classArgs[i] = args[i].getClass();</span><br><span class="line">            &#125;</span><br><span class="line">            clazz.getMethod(methodName, classArgs);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//后置通知</span></span><br><span class="line">    <span class="meta">@After</span>(<span class="string">"execution(* jhmarryme.controller.*.*(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doAfter</span><span class="params">(JoinPoint jp)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//获取访问的时长</span></span><br><span class="line">        <span class="keyword">long</span> time = System.currentTimeMillis() - visitTime.getTime();</span><br><span class="line"></span><br><span class="line">        String url = <span class="string">""</span>;</span><br><span class="line">        <span class="comment">//获取url</span></span><br><span class="line">        <span class="keyword">if</span> (clazz != <span class="keyword">null</span> &amp;&amp; method != <span class="keyword">null</span> &amp;&amp; clazz != LogAop.class) &#123;</span><br><span class="line">            <span class="comment">//1.获取类上的@RequestMapping("/orders")</span></span><br><span class="line">            RequestMapping classAnnotation = (RequestMapping) clazz.getAnnotation(RequestMapping.class);</span><br><span class="line">            <span class="keyword">if</span> (classAnnotation != <span class="keyword">null</span>) &#123;</span><br><span class="line">                String[] classValue = classAnnotation.value();</span><br><span class="line">                <span class="comment">//2.获取方法上的@RequestMapping(xxx)</span></span><br><span class="line">                RequestMapping methodAnnotation = method.getAnnotation(RequestMapping.class);</span><br><span class="line">                <span class="keyword">if</span> (methodAnnotation != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    String[] methodValue = methodAnnotation.value();</span><br><span class="line">                    url = classValue[<span class="number">0</span>] + methodValue[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">                    <span class="comment">//获取访问的ip</span></span><br><span class="line">                    String ip = request.getRemoteAddr();</span><br><span class="line"></span><br><span class="line">                    <span class="comment">//获取当前操作的用户</span></span><br><span class="line">                    <span class="comment">//从上下文中获了当前登录的用户</span></span><br><span class="line">                    SecurityContext context = SecurityContextHolder.getContext();</span><br><span class="line">                    User user = (User) context.getAuthentication().getPrincipal();</span><br><span class="line">                    String username = user.getUsername();</span><br><span class="line"></span><br><span class="line">                    <span class="comment">//将日志相关信息封装到SysLog对象</span></span><br><span class="line">                    SysLogs sysLog = <span class="keyword">new</span> SysLogs();</span><br><span class="line">                    <span class="comment">//执行时长</span></span><br><span class="line">                    sysLog.setExecutionTime(time);</span><br><span class="line">                    sysLog.setIp(ip);</span><br><span class="line">                    sysLog.setMethod(<span class="string">"[类名] "</span> + clazz.getName() + <span class="string">"[方法名] "</span> + method.getName());</span><br><span class="line">                    sysLog.setUrl(url);</span><br><span class="line">                    sysLog.setUsername(username);</span><br><span class="line">                    sysLog.setVisitTime(visitTime);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">//调用Service完成操作</span></span><br><span class="line">                    sysLogService.save(sysLog);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
       
     </div>
     
@@ -394,6 +402,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/27/springboot-day1/" rel="prev" title="springboot-day1(非自写)">
+                springboot-day1(非自写) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -445,8 +457,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -463,7 +484,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -474,7 +495,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -508,6 +529,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ssm中的AOP日志使用"><span class="nav-number">1.</span> <span class="nav-text">ssm中的AOP日志使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单日志处理"><span class="nav-number">1.1.</span> <span class="nav-text">简单日志处理</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

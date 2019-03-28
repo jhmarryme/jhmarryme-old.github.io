@@ -4,10 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.itheima.heima_ssm</groupId>
-    <artifactId>heima_ssm</artifactId>
+    <groupId>jhmarryme</groupId>
+    <artifactId>ssm_project_1</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+
     <properties>
         <spring.version>5.0.2.RELEASE</spring.version>
         <slf4j.version>1.6.6</slf4j.version>
@@ -158,16 +160,17 @@
         </dependency>
 
         <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc14</artifactId>
-            <version>${oracle.version}</version>
-        </dependency>
-
-        <dependency>
             <groupId>javax.annotation</groupId>
             <artifactId>jsr250-api</artifactId>
             <version>1.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
+        </dependency>
+
     </dependencies>
     <build>
         <pluginManagement>
@@ -183,16 +186,18 @@
                         <showWarnings>true</showWarnings>
                     </configuration>
                 </plugin>
+
             </plugins>
         </pluginManagement>
     </build>
     <modules>
-        <module>heima_ssm_dao</module>
-        <module>heima_ssm_service</module>
-        <module>heima_ssm_domain</module>
-        <module>heima_ssm_utils</module>
-        <module>heima_ssm_web</module>
+        <module>ssm_project_1_domain</module>
+        <module>ssm_project_1_service</module>
+        <module>ssm_project_1_util</module>
+        <module>ssm_project_1_dao</module>
+        <module>ssm_project_1_web</module>
     </modules>
+
 
 
 </project>
