@@ -263,6 +263,544 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/微服务/次级/利用Cors解决跨域问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/13/微服务/次级/利用Cors解决跨域问题/" itemprop="url">利用Cors解决跨域问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T16:09:29Z">
+                2019-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/微服务项目存档/" itemprop="url" rel="index">
+                    <span itemprop="name">微服务项目存档</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="6-3-3-实现非常简单"><a href="#6-3-3-实现非常简单" class="headerlink" title="6.3.3.实现非常简单"></a>6.3.3.实现非常简单</h3><p>在<code>leyou-gateway</code>中编写一个配置类，并且注册CorsFilter：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.cors.CorsConfiguration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.cors.UrlBasedCorsConfigurationSource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.filter.CorsFilter;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GlobalCorsConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> CorsFilter <span class="title">corsFilter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//1.添加CORS配置信息</span></span><br><span class="line">        CorsConfiguration config = <span class="keyword">new</span> CorsConfiguration();</span><br><span class="line">        <span class="comment">//1) 允许的域,不要写*，否则cookie就无法使用了</span></span><br><span class="line">        config.addAllowedOrigin(<span class="string">"http://manage.leyou.com"</span>);</span><br><span class="line">        <span class="comment">//2) 是否发送Cookie信息</span></span><br><span class="line">        config.setAllowCredentials(<span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">//3) 允许的请求方式</span></span><br><span class="line">        config.addAllowedMethod(<span class="string">"OPTIONS"</span>);</span><br><span class="line">        config.addAllowedMethod(<span class="string">"HEAD"</span>);</span><br><span class="line">        config.addAllowedMethod(<span class="string">"GET"</span>);</span><br><span class="line">        config.addAllowedMethod(<span class="string">"PUT"</span>);</span><br><span class="line">        config.addAllowedMethod(<span class="string">"POST"</span>);</span><br><span class="line">        config.addAllowedMethod(<span class="string">"DELETE"</span>);</span><br><span class="line">        config.addAllowedMethod(<span class="string">"PATCH"</span>);</span><br><span class="line">        <span class="comment">// 4）允许的头信息</span></span><br><span class="line">        config.addAllowedHeader(<span class="string">"*"</span>);</span><br><span class="line">        <span class="comment">// 5) 有效时长</span></span><br><span class="line">        config.setMaxAge(<span class="number">3600L</span>);</span><br><span class="line">        <span class="comment">//2.添加映射路径，我们拦截一切请求</span></span><br><span class="line">        UrlBasedCorsConfigurationSource configSource = <span class="keyword">new</span> UrlBasedCorsConfigurationSource();</span><br><span class="line">        configSource.registerCorsConfiguration(<span class="string">"/**"</span>, config);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//3.返回新的CorsFilter.</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> CorsFilter(configSource);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结构：</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day6/assets/1530462650711.png" alt="1530462650711"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/微服务/次级/修改品牌(未完成)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/13/微服务/次级/修改品牌(未完成)/" itemprop="url">修改品牌</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T16:09:29Z">
+                2019-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/微服务项目存档/" itemprop="url" rel="index">
+                    <span itemprop="name">微服务项目存档</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="4-修改品牌（作业）"><a href="#4-修改品牌（作业）" class="headerlink" title="4.修改品牌（作业）"></a>4.修改品牌（作业）</h1><p>修改的难点在于回显。</p>
+<p>当我们点击编辑按钮，希望弹出窗口的同时，看到原来的数据：</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526216494380.png" alt="1526216494380"></p>
+<h2 id="4-1-点击编辑出现弹窗"><a href="#4-1-点击编辑出现弹窗" class="headerlink" title="4.1.点击编辑出现弹窗"></a>4.1.点击编辑出现弹窗</h2><p>这个比较简单，修改show属性为true即可实现，我们绑定一个点击事件：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">v-btn</span> <span class="attr">color</span>=<span class="string">"info"</span> @<span class="attr">click</span>=<span class="string">"editBrand"</span>&gt;</span>编辑<span class="tag">&lt;/<span class="name">v-btn</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后编写事件，改变show 的状态：</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526217622765.png" alt="1526217622765"></p>
+<p>如果仅仅是这样，编辑按钮与新增按钮将没有任何区别，关键在于，如何回显呢？</p>
+<h2 id="4-2-回显数据"><a href="#4-2-回显数据" class="headerlink" title="4.2.回显数据"></a>4.2.回显数据</h2><p>回显数据，就是把当前点击的品牌数据传递到子组件（MyBrandForm）。而父组件给子组件传递数据，通过props属性。</p>
+<ul>
+<li><p>第一步：在编辑时获取当前选中的品牌信息，并且记录到data中</p>
+<p>先在data中定义属性，用来接收用来编辑的brand数据：</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526218080029.png" alt="1526218080029"></p>
+<p>我们在页面触发编辑事件时，把当前的brand传递给editBrand方法：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">v-btn</span> <span class="attr">color</span>=<span class="string">"info"</span> @<span class="attr">click</span>=<span class="string">"editBrand(props.item)"</span>&gt;</span>编辑<span class="tag">&lt;/<span class="name">v-btn</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后在editBrand中接收数据，赋值给oldBrand：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">editBrand(oldBrand)&#123;</span><br><span class="line">  <span class="comment">// 控制弹窗可见：</span></span><br><span class="line">  <span class="keyword">this</span>.show = <span class="literal">true</span>;</span><br><span class="line">  <span class="comment">// 获取要编辑的brand</span></span><br><span class="line">  <span class="keyword">this</span>.oldBrand = oldBrand;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第二步：把获取的brand数据 传递给子组件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--对话框的内容，表单--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">v-card-text</span> <span class="attr">class</span>=<span class="string">"px-5"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">my-brand-form</span> @<span class="attr">close</span>=<span class="string">"closeWindow"</span> <span class="attr">:oldBrand</span>=<span class="string">"oldBrand"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">v-card-text</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第三步：在子组件中通过props接收要编辑的brand数据，Vue会自动完成回显</p>
+<p>接收数据：</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526218243761.png" alt="1526218243761"></p>
+<p>通过watch函数监控oldBrand的变化，把值copy到本地的brand：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">    oldBrand: &#123;<span class="comment">// 监控oldBrand的变化</span></span><br><span class="line">        handler(val) &#123;</span><br><span class="line">            <span class="keyword">if</span>(val)&#123;</span><br><span class="line">                <span class="comment">// 注意不要直接复制，否则这边的修改会影响到父组件的数据，copy属性即可</span></span><br><span class="line">                <span class="keyword">this</span>.brand =  <span class="built_in">Object</span>.deepCopy(val)</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">// 为空，初始化brand</span></span><br><span class="line">                <span class="keyword">this</span>.brand = &#123;</span><br><span class="line">                    name: <span class="string">''</span>,</span><br><span class="line">                    letter: <span class="string">''</span>,</span><br><span class="line">                    image: <span class="string">''</span>,</span><br><span class="line">                    categories: [],</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">            deep: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Object.deepCopy 自定义的对对象进行深度复制的方法。</li>
+<li>需要判断监听到的是否为空，如果为空，应该进行初始化</li>
+</ul>
+</li>
+</ul>
+<p>测试：发现数据回显了，除了商品分类以外：</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526219653994.png" alt="1526219653994"></p>
+<h2 id="4-3-商品分类回显"><a href="#4-3-商品分类回显" class="headerlink" title="4.3.商品分类回显"></a>4.3.商品分类回显</h2><p>为什么商品分类没有回显？</p>
+<p>因为品牌中并没有商品分类数据。我们需要在进入编辑页面之前，查询商品分类信息：</p>
+<h3 id="4-3-1-后台提供接口"><a href="#4-3-1-后台提供接口" class="headerlink" title="4.3.1.后台提供接口"></a>4.3.1.后台提供接口</h3><blockquote>
+<h4 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h4></blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通过品牌id查询商品分类</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> bid</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"bid/&#123;bid&#125;"</span>)</span><br><span class="line"><span class="keyword">public</span> ResponseEntity&lt;List&lt;Category&gt;&gt; queryByBrandId(<span class="meta">@PathVariable</span>(<span class="string">"bid"</span>) Long bid) &#123;</span><br><span class="line">    List&lt;Category&gt; list = <span class="keyword">this</span>.categoryService.queryByBrandId(bid);</span><br><span class="line">    <span class="keyword">if</span> (list == <span class="keyword">null</span> || list.size() &lt; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ResponseEntity&lt;&gt;(HttpStatus.NOT_FOUND);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ResponseEntity.ok(list);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Service</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Category&gt; <span class="title">queryByBrandId</span><span class="params">(Long bid)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.categoryMapper.queryByBrandId(bid);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>mapper</p>
+</blockquote>
+<p>因为需要通过中间表进行子查询，所以这里要手写Sql：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据品牌id查询商品分类</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> bid</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="meta">@Select</span>(<span class="string">"SELECT * FROM tb_category WHERE id IN (SELECT category_id FROM tb_category_brand WHERE brand_id = #&#123;bid&#125;)"</span>)</span><br><span class="line"><span class="function">List&lt;Category&gt; <span class="title">queryByBrandId</span><span class="params">(Long bid)</span></span>;</span><br></pre></td></tr></table></figure>
+<h3 id="4-3-2-前台查询分类并渲染"><a href="#4-3-2-前台查询分类并渲染" class="headerlink" title="4.3.2.前台查询分类并渲染"></a>4.3.2.前台查询分类并渲染</h3><p>我们在编辑页面打开之前，先把数据查询完毕：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">editBrand(oldBrand)&#123;</span><br><span class="line">    <span class="comment">// 根据品牌信息查询商品分类</span></span><br><span class="line">    <span class="keyword">this</span>.$http.get(<span class="string">"/item/category/bid/"</span> + oldBrand.id)</span><br><span class="line">        .then(<span class="function">(<span class="params">&#123;data&#125;</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 控制弹窗可见：</span></span><br><span class="line">        <span class="keyword">this</span>.show = <span class="literal">true</span>;</span><br><span class="line">        <span class="comment">// 获取要编辑的brand</span></span><br><span class="line">        <span class="keyword">this</span>.oldBrand = oldBrand</span><br><span class="line">        <span class="comment">// 回显商品分类</span></span><br><span class="line">        <span class="keyword">this</span>.oldBrand.categories = data;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再次测试：数据成功回显了</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526222999115.png" alt="1526222999115"></p>
+<h3 id="4-3-3-新增窗口数据干扰"><a href="#4-3-3-新增窗口数据干扰" class="headerlink" title="4.3.3.新增窗口数据干扰"></a>4.3.3.新增窗口数据干扰</h3><p>但是，此时却产生了新问题：新增窗口竟然也有数据？</p>
+<p>原因：</p>
+<p>​    如果之前打开过编辑，那么在父组件中记录的oldBrand会保留。下次再打开窗口，如果是编辑窗口到没问题，但是新增的话，就会再次显示上次打开的品牌信息了。</p>
+<p>解决：</p>
+<p>​    新增窗口打开前，把数据置空。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">addBrand() &#123;</span><br><span class="line">    <span class="comment">// 控制弹窗可见：</span></span><br><span class="line">    <span class="keyword">this</span>.show = <span class="literal">true</span>;</span><br><span class="line">    <span class="comment">// 把oldBrand变为null</span></span><br><span class="line">    <span class="keyword">this</span>.oldBrand = <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-3-4-提交表单时判断是新增还是修改"><a href="#4-3-4-提交表单时判断是新增还是修改" class="headerlink" title="4.3.4.提交表单时判断是新增还是修改"></a>4.3.4.提交表单时判断是新增还是修改</h3><p>新增和修改是同一个页面，我们该如何判断？</p>
+<p>父组件中点击按钮弹出新增或修改的窗口，因此父组件非常清楚接下来是新增还是修改。</p>
+<p>因此，最简单的方案就是，在父组件中定义变量，记录新增或修改状态，当弹出页面时，把这个状态也传递给子组件。</p>
+<p>第一步：在父组件中记录状态：</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526224372366.png" alt="1526224372366"></p>
+<p>第二步：在新增和修改前，更改状态：</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526224447288.png" alt="1526224447288"></p>
+<p>第三步：传递给子组件</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526224495244.png" alt="1526224495244"></p>
+<p>第四步，子组件接收标记：</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526224563838.png" alt="1526224563838"></p>
+<p>标题的动态化：</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526224628514.png" alt="1526224628514"></p>
+<p>表单提交动态：</p>
+<p>axios除了除了get和post外，还有一个通用的请求方式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将数据提交到后台</span></span><br><span class="line"><span class="comment">// this.$http.post('/item/brand', this.$qs.stringify(params))</span></span><br><span class="line"><span class="keyword">this</span>.$http(&#123;</span><br><span class="line">    method: <span class="keyword">this</span>.isEdit ? <span class="string">'put'</span> : <span class="string">'post'</span>, <span class="comment">// 动态判断是POST还是PUT</span></span><br><span class="line">    url: <span class="string">'/item/brand'</span>,</span><br><span class="line">    data: <span class="keyword">this</span>.$qs.stringify(<span class="keyword">this</span>.brand)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 关闭窗口</span></span><br><span class="line">    <span class="keyword">this</span>.$emit(<span class="string">"close"</span>);</span><br><span class="line">    <span class="keyword">this</span>.$message.success(<span class="string">"保存成功！"</span>);</span><br><span class="line">&#125;)</span><br><span class="line">    .catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.$message.error(<span class="string">"保存失败！"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="5-删除（作业）"><a href="#5-删除（作业）" class="headerlink" title="5.删除（作业）"></a>5.删除（作业）</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/微服务/次级/后台管理系统前端项目结构/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/13/微服务/次级/后台管理系统前端项目结构/" itemprop="url">后台管理系统前端项目结构</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T16:09:29Z">
+                2019-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/微服务项目存档/" itemprop="url" rel="index">
+                    <span itemprop="name">微服务项目存档</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="3-项目结构"><a href="#3-项目结构" class="headerlink" title="3.项目结构"></a>3.项目结构</h1><p>开始编码前，我们先了解下项目的结构。</p>
+<h2 id="3-1-目录结构"><a href="#3-1-目录结构" class="headerlink" title="3.1.目录结构"></a>3.1.目录结构</h2><p>首先是目录结构图：<img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day6/assets/1525962755237.png" alt="1525962755237"></p>
+<h2 id="3-2-调用关系"><a href="#3-2-调用关系" class="headerlink" title="3.2.调用关系"></a>3.2.调用关系</h2><p>我们最主要理清index.html、main.js、App.vue之间的关系：</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day6/assets/1525964023585.png" alt="1525964023585"></p>
+<p>理一下：</p>
+<ul>
+<li>index.html：html模板文件。定义了空的<code>div</code>，其id为<code>app</code>。</li>
+<li>main.js：<strong>实例化vue对象</strong>，并且绑定通过id选择器，绑定到index.html的div中，因此<strong>main.js的内容都将在index.html的div中显示</strong>。main.js中使用了App组件，即App.vue，也就是说index.html中最终展现的是App.vue中的内容。index.html引用它之后，就拥有了vue的内容（包括组件、样式等），所以，main.js也是<strong>webpack打包的入口</strong>。</li>
+<li>index.js：定义请求路径和组件的映射关系。相当于之前的<code>&lt;vue-router&gt;</code></li>
+<li>App.vue中也没有内容，而是定义了vue-router的锚点：<code>&lt;router-view&gt;</code>,我们之前讲过，vue-router路由后的组件将会在锚点展示。</li>
+<li>最终结论：<strong>一切路由后的内容都将通过App.vue在index.html中显示。</strong></li>
+<li>访问流程：用户在浏览器输入路径，例如：<a href="http://localhost:9001/#/item/brand" target="_blank" rel="noopener">http://localhost:9001/#/item/brand</a> –&gt; index.js(/item/brand路径对应pages/item/Brand.vue组件) –&gt; 该组件显示在App.vue的锚点位置 –&gt; main.js使用了App.vue组件，并把该组件渲染在index.html文件中（id为“app”的div中）</li>
+</ul>
+<h2 id="3-3-页面布局"><a href="#3-3-页面布局" class="headerlink" title="3.3.页面布局"></a>3.3.页面布局</h2><p>接下来我们一起看下页面布局。</p>
+<p>Layout组件是我们的整个页面的布局组件：</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day6/assets/1530380040278.png" alt="1530380040278"></p>
+<p>一个典型的三块布局。包含左，上，中三部分：</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day6/assets/1525965779366.png" alt="1525965779366"></p>
+<p>里面使用了Vuetify中的2个组件和一个布局元素：</p>
+<ul>
+<li><p><code>v-navigation-drawer</code> ：导航抽屉，主要用于容纳应用程序中的页面的导航链接。 </p>
+<pre><code>![1530380237867](https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day6/assets/1530380237867.png)
+</code></pre></li>
+<li><p><code>v-toolbar</code>：工具栏通常是网站导航的主要途径。可以与导航抽屉一起很好地工作，动态选择是否打开导航抽屉，实现可伸缩的侧边栏。</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day6/assets/1530380292558.png" alt="1530380292558"></p>
+</li>
+<li><p><code>v-content</code>：并不是一个组件，而是标记页面布局的元素。可以根据您指定的<strong>app</strong>组件的结构动态调整大小，使得您可以创建高度可定制的组件。</p>
+</li>
+</ul>
+<p>那么问题来了：<code>v-content</code>中的内容来自哪里？</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day6/assets/1525966180568.png" alt="1525966180568"></p>
+<ul>
+<li>Layout映射的路径是<code>/</code></li>
+<li>除了Login以为的所有组件，都是定义在Layout的children属性，并且路径都是<code>/</code>的下面</li>
+<li>因此当路由到子组件时，会在Layout中定义的锚点中显示。</li>
+<li>并且Layout中的其它部分不会变化，这就实现了布局的共享。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/微服务/次级/品牌新增后的关闭弹窗/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -375,514 +913,6 @@
 </li>
 </ul>
 <p>测试一下</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/微服务/次级/品牌新增后端实现/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahao Wang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jhmarryme's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/13/微服务/次级/品牌新增后端实现/" itemprop="url">品牌新增后端实现</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T16:09:29Z">
-                2019-05-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/微服务项目存档/" itemprop="url" rel="index">
-                    <span itemprop="name">微服务项目存档</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-2-后台实现新增"><a href="#1-2-后台实现新增" class="headerlink" title="1.2.后台实现新增"></a>1.2.后台实现新增</h2><h3 id="1-2-1-controller"><a href="#1-2-1-controller" class="headerlink" title="1.2.1.controller"></a>1.2.1.controller</h3><p>还是一样，先分析四个内容：</p>
-<ul>
-<li>请求方式：刚才看到了是POST</li>
-<li>请求路径：/brand</li>
-<li>请求参数：brand对象，外加商品分类的id数组cids</li>
-<li>返回值：无</li>
-</ul>
-<p>代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 新增品牌</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> brand</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@PostMapping</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ResponseEntity&lt;Void&gt; <span class="title">saveBrand</span><span class="params">(Brand brand, @RequestParam(<span class="string">"cids"</span>)</span> List&lt;Long&gt; cids) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.brandService.saveBrand(brand, cids);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ResponseEntity&lt;&gt;(HttpStatus.CREATED);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="1-2-2-Service"><a href="#1-2-2-Service" class="headerlink" title="1.2.2.Service"></a>1.2.2.Service</h3><p>这里要注意，我们不仅要新增品牌，还要维护品牌和商品分类的中间表。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveBrand</span><span class="params">(Brand brand, List&lt;Long&gt; cids)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 新增品牌信息</span></span><br><span class="line">    <span class="keyword">this</span>.brandMapper.insertSelective(brand);</span><br><span class="line">    <span class="comment">// 新增品牌和分类中间表</span></span><br><span class="line">    <span class="keyword">for</span> (Long cid : cids) &#123;</span><br><span class="line">        <span class="keyword">this</span>.brandMapper.insertCategoryBrand(cid, brand.getId());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里调用了brandMapper中的一个自定义方法，来实现中间表的数据新增</p>
-<h3 id="1-2-3-Mapper"><a href="#1-2-3-Mapper" class="headerlink" title="1.2.3.Mapper"></a>1.2.3.Mapper</h3><p>通用Mapper只能处理单表，也就是Brand的数据，因此我们手动编写一个方法及sql，实现中间表的新增：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BrandMapper</span> <span class="keyword">extends</span> <span class="title">Mapper</span>&lt;<span class="title">Brand</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 新增商品分类和品牌中间表数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> cid 商品分类id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> bid 品牌id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Insert</span>(<span class="string">"INSERT INTO tb_category_brand (category_id, brand_id) VALUES (#&#123;cid&#125;,#&#123;bid&#125;)"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">insertCategoryBrand</span><span class="params">(@Param(<span class="string">"cid"</span>)</span> Long cid, @<span class="title">Param</span><span class="params">(<span class="string">"bid"</span>)</span> Long bid)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="1-3-请求参数格式错误"><a href="#1-3-请求参数格式错误" class="headerlink" title="1.3.请求参数格式错误"></a>1.3.请求参数格式错误</h2><h3 id="1-3-1-原因分析"><a href="#1-3-1-原因分析" class="headerlink" title="1.3.1.原因分析"></a>1.3.1.原因分析</h3><p>我们填写表单并提交，发现报错了：</p>
-<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526180888663.png" alt="1526180888663"></p>
-<p>查看控制台的请求详情：</p>
-<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526180937974.png" alt="1526180937974"></p>
-<p>发现请求的数据格式是JSON格式。</p>
-<blockquote>
-<p>原因分析：</p>
-</blockquote>
-<p>axios处理请求体的原则会根据请求数据的格式来定：</p>
-<ul>
-<li><p>如果请求体是对象：会转为json发送</p>
-</li>
-<li><p>如果请求体是String：会作为普通表单请求发送，但需要我们自己保证String的格式是键值对。</p>
-<p>如：name=jack&amp;age=12</p>
-</li>
-</ul>
-<h3 id="1-3-2-QS工具"><a href="#1-3-2-QS工具" class="headerlink" title="1.3.2.QS工具"></a>1.3.2.QS工具</h3><p>QS是一个第三方库，我们可以用<code>npm install qs --save</code>来安装。不过我们在项目中已经集成了，大家无需安装：</p>
-<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526181889564.png" alt="1526181889564"></p>
-<p>这个工具的名字：QS，即Query String，请求参数字符串。</p>
-<p>什么是请求参数字符串？例如： name=jack&amp;age=21</p>
-<p>QS工具可以便捷的实现 JS的Object与QueryString的转换。</p>
-<p>在我们的项目中，将QS注入到了Vue的原型对象中，我们可以通过<code>this.$qs</code>来获取这个工具：</p>
-<p>我们将<code>this.$qs</code>对象打印到控制台：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">created()&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.$qs);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>发现其中有3个方法：</p>
-<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526181747560.png" alt="1526181747560"></p>
-<p>这里我们要使用的方法是stringify，它可以把Object转为QueryString。</p>
-<p>测试一下，使用浏览器工具，把qs对象保存为一个临时变量：</p>
-<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526182053758.png" alt="1526182053758"></p>
-<p>然后调用stringify方法：</p>
-<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526182230872.png" alt="1526182230872"></p>
-<p>成功将person对象变成了 name=jack&amp;age=21的字符串了</p>
-<h3 id="1-3-3-解决问题"><a href="#1-3-3-解决问题" class="headerlink" title="1.3.3.解决问题"></a>1.3.3.解决问题</h3><p>修改页面，对参数处理后发送：</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526181301670.png" alt="1526181301670"></p>
-<p>然后再次发起请求：</p>
-<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526181331443.png" alt="1526181331443"></p>
-<p>发现请求成功：</p>
-<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526181358204.png" alt="1526181358204"></p>
-<p>参数格式：</p>
-<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526181384653.png" alt="1526181384653"></p>
-<p>数据库：</p>
-<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day8/assets/1526181553737.png" alt="1526181553737"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/微服务/次级/实时刷新界面及静态图片访问/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahao Wang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jhmarryme's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/13/微服务/次级/实时刷新界面及静态图片访问/" itemprop="url">实时刷新界面及静态图片访问</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T16:09:29Z">
-                2019-05-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/微服务项目存档/" itemprop="url" rel="index">
-                    <span itemprop="name">微服务项目存档</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="实时刷新问题"><a href="#实时刷新问题" class="headerlink" title="实时刷新问题"></a>实时刷新问题</h1><p>因为访问的路径中带有了9001端口, 所以在nginx中配置manage.leyou.com 9001端口的监听, 代理路径与manage.leyou.com配置一致</p>
-<h1 id="访问虚拟机中静态资源图片的配置"><a href="#访问虚拟机中静态资源图片的配置" class="headerlink" title="访问虚拟机中静态资源图片的配置"></a>访问虚拟机中静态资源图片的配置</h1><p>现在虚拟机中建立相应文件夹 /leyou/static<br>再将图片压缩包<strong>image.zip</strong>导入,之后路径为/leyou/static/images/<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">        <span class="comment"># 使9001端口的请求正确到达</span></span><br><span class="line">        <span class="attribute">listen</span> <span class="number">9001</span>;</span><br><span class="line">	    <span class="attribute">server_name</span> manage.leyou.com;</span><br><span class="line">	</span><br><span class="line">	<span class="attribute">location</span> / &#123;</span><br><span class="line">		<span class="attribute">proxy_pass</span> http://192.168.20.60:9001;</span><br><span class="line">	&#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">        <span class="attribute">server_name</span>  image.leyou.com;</span><br><span class="line"></span><br><span class="line">    	<span class="comment"># 监听域名中带有group的，交给FastDFS模块处理</span></span><br><span class="line">        <span class="attribute">location</span> ~/group([<span class="number">0</span>-<span class="number">9</span>])/ &#123;</span><br><span class="line">            ngx_fastdfs_module;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 监听域名中不带group 访问的是静态资源, 直接代理访问</span></span><br><span class="line">        <span class="attribute">location</span> / &#123; </span><br><span class="line">            <span class="attribute">root</span>   /leyou/static/;</span><br><span class="line">            <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="attribute">error_page</span>   <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span>  /50x.html;</span><br><span class="line">        <span class="attribute">location</span> = /50x.html &#123;</span><br><span class="line">            <span class="attribute">root</span>   html;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/微服务/次级/微服务笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahao Wang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jhmarryme's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/13/微服务/次级/微服务笔记/" itemprop="url">微服务笔记(待整理)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T16:09:29Z">
-                2019-05-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/微服务/" itemprop="url" rel="index">
-                    <span itemprop="name">微服务</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="REST请求"><a href="#REST请求" class="headerlink" title="REST请求"></a>REST请求</h2><ol>
-<li><p>请求规范<br>GET         /zoos：列出所有动物园<br>POST        /zoos：新建一个动物园<br>GET         /zoos/ID：获取某个指定动物园的信息<br>PUT         /zoos/ID：更新某个指定动物园的信息（提供该动物园的全部信息）<br>PATCH       /zoos/ID：更新某个指定动物园的信息（提供该动物园的部分信息）<br>DELETE      /zoos/ID：删除某个动物园<br>GET         /zoos/ID/animals：列出某个指定动物园的所有动物<br>DELETE      /zoos/ID/animals/ID：删除某个指定动物园的指定动物</p>
-</li>
-<li><p>响应规范<br>@ResponseBody 将java对象序列化放到响应体body里去, 默认json, 但不一定是json</p>
-</li>
-<li><p>状态码<br>状态码范围</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>xx 信息，请求收到，继续处理。范围保留用于底层HTTP的东西，你很可能永远也用不到。</span><br><span class="line"><span class="number">2</span>xx 成功，行为被成功地接受、理解和采纳</span><br><span class="line"><span class="number">3</span>xx 重定向，为了完成请求，必须进一步执行的动作</span><br><span class="line"><span class="number">4</span>xx 客户端错误，请求包含语法错误或者请求无法实现。范围保留用于响应客户端做出的错误，例如。他们提供不良数据或要求不存在的东西。这些请求应该是幂等的，而不是更改服务器的状态。</span><br><span class="line"><span class="number">5</span>xx 范围的状态码是保留给服务器端错误用的。这些错误常常是从底层的函数抛出来的，甚至</span><br><span class="line">开发人员也通常没法处理，发送这类状态码的目的以确保客户端获得某种响应。</span><br><span class="line">当收到<span class="number">5</span>xx响应时，客户端不可能知道服务器的状态，所以这类状态码是要尽可能的避免。</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>常用:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">200</span> OK - [GET]：服务器成功返回用户请求的数据，该操作是幂等的（Idempotent）。</span><br><span class="line"><span class="number">201</span> CREATED - [POST/PUT/PATCH]：用户新建或修改数据成功。</span><br><span class="line"><span class="number">202</span> Accepted - [*]：表示一个请求已经进入后台排队（异步任务）</span><br><span class="line"><span class="number">204</span> NO CONTENT - [DELETE]：用户删除数据成功。</span><br><span class="line"><span class="number">400</span> INVALID REQUEST - [POST/PUT/PATCH]：用户发出的请求有错误，服务器没有进行新建或修改数据的操作，该操作是幂等的。</span><br><span class="line"><span class="number">401</span> Unauthorized - [*]：表示用户没有权限（令牌、用户名、密码错误）。</span><br><span class="line"><span class="number">403</span> Forbidden - [*] 表示用户得到授权（与<span class="number">401</span>错误相对），但是访问是被禁止的。</span><br><span class="line"><span class="number">404</span> NOT FOUND - [*]：用户发出的请求针对的是不存在的记录，服务器没有进行操作，该操作是幂等的。</span><br><span class="line"><span class="number">406</span> Not Acceptable - [GET]：用户请求的格式不可得（比如用户请求JSON格式，但是只有XML格式）。</span><br><span class="line"><span class="number">410</span> Gone -[GET]：用户请求的资源被永久删除，且不会再得到的。</span><br><span class="line"><span class="number">422</span> Unprocesable entity - [POST/PUT/PATCH] 当创建一个对象时，发生一个验证错误。</span><br><span class="line"><span class="number">500</span> INTERNAL SERVER ERROR - [*]：服务器发生错误，用户将无法判断发出的请求是否成功。</span><br><span class="line"><span class="number">502</span> 网关错误</span><br><span class="line"><span class="number">503</span> Service Unavailable</span><br><span class="line"><span class="number">504</span> 网关超时</span><br></pre></td></tr></table></figure></p>
-<h2 id="通用异常处理"><a href="#通用异常处理" class="headerlink" title="通用异常处理"></a>通用异常处理</h2><p>处理异常信息时, 通过SpringMVC的AOP拦截异常, 返回错误信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. 环境</span><br><span class="line">依赖: (不引用启动器, 版本由父工程管理)</span><br><span class="line">``` yml</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
-<ol start="2">
-<li><p>自定义枚举类用于异常信息</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> ExceptionEnum &#123;</span><br><span class="line">    <span class="comment">//价格不能为空</span></span><br><span class="line">    PRICE_CANNOT_BE_NULL(<span class="number">400</span>, <span class="string">"价格不能为空"</span>)</span><br><span class="line">    ;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> code;</span><br><span class="line">    <span class="keyword">private</span> String message;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>自定义信息类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExceptionResult</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> status;</span><br><span class="line">    <span class="keyword">private</span> String message;</span><br><span class="line">    <span class="keyword">private</span> Long timestamp;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ExceptionResult</span><span class="params">(ExceptionEnum exceptionEnum)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.status = exceptionEnum.getCode();</span><br><span class="line">        <span class="keyword">this</span>.message = exceptionEnum.getMessage();</span><br><span class="line">        <span class="keyword">this</span>.timestamp = System.currentTimeMillis();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>自定义异常类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LyException</span> <span class="keyword">extends</span> <span class="title">RuntimeException</span> </span>&#123;</span><br><span class="line">    <span class="comment">//接受枚举作为参数</span></span><br><span class="line">    <span class="keyword">private</span> ExceptionEnum exceptionEnum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>自定义通用异常拦截器</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//要想该类被扫描到, 必须和应用启动器的类处于同一个包下 </span></span><br><span class="line"><span class="meta">@ControllerAdvice</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CommonExceptionHandler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ExceptionHandler</span>(LyException.class)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ResponseEntity&lt;ExceptionResult&gt; <span class="title">handleException</span><span class="params">(LyException e)</span></span>&#123;</span><br><span class="line">        <span class="comment">//返回的是整个响应消息, 其中主要配置错误码和响应体</span></span><br><span class="line">        <span class="keyword">return</span> ResponseEntity.status(e.getExceptionEnum().getCode()).body(<span class="keyword">new</span> ExceptionResult(e.getExceptionEnum()));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>应用</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"item"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ItemService itemService;</span><br><span class="line">    <span class="meta">@PostMapping</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ResponseEntity&lt;Item&gt; <span class="title">saveItem</span><span class="params">(Item item)</span></span>&#123;</span><br><span class="line">        <span class="comment">//校验价格</span></span><br><span class="line">        <span class="keyword">if</span> (item.getPrice() == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">//传递一个枚举变量</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> LyException(ExceptionEnum.PRICE_CANNOT_BE_NULL);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ResponseEntity.status(HttpStatus.CREATED).body(item);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
 
           
         
