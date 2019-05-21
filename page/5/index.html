@@ -635,6 +635,224 @@ I wouldn’t recommend him.
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/03/17/LeetCode记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/17/LeetCode记录/" itemprop="url">LeetCode记录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T12:46:21Z">
+                2019-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/面试准备/" itemprop="url" rel="index">
+                    <span itemprop="name">面试准备</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="leetCode清单"><a href="#leetCode清单" class="headerlink" title="leetCode清单"></a>leetCode清单</h1><ol>
+<li>两数之和(1)<ul>
+<li style="list-style: none"><input type="checkbox"> 是否掌握</li>
+<li style="list-style: none"><input type="checkbox" checked> 是否复习</li>
+<li style="list-style: none"><input type="checkbox" checked> 是否理解</li>
+</ul>
+</li>
+<li>和为K的子数组(560)<ul>
+<li style="list-style: none"><input type="checkbox"> 是否掌握</li>
+<li style="list-style: none"><input type="checkbox" checked> 是否复习</li>
+<li style="list-style: none"><input type="checkbox" checked> 是否理解</li>
+</ul>
+</li>
+<li>两数相加(2)<ul>
+<li style="list-style: none"><input type="checkbox"> 是否掌握</li>
+<li style="list-style: none"><input type="checkbox"> 是否复习</li>
+<li style="list-style: none"><input type="checkbox" checked> 是否理解</li>
+</ul>
+</li>
+<li>两数相加2(2)<ul>
+<li style="list-style: none"><input type="checkbox"> 是否掌握</li>
+<li style="list-style: none"><input type="checkbox"> 是否复习</li>
+<li style="list-style: none"><input type="checkbox" checked> 是否理解<h2 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h2><h3 id="HashMap相关"><a href="#HashMap相关" class="headerlink" title="HashMap相关"></a>HashMap相关</h3></li>
+</ul>
+</li>
+<li><p>两数之和</p>
+<ul>
+<li><p>题目:给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。<br>你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</p>
+<p>示例:<br>给定 nums = [2, 7, 11, 15], target = 9</p>
+<p>因为 nums[0] + nums[1] = 2 + 7 = 9<br>所以返回 [0, 1]</p>
+</li>
+<li><p>思路<br>从0开始遍历nums数组, 使用hashmap存放期望的值(target-nums[i])和索引值(i), 判断当前nums[i]是否是前面的需要的期望值, 如果是, 则代表找到了, 不是则继续下一次 </p>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        Map&lt;Integer, Integer&gt; ans = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(ans.containsKey(nums[i]))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;ans.get(nums[i]), i&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            ans.put(target - nums[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>和为k的子数组</p>
+<ul>
+<li><p>题目<br>给定一个整数数组和一个整数 k，你需要找到该数组中和为 k 的连续的子数组的个数。<br>示例 1 :<br>输入:nums = [1,1,1], k = 2<br>输出: 2 , [1,1] 与 [1,1] 为两种不同的情况。<br>说明 :<br>数组的长度为 [1, 20,000]。<br>数组中元素的范围是 [-1000, 1000] ，且整数 k 的范围是 [-1e7, 1e7]。</p>
+</li>
+<li><p>思路<br>建立map表用于存储每个连续子数组sum求和出现的次数，初始化为（0,1），表示和为0的连续子数组出现1次。</p>
+<p>sum的值是在对nums数组的循环中不断累加当前元素的，res的值则需要查找map中是否已存在sum-k的元素，也就是在查找此前所有从0项开始累加的连续子项和中有没有sum-k。</p>
+<p>如果有的话，则说明从该项到当前项的连续子数组和必定为k，那么res则可以和这个sum的对应值，即这个sum出现的次数，相加得到新的res。</p>
+<p>对于当前sum如果已存在与map中则其对应值+1，不存在则添加新项，初始值为1。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">subarraySum</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        map.put(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            <span class="comment">//如果k = 13 而此时sum = 20, 所以sum - k = 7, 查看是否有出现过7, 如果有则代表从该项到当前项的连续子数组和为13, 将出现过的次数加到结果</span></span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(sum - k))&#123;</span><br><span class="line">                res += map.get(sum - k);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//因为这是一个包含负数的数组, 所有存在和为20的情况有很多种, 需要处理</span></span><br><span class="line">            map.put(sum, map.getOrDefault(sum, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="ListNode相关"><a href="#ListNode相关" class="headerlink" title="ListNode相关"></a>ListNode相关</h3><ol>
+<li><p>两数相加</p>
+<ul>
+<li><p>题目<br>给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。</p>
+<p>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。</p>
+<p>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
+<p>示例：</p>
+<p>输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>输出：7 -&gt; 0 -&gt; 8<br>原因：342 + 465 = 807</p>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//定义一个进位标志</span></span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        ListNode p1 = l1;</span><br><span class="line">        ListNode p2 = l2;</span><br><span class="line">        ListNode res = <span class="keyword">new</span> ListNode(-<span class="number">1</span>);</span><br><span class="line">        ListNode cur = res;</span><br><span class="line">        <span class="keyword">while</span>(p1 != <span class="keyword">null</span> || p2 != <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> x = (p1 != <span class="keyword">null</span>) ? p1.val : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> y = (p2 != <span class="keyword">null</span>) ? p2.val : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> sum = x + y + flag;</span><br><span class="line">            flag = sum / <span class="number">10</span>;</span><br><span class="line">            cur.next = <span class="keyword">new</span> ListNode(sum % <span class="number">10</span>);</span><br><span class="line">            cur = cur.next;</span><br><span class="line">            <span class="keyword">if</span>(p1 != <span class="keyword">null</span>)&#123;</span><br><span class="line">                p1 = p1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(p2 != <span class="keyword">null</span>)&#123;</span><br><span class="line">                p2 = p2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            cur.next = <span class="keyword">new</span> ListNode(flag);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre><ol start="2">
+<li>两数相加2<br> -题目<br> 给定两个非空链表来代表两个非负整数。数字最高位位于链表开始位置。它们的每个节点只存储单个数字。将这两数相加会返回一个新的链表。</li>
+</ol>
+<pre><code>你可以假设除了数字 0 之外，这两个数字都不会以零开头。
+
+进阶:
+
+如果输入链表不能修改该如何处理？换句话说，你不能对列表中的节点进行翻转。
+
+示例:
+
+输入: (7 -&gt; 2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)
+输出: 7 -&gt; 8 -&gt; 0 -&gt; 7
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        Stack&lt;Integer&gt; s1 = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        Stack&lt;Integer&gt; s2 = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">while</span>(l1 != <span class="keyword">null</span> || l2 != <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(l1 != <span class="keyword">null</span>)&#123;</span><br><span class="line">                s1.push(l1.val);</span><br><span class="line">                l1 = l1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(l2 != <span class="keyword">null</span>)&#123;</span><br><span class="line">                s2.push(l2.val);</span><br><span class="line">                l2 = l2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        ListNode head = <span class="keyword">null</span>;</span><br><span class="line">        ListNode temp = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span>(!s1.empty() || !s2.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> x = (!s1.empty()) ? s1.pop() : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> y = (!s2.empty()) ? s2.pop() : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> sum = x + y + flag;</span><br><span class="line">            ListNode node = <span class="keyword">new</span> ListNode(sum % <span class="number">10</span>);</span><br><span class="line">            temp = head;</span><br><span class="line">            head = node;</span><br><span class="line">            head.next = temp;</span><br><span class="line">            head = node;</span><br><span class="line">            flag = sum / <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            temp = head;</span><br><span class="line">            head = <span class="keyword">new</span> ListNode(<span class="number">1</span>);</span><br><span class="line">            head.next = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/03/17/mybatis使用记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -908,224 +1126,6 @@ I wouldn’t recommend him.
 </li>
 </ol>
 <h2 id="权限管理相关"><a href="#权限管理相关" class="headerlink" title="权限管理相关"></a>权限管理相关</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/03/17/LeetCode记录/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahao Wang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jhmarryme's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/17/LeetCode记录/" itemprop="url">LeetCode记录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T12:46:21Z">
-                2019-03-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/面试准备/" itemprop="url" rel="index">
-                    <span itemprop="name">面试准备</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="leetCode清单"><a href="#leetCode清单" class="headerlink" title="leetCode清单"></a>leetCode清单</h1><ol>
-<li>两数之和(1)<ul>
-<li style="list-style: none"><input type="checkbox"> 是否掌握</li>
-<li style="list-style: none"><input type="checkbox" checked> 是否复习</li>
-<li style="list-style: none"><input type="checkbox" checked> 是否理解</li>
-</ul>
-</li>
-<li>和为K的子数组(560)<ul>
-<li style="list-style: none"><input type="checkbox"> 是否掌握</li>
-<li style="list-style: none"><input type="checkbox" checked> 是否复习</li>
-<li style="list-style: none"><input type="checkbox" checked> 是否理解</li>
-</ul>
-</li>
-<li>两数相加(2)<ul>
-<li style="list-style: none"><input type="checkbox"> 是否掌握</li>
-<li style="list-style: none"><input type="checkbox"> 是否复习</li>
-<li style="list-style: none"><input type="checkbox" checked> 是否理解</li>
-</ul>
-</li>
-<li>两数相加2(2)<ul>
-<li style="list-style: none"><input type="checkbox"> 是否掌握</li>
-<li style="list-style: none"><input type="checkbox"> 是否复习</li>
-<li style="list-style: none"><input type="checkbox" checked> 是否理解<h2 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h2><h3 id="HashMap相关"><a href="#HashMap相关" class="headerlink" title="HashMap相关"></a>HashMap相关</h3></li>
-</ul>
-</li>
-<li><p>两数之和</p>
-<ul>
-<li><p>题目:给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。<br>你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</p>
-<p>示例:<br>给定 nums = [2, 7, 11, 15], target = 9</p>
-<p>因为 nums[0] + nums[1] = 2 + 7 = 9<br>所以返回 [0, 1]</p>
-</li>
-<li><p>思路<br>从0开始遍历nums数组, 使用hashmap存放期望的值(target-nums[i])和索引值(i), 判断当前nums[i]是否是前面的需要的期望值, 如果是, 则代表找到了, 不是则继续下一次 </p>
-</li>
-</ul>
-</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        Map&lt;Integer, Integer&gt; ans = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(ans.containsKey(nums[i]))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;ans.get(nums[i]), i&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            ans.put(target - nums[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li><p>和为k的子数组</p>
-<ul>
-<li><p>题目<br>给定一个整数数组和一个整数 k，你需要找到该数组中和为 k 的连续的子数组的个数。<br>示例 1 :<br>输入:nums = [1,1,1], k = 2<br>输出: 2 , [1,1] 与 [1,1] 为两种不同的情况。<br>说明 :<br>数组的长度为 [1, 20,000]。<br>数组中元素的范围是 [-1000, 1000] ，且整数 k 的范围是 [-1e7, 1e7]。</p>
-</li>
-<li><p>思路<br>建立map表用于存储每个连续子数组sum求和出现的次数，初始化为（0,1），表示和为0的连续子数组出现1次。</p>
-<p>sum的值是在对nums数组的循环中不断累加当前元素的，res的值则需要查找map中是否已存在sum-k的元素，也就是在查找此前所有从0项开始累加的连续子项和中有没有sum-k。</p>
-<p>如果有的话，则说明从该项到当前项的连续子数组和必定为k，那么res则可以和这个sum的对应值，即这个sum出现的次数，相加得到新的res。</p>
-<p>对于当前sum如果已存在与map中则其对应值+1，不存在则添加新项，初始值为1。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">subarraySum</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        map.put(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            <span class="comment">//如果k = 13 而此时sum = 20, 所以sum - k = 7, 查看是否有出现过7, 如果有则代表从该项到当前项的连续子数组和为13, 将出现过的次数加到结果</span></span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(sum - k))&#123;</span><br><span class="line">                res += map.get(sum - k);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//因为这是一个包含负数的数组, 所有存在和为20的情况有很多种, 需要处理</span></span><br><span class="line">            map.put(sum, map.getOrDefault(sum, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="ListNode相关"><a href="#ListNode相关" class="headerlink" title="ListNode相关"></a>ListNode相关</h3><ol>
-<li><p>两数相加</p>
-<ul>
-<li><p>题目<br>给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。</p>
-<p>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。</p>
-<p>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
-<p>示例：</p>
-<p>输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>输出：7 -&gt; 0 -&gt; 8<br>原因：342 + 465 = 807</p>
-</li>
-</ul>
-</li>
-</ol>
-<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//定义一个进位标志</span></span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        ListNode p1 = l1;</span><br><span class="line">        ListNode p2 = l2;</span><br><span class="line">        ListNode res = <span class="keyword">new</span> ListNode(-<span class="number">1</span>);</span><br><span class="line">        ListNode cur = res;</span><br><span class="line">        <span class="keyword">while</span>(p1 != <span class="keyword">null</span> || p2 != <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> x = (p1 != <span class="keyword">null</span>) ? p1.val : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> y = (p2 != <span class="keyword">null</span>) ? p2.val : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> sum = x + y + flag;</span><br><span class="line">            flag = sum / <span class="number">10</span>;</span><br><span class="line">            cur.next = <span class="keyword">new</span> ListNode(sum % <span class="number">10</span>);</span><br><span class="line">            cur = cur.next;</span><br><span class="line">            <span class="keyword">if</span>(p1 != <span class="keyword">null</span>)&#123;</span><br><span class="line">                p1 = p1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(p2 != <span class="keyword">null</span>)&#123;</span><br><span class="line">                p2 = p2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            cur.next = <span class="keyword">new</span> ListNode(flag);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</code></pre><ol start="2">
-<li>两数相加2<br> -题目<br> 给定两个非空链表来代表两个非负整数。数字最高位位于链表开始位置。它们的每个节点只存储单个数字。将这两数相加会返回一个新的链表。</li>
-</ol>
-<pre><code>你可以假设除了数字 0 之外，这两个数字都不会以零开头。
-
-进阶:
-
-如果输入链表不能修改该如何处理？换句话说，你不能对列表中的节点进行翻转。
-
-示例:
-
-输入: (7 -&gt; 2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)
-输出: 7 -&gt; 8 -&gt; 0 -&gt; 7
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        Stack&lt;Integer&gt; s1 = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        Stack&lt;Integer&gt; s2 = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">while</span>(l1 != <span class="keyword">null</span> || l2 != <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(l1 != <span class="keyword">null</span>)&#123;</span><br><span class="line">                s1.push(l1.val);</span><br><span class="line">                l1 = l1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(l2 != <span class="keyword">null</span>)&#123;</span><br><span class="line">                s2.push(l2.val);</span><br><span class="line">                l2 = l2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        ListNode head = <span class="keyword">null</span>;</span><br><span class="line">        ListNode temp = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span>(!s1.empty() || !s2.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> x = (!s1.empty()) ? s1.pop() : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> y = (!s2.empty()) ? s2.pop() : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> sum = x + y + flag;</span><br><span class="line">            ListNode node = <span class="keyword">new</span> ListNode(sum % <span class="number">10</span>);</span><br><span class="line">            temp = head;</span><br><span class="line">            head = node;</span><br><span class="line">            head.next = temp;</span><br><span class="line">            head = node;</span><br><span class="line">            flag = sum / <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            temp = head;</span><br><span class="line">            head = <span class="keyword">new</span> ListNode(<span class="number">1</span>);</span><br><span class="line">            head.next = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
         
       
