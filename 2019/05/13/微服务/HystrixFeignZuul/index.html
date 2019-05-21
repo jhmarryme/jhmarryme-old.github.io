@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="javaWeb,SpringBoot,参考笔记(非自写),">
+  <meta name="keywords" content="javaWeb,">
 
 
 
@@ -80,9 +80,9 @@
 
 
 <meta name="description" content="学习目标  会配置Hystrix熔断 会使用Feign进行远程调用 能独立搭建Zuul网关 能编写Zuul的拦截器  1.Hystix1.1.简介Hystix，即熔断器。 主页：https://github.com/Netflix/Hystrix/  Hystix是Netflix开源的一个延迟和容错库，用于隔离访问远程服务、第三方库，防止出现级联失败。  1.2.熔断器的工作机制： 正常工作的情况">
-<meta name="keywords" content="javaWeb,SpringBoot,参考笔记(非自写)">
+<meta name="keywords" content="javaWeb">
 <meta property="og:type" content="article">
-<meta property="og:title" content="springboot-day3(参考)">
+<meta property="og:title" content="HystrixFeignZuul">
 <meta property="og:url" content="https://wangdaye7.github.io/2019/05/13/微服务/HystrixFeignZuul/index.html">
 <meta property="og:site_name" content="jhmarryme&#39;s blog">
 <meta property="og:description" content="学习目标  会配置Hystrix熔断 会使用Feign进行远程调用 能独立搭建Zuul网关 能编写Zuul的拦截器  1.Hystix1.1.简介Hystix，即熔断器。 主页：https://github.com/Netflix/Hystrix/  Hystix是Netflix开源的一个延迟和容错库，用于隔离访问远程服务、第三方库，防止出现级联失败。  1.2.熔断器的工作机制： 正常工作的情况">
@@ -118,9 +118,9 @@
 <meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day3/assets/1525682427811.png">
 <meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day3/assets/1525683285697.png">
 <meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day3/assets/1525683354113.png">
-<meta property="og:updated_time" content="2019-05-19T02:17:54.523Z">
+<meta property="og:updated_time" content="2019-05-21T03:02:36.012Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="springboot-day3(参考)">
+<meta name="twitter:title" content="HystrixFeignZuul">
 <meta name="twitter:description" content="学习目标  会配置Hystrix熔断 会使用Feign进行远程调用 能独立搭建Zuul网关 能编写Zuul的拦截器  1.Hystix1.1.简介Hystix，即熔断器。 主页：https://github.com/Netflix/Hystrix/  Hystix是Netflix开源的一个延迟和容错库，用于隔离访问远程服务、第三方库，防止出现级联失败。  1.2.熔断器的工作机制： 正常工作的情况">
 <meta name="twitter:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day3/assets/1525658740266.png">
 
@@ -158,7 +158,7 @@
 
 
 
-  <title>springboot-day3(参考) | jhmarryme's blog</title>
+  <title>HystrixFeignZuul | jhmarryme's blog</title>
   
 
 
@@ -313,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">springboot-day3(参考)</h1>
+          <h1 class="post-title" itemprop="name headline">HystrixFeignZuul</h1>
         
 
         <div class="post-meta">
@@ -348,8 +348,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SpringBoot/" itemprop="url" rel="index">
-                    <span itemprop="name">SpringBoot</span>
+                  <a href="/categories/微服务/" itemprop="url" rel="index">
+                    <span itemprop="name">微服务</span>
                   </a>
                 </span>
 
@@ -641,10 +641,6 @@
           
             <a href="/tags/javaWeb/" rel="tag"># javaWeb</a>
           
-            <a href="/tags/SpringBoot/" rel="tag"># SpringBoot</a>
-          
-            <a href="/tags/参考笔记-非自写/" rel="tag"># 参考笔记(非自写)</a>
-          
         </div>
       
 
@@ -656,8 +652,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/13/springboot-day3/" rel="next" title="springboot-day3(参考)">
-                <i class="fa fa-chevron-left"></i> springboot-day3(参考)
+              <a href="/2019/05/13/微服务/待整理/品牌新增后端实现/" rel="next" title="品牌新增后端实现">
+                <i class="fa fa-chevron-left"></i> 品牌新增后端实现
               </a>
             
           </div>
@@ -666,8 +662,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/13/springcloud配置积累/" rel="prev" title="springcloud配置积累">
-                springcloud配置积累 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/13/微服务/待整理/品牌新增后的关闭弹窗/" rel="prev" title="新增完成后关闭窗口">
+                新增完成后关闭窗口 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -758,7 +754,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
