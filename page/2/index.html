@@ -1543,6 +1543,136 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/springcloud配置积累/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/13/springcloud配置积累/" itemprop="url">springcloud配置积累</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-13T09:24:32Z">
+                2019-05-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#</p>
+<h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2><h3 id="sever"><a href="#sever" class="headerlink" title="sever"></a>sever</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 10086 # 端口</span><br></pre></td></tr></table></figure>
+<h3 id="spring"><a href="#spring" class="headerlink" title="spring"></a>spring</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: eureka-server # 应用名称，会在Eureka中显示</span><br></pre></td></tr></table></figure>
+<h3 id="日志级别"><a href="#日志级别" class="headerlink" title="日志级别"></a>日志级别</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">logging:</span><br><span class="line">  level:</span><br><span class="line">    com.leyou: debug #设置com.leyou包下的日志级别都为debug</span><br></pre></td></tr></table></figure>
+<h2 id="hystrix"><a href="#hystrix" class="headerlink" title="hystrix"></a>hystrix</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hystrix:</span><br><span class="line">  command:</span><br><span class="line">  	<span class="keyword">default</span>:</span><br><span class="line">        execution:</span><br><span class="line">          isolation:</span><br><span class="line">            thread:</span><br><span class="line">              timeoutInMillisecond: 6000 # 设置hystrix的超时时间为6000ms</span><br></pre></td></tr></table></figure>
+<h2 id="ribbon"><a href="#ribbon" class="headerlink" title="ribbon"></a>ribbon</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ribbon:</span><br><span class="line">  ConnectTimeout: 250 # 连接超时时间(ms)</span><br><span class="line">  ReadTimeout: 1000 # 通信超时时间(ms)</span><br><span class="line">  OkToRetryOnAllOperations: true # 是否对所有操作重试</span><br><span class="line">  MaxAutoRetriesNextServer: 1 # 同一服务不同实例的重试次数</span><br><span class="line">  MaxAutoRetries: 1 # 同一实例的重试次数</span><br></pre></td></tr></table></figure>
+<h2 id="feign"><a href="#feign" class="headerlink" title="feign"></a>feign</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">feign:</span><br><span class="line">  hystrix:</span><br><span class="line">    enabled: true # 开启Feign的熔断功能</span><br></pre></td></tr></table></figure>
+<p>请求压缩<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">feign:</span><br><span class="line">  compression:</span><br><span class="line">    request:</span><br><span class="line">      enabled: true # 开启请求压缩</span><br><span class="line">      mime-types: text/html,application/xml,application/json # 设置压缩的数据类型</span><br><span class="line">      min-request-size: 2048 # 设置触发压缩的大小下限</span><br></pre></td></tr></table></figure></p>
+<h2 id="eureka"><a href="#eureka" class="headerlink" title="eureka"></a>eureka</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">eureka:</span><br><span class="line">  client:</span><br><span class="line">    register-with-eureka: false # 是否注册自己的信息到EurekaServer，默认是true</span><br><span class="line">    fetch-registry: false # 是否拉取其它服务的信息，默认是true</span><br><span class="line">    service-url: # EurekaServer的地址，现在是自己的地址，如果是集群，需要加上其它Server的地址。</span><br><span class="line">      defaultZone: http:<span class="comment">//127.0.0.1:$&#123;server.port&#125;/eureka</span></span><br><span class="line">  instance:</span><br><span class="line">    instance-id: $&#123;spring.cloud.client.ipAddress&#125;:$&#123;server.port&#125; #实例信息，显示IP和端口</span><br><span class="line">    prefer-ip-address: <span class="keyword">true</span></span><br><span class="line">    ip-address: <span class="number">127.0</span>.0.1</span><br></pre></td></tr></table></figure>
+<h2 id="zuul"><a href="#zuul" class="headerlink" title="zuul"></a>zuul</h2><p>通过eureka的方式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">zuul:</span><br><span class="line">  retryable: true ##重试</span><br><span class="line">  routes:</span><br><span class="line">    user-service: # 这里是路由id，随意写</span><br><span class="line">      path: /user-service<span class="comment">/** # 这里是映射路径</span></span><br><span class="line"><span class="comment">      serviceId: user-service # 指定服务名称</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">#简化版</span></span><br><span class="line"><span class="comment">zuul:</span></span><br><span class="line"><span class="comment">  routes:</span></span><br><span class="line"><span class="comment">    user-service: /user-service/** # 这里是映射路径</span></span><br></pre></td></tr></table></figure></p>
+<p>手动IP的方式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">zuul:</span><br><span class="line">  routes:</span><br><span class="line">    user-service: # 这里是路由id，随意写</span><br><span class="line">      path: /user-service<span class="comment">/** # 这里是映射路径</span></span><br><span class="line"><span class="comment">      url: http://127.0.0.1:8081 # 映射路径对应的实际url地址</span></span><br><span class="line"><span class="comment">``` </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">## mybatis</span></span><br><span class="line"><span class="comment">``` yaml</span></span><br><span class="line"><span class="comment">mybatis:</span></span><br><span class="line"><span class="comment">  configuration:</span></span><br><span class="line"><span class="comment">    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #</span></span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/微服务/骨架/springcloud配置积累/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1695,7 +1825,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/springcloud配置积累/">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/微服务/骨架/微服务/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -1714,137 +1844,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/springcloud配置积累/" itemprop="url">springcloud配置积累</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-13T09:24:32Z">
-                2019-05-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>#</p>
-<h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2><h3 id="sever"><a href="#sever" class="headerlink" title="sever"></a>sever</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 10086 # 端口</span><br></pre></td></tr></table></figure>
-<h3 id="spring"><a href="#spring" class="headerlink" title="spring"></a>spring</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: eureka-server # 应用名称，会在Eureka中显示</span><br></pre></td></tr></table></figure>
-<h3 id="日志级别"><a href="#日志级别" class="headerlink" title="日志级别"></a>日志级别</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">logging:</span><br><span class="line">  level:</span><br><span class="line">    com.leyou: debug #设置com.leyou包下的日志级别都为debug</span><br></pre></td></tr></table></figure>
-<h2 id="hystrix"><a href="#hystrix" class="headerlink" title="hystrix"></a>hystrix</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hystrix:</span><br><span class="line">  command:</span><br><span class="line">  	<span class="keyword">default</span>:</span><br><span class="line">        execution:</span><br><span class="line">          isolation:</span><br><span class="line">            thread:</span><br><span class="line">              timeoutInMillisecond: 6000 # 设置hystrix的超时时间为6000ms</span><br></pre></td></tr></table></figure>
-<h2 id="ribbon"><a href="#ribbon" class="headerlink" title="ribbon"></a>ribbon</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ribbon:</span><br><span class="line">  ConnectTimeout: 250 # 连接超时时间(ms)</span><br><span class="line">  ReadTimeout: 1000 # 通信超时时间(ms)</span><br><span class="line">  OkToRetryOnAllOperations: true # 是否对所有操作重试</span><br><span class="line">  MaxAutoRetriesNextServer: 1 # 同一服务不同实例的重试次数</span><br><span class="line">  MaxAutoRetries: 1 # 同一实例的重试次数</span><br></pre></td></tr></table></figure>
-<h2 id="feign"><a href="#feign" class="headerlink" title="feign"></a>feign</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">feign:</span><br><span class="line">  hystrix:</span><br><span class="line">    enabled: true # 开启Feign的熔断功能</span><br></pre></td></tr></table></figure>
-<p>请求压缩<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">feign:</span><br><span class="line">  compression:</span><br><span class="line">    request:</span><br><span class="line">      enabled: true # 开启请求压缩</span><br><span class="line">      mime-types: text/html,application/xml,application/json # 设置压缩的数据类型</span><br><span class="line">      min-request-size: 2048 # 设置触发压缩的大小下限</span><br></pre></td></tr></table></figure></p>
-<h2 id="eureka"><a href="#eureka" class="headerlink" title="eureka"></a>eureka</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">eureka:</span><br><span class="line">  client:</span><br><span class="line">    register-with-eureka: false # 是否注册自己的信息到EurekaServer，默认是true</span><br><span class="line">    fetch-registry: false # 是否拉取其它服务的信息，默认是true</span><br><span class="line">    service-url: # EurekaServer的地址，现在是自己的地址，如果是集群，需要加上其它Server的地址。</span><br><span class="line">      defaultZone: http:<span class="comment">//127.0.0.1:$&#123;server.port&#125;/eureka</span></span><br><span class="line">  instance:</span><br><span class="line">    instance-id: $&#123;spring.cloud.client.ipAddress&#125;:$&#123;server.port&#125; #实例信息，显示IP和端口</span><br><span class="line">    prefer-ip-address: <span class="keyword">true</span></span><br><span class="line">    ip-address: <span class="number">127.0</span>.0.1</span><br></pre></td></tr></table></figure>
-<h2 id="zuul"><a href="#zuul" class="headerlink" title="zuul"></a>zuul</h2><p>通过eureka的方式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">zuul:</span><br><span class="line">  retryable: true ##重试</span><br><span class="line">  routes:</span><br><span class="line">    user-service: # 这里是路由id，随意写</span><br><span class="line">      path: /user-service<span class="comment">/** # 这里是映射路径</span></span><br><span class="line"><span class="comment">      serviceId: user-service # 指定服务名称</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">#简化版</span></span><br><span class="line"><span class="comment">zuul:</span></span><br><span class="line"><span class="comment">  routes:</span></span><br><span class="line"><span class="comment">    user-service: /user-service/** # 这里是映射路径</span></span><br></pre></td></tr></table></figure></p>
-<p>手动IP的方式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">zuul:</span><br><span class="line">  routes:</span><br><span class="line">    user-service: # 这里是路由id，随意写</span><br><span class="line">      path: /user-service<span class="comment">/** # 这里是映射路径</span></span><br><span class="line"><span class="comment">      url: http://127.0.0.1:8081 # 映射路径对应的实际url地址</span></span><br><span class="line"><span class="comment">``` </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">## mybatis</span></span><br><span class="line"><span class="comment">``` yaml</span></span><br><span class="line"><span class="comment">mybatis:</span></span><br><span class="line"><span class="comment">  configuration:</span></span><br><span class="line"><span class="comment">    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #</span></span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/微服务/次级/webpack及vue-cli/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahao Wang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jhmarryme's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/13/微服务/次级/webpack及vue-cli/" itemprop="url">webpack及vue-cli</a></h1>
+                <a class="post-title-link" href="/2019/05/13/微服务/骨架/微服务/" itemprop="url">微服务目录</a></h1>
         
 
         <div class="post-meta">
@@ -1879,8 +1879,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/微服务项目存档/" itemprop="url" rel="index">
-                    <span itemprop="name">微服务项目存档</span>
+                  <a href="/categories/微服务/" itemprop="url" rel="index">
+                    <span itemprop="name">微服务</span>
                   </a>
                 </span>
 
@@ -1918,187 +1918,41 @@
       
         
           
-            <h1 id="8-webpack"><a href="#8-webpack" class="headerlink" title="8.webpack"></a>8.webpack</h1><p>Webpack 是一个前端资源的打包工具，它可以将js、image、css等资源当成一个模块进行打包。</p>
-<p>中文官方网站：<a href="https://www.webpackjs.com/" target="_blank" rel="noopener">https://www.webpackjs.com/</a></p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530168661348.png" alt="1530168661348"></p>
-<p>官网给出的解释：</p>
-<blockquote>
-<p>本质上，<em>webpack</em> 是一个现代 JavaScript 应用程序的<em>静态模块打包器(module bundler)</em>。当 webpack 处理应用程序时，它会递归地构建一个<em>依赖关系图(dependency graph)</em>，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 <em>bundle</em>。 </p>
-</blockquote>
-<p>为什么需要打包？</p>
-<ul>
-<li>将许多碎小文件打包成一个整体，减少单页面内的衍生请求次数，提高网站效率。</li>
-<li>将ES6的高级语法进行转换编译，以兼容老版本的浏览器。</li>
-<li>将代码打包的同时进行混淆，提高代码的安全性。</li>
-</ul>
-<h2 id="8-1-安装"><a href="#8-1-安装" class="headerlink" title="8.1.安装"></a>8.1.安装</h2><p>webpack支持全局安装和本地安装，官方推荐是本地安装，我们按照官方的来。</p>
-<p>安装最新版本webpack，输入命令：<code>npm install --save-dev webpack</code></p>
-<p> webpack 4+ 版本，你还需要安装 CLI ，输入命令：<code>npm install webpack webpack-cli --save-dev</code></p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530187524815.png" alt="1530187524815"></p>
-<p>此时，我们注意下项目中文件夹下，会有一个package.json文件。（其实早就有了）</p>
-<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530187744149.png" alt="1530187744149"></p>
-<p>打开文件，可以看到我们之前用npm安装过的文件都会出现在这里：</p>
-<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1525873343908.png" alt="1525873343908"></p>
-<h2 id="8-2-核心概念"><a href="#8-2-核心概念" class="headerlink" title="8.2.核心概念"></a>8.2.核心概念</h2><p>学习Webpack，你需要先理解四个<strong>核心概念</strong>：</p>
-<ul>
-<li><p>入口(entry)</p>
-<p>webpack打包的起点，可以有一个或多个，一般是js文件。webpack会从启点文件开始，寻找启点直接或间接依赖的其它所有的依赖，包括JS、CSS、图片资源等，作为将来打包的原始数据</p>
-</li>
-<li><p>输出(output)</p>
-<p>出口一般包含两个属性：path和filename。用来告诉webpack打包的目标文件夹，以及文件的名称。目的地也可以有多个。</p>
-</li>
-<li><p>加载器（loader）</p>
-<p>webpack本身只识别Js文件，如果要加载非JS文件，必须指定一些额外的加载器（loader），例如css-loader。然后将这些文件转为webpack能处理的有效模块，最后利用webpack的打包能力去处理。</p>
-</li>
-<li><p>插件(plugins)</p>
-<p>插件可以扩展webpack的功能，让webpack不仅仅是完成打包，甚至各种更复杂的功能，或者是对打包功能进行优化、压缩，提高效率。</p>
+            <p>流程:</p>
+<h1 id="前瞻"><a href="#前瞻" class="headerlink" title="*前瞻"></a>*前瞻</h1><h2 id="了解电商行业"><a href="#了解电商行业" class="headerlink" title="了解电商行业"></a>了解电商行业</h2><a href="/2019/05/13/微服务/次级/了解电商行业/" title="了解电商行业">了解电商行业</a>
+<h2 id="项目介绍及技术选型"><a href="#项目介绍及技术选型" class="headerlink" title="项目介绍及技术选型"></a>项目介绍及技术选型</h2><a href="/2019/05/13/微服务/次级/项目介绍及技术选型/" title="项目介绍及技术选型">项目介绍及技术选型</a>
+<h1 id="基础搭建"><a href="#基础搭建" class="headerlink" title="*基础搭建"></a>*基础搭建</h1><h2 id="后端工程创建"><a href="#后端工程创建" class="headerlink" title="后端工程创建"></a>后端工程创建</h2><p>搭建后端工程, 创建父工程及其子工程<br><a href="/2019/05/13/微服务/次级/后端工程创建/" title="后端工程创建">后端工程创建</a></p>
+<!-- day5结束 -->
+<h2 id="搭建后台管理前端"><a href="#搭建后台管理前端" class="headerlink" title="搭建后台管理前端"></a>搭建后台管理前端</h2><p>导入已有资源, 运行<br><a href="/2019/05/13/微服务/次级/搭建后台管理前端/" title="搭建后台管理前端">搭建后台管理前端</a></p>
+<h3 id="后台管理系统前端项目结构"><a href="#后台管理系统前端项目结构" class="headerlink" title="后台管理系统前端项目结构"></a>后台管理系统前端项目结构</h3><p>介绍了已有资源的整个项目结构<br><a href="/2019/05/13/微服务/次级/后台管理系统前端项目结构/" title="后台管理系统前端项目结构">后台管理系统前端项目结构</a></p>
+<h2 id="Vuetify框架"><a href="#Vuetify框架" class="headerlink" title="Vuetify框架"></a>Vuetify框架</h2><p>vuetify框架的入门学习<br></p>
+<h2 id="使用域名访问本地项目"><a href="#使用域名访问本地项目" class="headerlink" title="使用域名访问本地项目"></a>使用域名访问本地项目</h2><p>主要涉及修改host域名访问<br><a href="/2019/05/13/微服务/次级/使用域名访问本地项目/" title="使用域名访问本地项目">使用域名访问本地项目</a></p>
+<h3 id="Nginx及反向代理原理"><a href="#Nginx及反向代理原理" class="headerlink" title="Nginx及反向代理原理"></a>Nginx及反向代理原理</h3><a href="/2019/05/13/微服务/次级/Nginx及反向代理原理/" title="Nginx及反向代理原理">Nginx及反向代理原理</a>
+<h3 id="centos安装fastDFS"><a href="#centos安装fastDFS" class="headerlink" title="centos安装fastDFS"></a>centos安装fastDFS</h3>
+<p>提前安装fastDFS, 用来做分布式存储</p>
+<h3 id="Nginx配置"><a href="#Nginx配置" class="headerlink" title="Nginx配置"></a>Nginx配置</h3><a href="/2019/05/13/微服务/次级/Nginx配置/" title="Nginx配置">Nginx配置</a>
+<p>虚拟机中配置后进行测试, 通过域名访问.切记配置完成之后要开启防火墙的端口访问, 不然访问出错, 同时在前端界面中配置config下的index.js 修改为host: ‘localhost’为 host: ‘0.0.0.0’.</p>
+<h1 id="商品功能模块实现"><a href="#商品功能模块实现" class="headerlink" title="*商品功能模块实现"></a>*商品功能模块实现</h1><h2 id="分类相关功能"><a href="#分类相关功能" class="headerlink" title="*分类相关功能"></a>*分类相关功能</h2><h2 id="商品分类查询后端实现"><a href="#商品分类查询后端实现" class="headerlink" title="商品分类查询后端实现"></a>商品分类查询后端实现</h2><a href="/2019/05/13/微服务/次级/商品分类查询后端实现/" title="商品分类查询后端实现">商品分类查询后端实现</a>
+<p>该功能至此并不完善, 会出现跨域问题  </p>
+<h3 id="跨域分析"><a href="#跨域分析" class="headerlink" title="跨域分析"></a>跨域分析</h3><a href="/2019/05/13/微服务/次级/跨域分析/" title="跨域分析">跨域分析</a>
+<h3 id="利用Cors解决跨域问题"><a href="#利用Cors解决跨域问题" class="headerlink" title="利用Cors解决跨域问题"></a>利用Cors解决跨域问题</h3><p>以后也会出现该类问题,注意解决<br><a href="/2019/05/13/微服务/次级/利用Cors解决跨域问题/" title="利用Cors解决跨域问题">利用Cors解决跨域问题</a></p>
+<h2 id="品牌相关功能"><a href="#品牌相关功能" class="headerlink" title="*品牌相关功能"></a>*品牌相关功能</h2><ul>
+<li>独立实现品牌新增</li>
+<li>实现图片上传</li>
+<li>了解FastDFS的安装</li>
+<li>使用FastDFS客户端实现上传<h3 id="品牌查询Vue界面搭建"><a href="#品牌查询Vue界面搭建" class="headerlink" title="品牌查询Vue界面搭建"></a>品牌查询Vue界面搭建</h3><a href="/2019/05/13/微服务/次级/品牌查询Vue界面搭建/" title="品牌查询Vue界面搭建">品牌查询Vue界面搭建</a>
 </li>
 </ul>
-<h2 id="8-3-编写webpack配置"><a href="#8-3-编写webpack配置" class="headerlink" title="8.3.编写webpack配置"></a>8.3.编写webpack配置</h2><p>接下来，我们编写一个webpack的配置，来指定一些打包的配置项。配置文件的名称，默认就是webpack.config.js，我们放到hello-vue的根目录：</p>
-<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530199761226.png" alt="1530199761226"></p>
-<p>配置文件中就是要指定上面说的四个核心概念，入口、出口、加载器、插件。</p>
-<p>不过，加载器和插件是可选的。我们先编写入口和出口</p>
-<h3 id="8-3-1-入口entry"><a href="#8-3-1-入口entry" class="headerlink" title="8.3.1.入口entry"></a>8.3.1.入口entry</h3><p>webpack打包的启点，可以有一个或多个，一般是js文件。现在思考一下我们有没有一个入口？貌似没有，我们所有的东西都集中在index.html，不是一个js，那怎么办？</p>
-<p>我们新建一个js，把index.html中的部分内容进行集中，然后在index.html中引用这个js不就OK了！</p>
-<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530200787599.png" alt="1530200787599"></p>
-<p>然后把原来index.html中的js代码全部移动到index.js中</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用es6的语法导入js模块</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'../node_modules/vue/dist/vue'</span>;</span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">'../node_modules/vue-router/dist/vue-router'</span>;</span><br><span class="line"><span class="keyword">import</span> loginForm <span class="keyword">from</span> <span class="string">'./user/login'</span>;</span><br><span class="line"><span class="keyword">import</span> registerForm <span class="keyword">from</span> <span class="string">'./user/register'</span>;</span><br><span class="line"></span><br><span class="line">Vue.use(VueRouter);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建vue对象</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">    routes: [ <span class="comment">// 编写路由规则</span></span><br><span class="line">        <span class="comment">// path: 路由请求路径；component：组件名称</span></span><br><span class="line">        &#123;<span class="attr">path</span>: <span class="string">"/login"</span>, <span class="attr">component</span>: loginForm&#125;,</span><br><span class="line">        &#123;<span class="attr">path</span>: <span class="string">"/register"</span>, <span class="attr">component</span>: registerForm&#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">"#app"</span>,</span><br><span class="line">    components: &#123;</span><br><span class="line">        loginForm,</span><br><span class="line">        registerForm</span><br><span class="line">    &#125;,</span><br><span class="line">    router</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>原来的index.html中引入了很多其它js，在这里我们使用es6的import语法进行导入。</p>
-</li>
-<li><p>​</p>
-<p>注意，要使用import，就需要在login.js和register.js中添加export导出语句：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> loginForm=&#123;</span><br><span class="line">    template: <span class="string">'\</span></span><br><span class="line"><span class="string">       &lt;div&gt;\</span></span><br><span class="line"><span class="string">            &lt;h2&gt;登陆页&lt;/h2&gt;\</span></span><br><span class="line"><span class="string">            用户名：&lt;input type="text"&gt;&lt;br&gt;\</span></span><br><span class="line"><span class="string">            密&amp;emsp;码：&lt;input type="password"&gt;\</span></span><br><span class="line"><span class="string">       &lt;/div&gt;'</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> loginForm;</span><br></pre></td></tr></table></figure>
-<p>register.js:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> registerForm = &#123;</span><br><span class="line">    template:<span class="string">'\</span></span><br><span class="line"><span class="string">    &lt;div&gt;\</span></span><br><span class="line"><span class="string">    &lt;h2&gt;注册页&lt;/h2&gt; \</span></span><br><span class="line"><span class="string">    用&amp;ensp;户&amp;ensp;名：&lt;input type="text"&gt;&lt;br/&gt;\</span></span><br><span class="line"><span class="string">    密&amp;emsp;&amp;emsp;码：&lt;input type="password"&gt;&lt;br/&gt;\</span></span><br><span class="line"><span class="string">    确认密码：&lt;input type="password"&gt;&lt;br/&gt;\</span></span><br><span class="line"><span class="string">    &lt;/div&gt;\</span></span><br><span class="line"><span class="string">    '</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> registerForm;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>vue-router使用模块化加载后，必须增加一句：Vue.use(VueRouter)</p>
-</li>
-</ul>
-<p>这样，index.js就成了我们整个配置的入口了。</p>
-<p>我们在webpack.config.js中添加以下内容：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">    entry:<span class="string">'./src/index.js'</span>,  <span class="comment">//指定打包的入口文件</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="8-3-2-出口output"><a href="#8-3-2-出口output" class="headerlink" title="8.3.2.出口output"></a>8.3.2.出口output</h3><p>出口，就是输出的目的地。一般我们会用一个dist目录，作为打包输出的文件夹：</p>
-<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530201612391.png" alt="1530201612391"></p>
-<p>然后，编写webpack.config.js，添加出口配置：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">    entry:<span class="string">'./src/main.js'</span>,  <span class="comment">//指定打包的入口文件</span></span><br><span class="line">    output:&#123;</span><br><span class="line">        <span class="comment">// path: 输出的目录，__dirname是相对于webpack.config.js配置文件的绝对路径</span></span><br><span class="line">        path : __dirname+<span class="string">'/dist'</span>,  </span><br><span class="line">        filename:<span class="string">'build.js'</span>	 <span class="comment">//输出的js文件名</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="8-4-执行打包"><a href="#8-4-执行打包" class="headerlink" title="8.4.执行打包"></a>8.4.执行打包</h2><p>在控制台输入以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx webpack --config webpack.config.js</span><br></pre></td></tr></table></figure>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530203361613.png" alt="1530203361613"></p>
-<p>随后，查看dist目录：</p>
-<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530203406462.png" alt="1530203406462"></p>
-<p>尝试打开build.js，你根本看不懂：</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530203465737.png" alt="1530203465737"></p>
-<p>所有的js合并为1个，并且对变量名进行了随机打乱，这样就起到了 压缩、混淆的作用。</p>
-<h2 id="8-5-测试运行"><a href="#8-5-测试运行" class="headerlink" title="8.5.测试运行"></a>8.5.测试运行</h2><p>在index.html中引入刚刚生成的build.js文件，</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--router-link来指定跳转的路径--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/login"</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/register"</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--vue-router的锚点--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../dist/build.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>然后运行：</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530203553915.png" alt="1530203553915"></p>
-<h2 id="8-6-打包CSS"><a href="#8-6-打包CSS" class="headerlink" title="8.6.打包CSS"></a>8.6.打包CSS</h2><p>我们来编写一段CSS代码，对index的样式做一些美化：</p>
-<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530203880056.png" alt="1530203880056"></p>
-<p>内容：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#app</span> <span class="selector-tag">a</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">30px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: dodgerblue;</span><br><span class="line">    <span class="attribute">color</span>: white;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">    <span class="attribute">text-decoration</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#app</span> <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: whitesmoke;</span><br><span class="line">    <span class="attribute">color</span>: dodgerblue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#app</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#app</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">305px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid dodgerblue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="8-6-1-安装加载器"><a href="#8-6-1-安装加载器" class="headerlink" title="8.6.1.安装加载器"></a>8.6.1.安装加载器</h3><p>前面说过，webpack默认只支持js加载。要加载CSS文件，必须安装加载器：</p>
-<p>命令：<code>npm install style-loader css-loader --save-dev</code></p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530204068192.png" alt="1530204068192"></p>
-<p>此时，在package.json中能看到新安装的：</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530204160848.png" alt="1530204160848"></p>
-<h3 id="8-6-3-index-js引入css文件"><a href="#8-6-3-index-js引入css文件" class="headerlink" title="8.6.3.index.js引入css文件"></a>8.6.3.index.js引入css文件</h3><p>因为入口在index.js，因此css文件也要在这里引入。依然使用ES6 的模块语法：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'./css/main.css'</span></span><br></pre></td></tr></table></figure>
-<h3 id="8-6-4-配置加载器"><a href="#8-6-4-配置加载器" class="headerlink" title="8.6.4.配置加载器"></a>8.6.4.配置加载器</h3><p>在webpack.config.js配置文件中配置css的加载器</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: <span class="string">'./src/main.js'</span>,  <span class="comment">//指定打包的入口文件</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        path: __dirname + <span class="string">'/dist'</span>, <span class="comment">// 注意：__dirname表示webpack.config.js所在目录的绝对路径</span></span><br><span class="line">        filename: <span class="string">'build.js'</span>  <span class="comment">//输出文件</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.css$/</span>, <span class="comment">// 通过正则表达式匹配所有以.css后缀的文件</span></span><br><span class="line">                use: [ <span class="comment">// 要使用的加载器，这两个顺序一定不要乱</span></span><br><span class="line">                    <span class="string">'style-loader'</span>,</span><br><span class="line">                    <span class="string">'css-loader'</span></span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="8-6-5-重新打包"><a href="#8-6-5-重新打包" class="headerlink" title="8.6.5.重新打包"></a>8.6.5.重新打包</h3><p>再次输入打包指令：<code>npx webpack --config webpack.config.js</code></p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530204780240.png" alt="1530204780240"></p>
-<p>效果：</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530204813013.png" alt="1530204813013"></p>
-<h2 id="8-7-script脚本"><a href="#8-7-script脚本" class="headerlink" title="8.7.script脚本"></a>8.7.script脚本</h2><p>我们每次使用npm安装，都会在package.json中留下痕迹，事实上，package.json中不仅可以记录安装的内容，还可编写脚本，让我们运行命令更加快捷。</p>
-<p>我们可以把webpack的命令编入其中：</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530205423730.png" alt="1530205423730"></p>
-<p>以后，如果要打包，就可以直接输入：<code>npm run build</code>即可。</p>
-<p><code>npm run</code> ：执行npm脚本，后面跟的是配置脚本的名称<code>build</code></p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530205504104.png" alt="1530205504104"></p>
-<h2 id="8-8-打包HTML"><a href="#8-8-打包HTML" class="headerlink" title="8.8.打包HTML"></a>8.8.打包HTML</h2><p>之前的打包过程中，除了HTML文件外的其它文件都被打包了，当在线上部署时，我们还得自己复制HTML到dist，然后手动添加生成的js到HTML中，这非常不友好。</p>
-<p>webpack中的一个插件：html-webpack-plugin，可以解决这个问题。</p>
-<p>1）安装插件：<code>npm install --save-dev html-webpack-plugin</code></p>
-<p>需要在webpack.config.js中添加插件：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: <span class="string">'./src/main.js'</span>,  <span class="comment">//指定打包的入口文件</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        path: __dirname + <span class="string">'/dist'</span>,  <span class="comment">// 注意：__dirname表示webpack.config.js所在目录的绝对路径</span></span><br><span class="line">        filename: <span class="string">'build.js'</span>		   <span class="comment">//输出文件</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.css$/</span>, <span class="comment">// 通过正则表达式匹配所有以.css后缀的文件</span></span><br><span class="line">                use: [ <span class="comment">// 要使用的加载器，这两个顺序一定不要乱</span></span><br><span class="line">                    <span class="string">'style-loader'</span>,</span><br><span class="line">                    <span class="string">'css-loader'</span></span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins:[</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">            title: <span class="string">'首页'</span>,  <span class="comment">//生成的页面标题&lt;head&gt;&lt;title&gt;首页&lt;/title&gt;&lt;/head&gt;</span></span><br><span class="line">            filename: <span class="string">'index.html'</span>, <span class="comment">// dist目录下生成的文件名</span></span><br><span class="line">            template: <span class="string">'./src/index.html'</span> <span class="comment">// 我们原来的index.html，作为模板</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2）将原来HTML中的引入js代码删除：</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530207035782.png" alt="1530207035782"></p>
-<p>3）再次打包：<code>npm run build</code></p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530206990349.png" alt="1530206990349"></p>
-<p>4）查看dist目录：</p>
-<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530207132261.png" alt="1530207132261"></p>
-<p>打开index.html，发现已经自动添加了当前目录下的build.js</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--router-link来指定跳转的路径--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/login"</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/register"</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--vue-router的锚点--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"build.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="8-9-热更新的web服务"><a href="#8-9-热更新的web服务" class="headerlink" title="8.9.热更新的web服务"></a>8.9.热更新的web服务</h2><p>刚才的案例中，每次修改任何js或css内容，都必须重新打包，非常麻烦。</p>
-<p>webpack给我们提供了一个插件，可以帮我们运行一个web服务，加载页面内容，并且修改js后不需要重新加载就能看到最新结果：</p>
-<p>1）安装插件：<code>npm install webpack-dev-server --save-dev</code></p>
-<p>2）添加启动脚本</p>
-<p>在package.json中配置script</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"dev"</span>: <span class="string">"webpack-dev-server --inline --hot --open --port 8080 --host 127.0.0.1"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p>–inline：自动刷新</p>
-<p>–hot：热加载</p>
-<p>–port：指定端口</p>
-<p>–open：自动在默认浏览器打开</p>
-<p>–host：可以指定服务器的 ip，不指定则为127.0.0.1</p>
-<p>3）运行脚本：<code>npm run dev</code></p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530207667660.png" alt="1530207667660"></p>
-<p>4）效果：</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530207505226.png" alt="1530207505226"></p>
-<h1 id="9-vue-cli"><a href="#9-vue-cli" class="headerlink" title="9.vue-cli"></a>9.vue-cli</h1><h2 id="9-1-介绍和安装"><a href="#9-1-介绍和安装" class="headerlink" title="9.1.介绍和安装"></a>9.1.介绍和安装</h2><p>在开发中，需要打包的东西不止是js、css、html。还有更多的东西要处理，这些插件和加载器如果我们一一去添加就会比较麻烦。</p>
-<p>幸好，vue官方提供了一个快速搭建vue项目的脚手架：vue-cli</p>
-<p>使用它能快速的构建一个web工程模板。</p>
-<p>官网：<a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">https://github.com/vuejs/vue-cli</a></p>
-<p>安装命令：<code>npm install -g vue-cli</code></p>
-<h2 id="9-2-快速上手"><a href="#9-2-快速上手" class="headerlink" title="9.2.快速上手"></a>9.2.快速上手</h2><p>我们新建一个module：</p>
-<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208068828.png" alt="1530208068828"></p>
-<p>切换到该目录：</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208139922.png" alt="1530208139922"></p>
-<p>用vue-cli命令，快速搭建一个webpack的项目：<code>vue init webpack</code></p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208650256.png" alt="1530208556831"></p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208708000.png" alt="1530208708000"></p>
-<p>前面几项都走默认或yes</p>
-<p>下面这些我们选no</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208850418.png" alt="1530208850418"></p>
-<p>最后，再选yes，使用 npm安装</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208897063.png" alt="1530208897063"></p>
-<p>开始初始化项目，并安装依赖，可能需要</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208932814.png" alt="1530208932814"></p>
-<p>安装成功！</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530209062090.png" alt="1530209062090"></p>
-<p>可以使用<code>npm run dev</code>命令启动。</p>
-<h2 id="9-3-项目结构"><a href="#9-3-项目结构" class="headerlink" title="9.3.项目结构"></a>9.3.项目结构</h2><p>安装好的项目结构：</p>
-<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530209146349.png" alt="1530209146349"></p>
-<p>入口文件：main.js</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530209503007.png" alt="1525913687860"></p>
-<h2 id="9-4-单文件组件"><a href="#9-4-单文件组件" class="headerlink" title="9.4.单文件组件"></a>9.4.单文件组件</h2><p>需要注意的是，我们看到有一类后缀名为.vue的文件，我们称为单文件组件</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530209769323.png" alt="1530209769323"></p>
-<p>每一个.vue文件，就是一个独立的vue组件。类似于我们刚才写的login.js和register.js</p>
-<p>只不过，我们在js中编写 html模板和样式非常的不友好，而且没有语法提示和高亮。</p>
-<p>而单文件组件中包含三部分内容：</p>
-<ul>
-<li>template：模板，支持html语法高亮和提示</li>
-<li>script：js脚本，这里编写的就是vue的组件对象，还可以有data(){}等</li>
-<li>style：样式，支持CSS语法高亮和提示</li>
-</ul>
-<p>每个组件都有自己独立的html、JS、CSS，互不干扰，真正做到可独立复用。</p>
-<h2 id="9-5-运行"><a href="#9-5-运行" class="headerlink" title="9.5.运行"></a>9.5.运行</h2><p>看看生成的package.json：</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530210016103.png" alt="1530210016103"></p>
-<ul>
-<li>可以看到这引入了非常多的依赖，绝大多数都是开发期依赖，比如大量的加载器。</li>
-<li>运行时依赖只有vue和vue-router</li>
-<li>脚本有三个：<ul>
-<li>dev：使用了webpack-dev-server命令，开发时热部署使用</li>
-<li>start：使用了npm run dev命令，与上面的dev效果完全一样，当脚本名为“start”时，可以省略“run”。 </li>
-<li>build：等同于webpack的打包功能，会打包到dist目录下。</li>
-</ul>
-</li>
-</ul>
-<p>我们执行<code>npm run dev</code> 或者 <code>npm start</code> 都可以启动项目：</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530210411076.png" alt="1530210411076"></p>
-<p>页面：</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530210349704.png" alt="1530210349704"></p>
-
+<!-- day6结束 -->
+<h3 id="品牌新增vue界面搭建"><a href="#品牌新增vue界面搭建" class="headerlink" title="品牌新增vue界面搭建"></a>品牌新增vue界面搭建</h3><a href="/2019/05/13/微服务/次级/品牌新增vue界面搭建/" title="品牌新增vue界面搭建">品牌新增vue界面搭建</a>
+<h3 id="品牌新增后端实现"><a href="#品牌新增后端实现" class="headerlink" title="品牌新增后端实现"></a>品牌新增后端实现</h3><a href="/2019/05/13/微服务/次级/品牌新增后端实现/" title="品牌新增后端实现">品牌新增后端实现</a>
+<h4 id="品牌新增后的关闭弹窗"><a href="#品牌新增后的关闭弹窗" class="headerlink" title="品牌新增后的关闭弹窗"></a>品牌新增后的关闭弹窗</h4><a href="/2019/05/13/微服务/次级/品牌新增后的关闭弹窗/" title="品牌新增后的关闭弹窗">品牌新增后的关闭弹窗</a>
+<p>解决新品新增后弹窗无法关闭的情况</p>
+<h3 id="图片上传实现"><a href="#图片上传实现" class="headerlink" title="图片上传实现"></a>图片上传实现</h3><p>也会遇到跨域问题, 使用到了fastDFS分布式存储图片<br><a href="/2019/05/13/微服务/次级/图片上传实现/" title="图片上传实现">图片上传实现</a></p>
+<h4 id="实时刷新界面及静态图片访问"><a href="#实时刷新界面及静态图片访问" class="headerlink" title="实时刷新界面及静态图片访问"></a>实时刷新界面及静态图片访问</h4><a href="/2019/05/13/微服务/次级/实时刷新界面及静态图片访问/" title="实时刷新界面及静态图片访问">实时刷新界面及静态图片访问</a>
+<h3 id="修改品牌"><a href="#修改品牌" class="headerlink" title="修改品牌"></a>修改品牌</h3>
+<!-- day7结束 -->
+<h2 id="商品规格管理"><a href="#商品规格管理" class="headerlink" title="*商品规格管理"></a>*商品规格管理</h2><h3 id="规格组和规格参数的查询"><a href="#规格组和规格参数的查询" class="headerlink" title="规格组和规格参数的查询"></a>规格组和规格参数的查询</h3><h1 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h1><h2 id="Vue入门"><a href="#Vue入门" class="headerlink" title="Vue入门"></a>Vue入门</h2><h2 id="ES6使用"><a href="#ES6使用" class="headerlink" title="ES6使用"></a>ES6使用</h2><h2 id="webpack及vue-cli"><a href="#webpack及vue-cli" class="headerlink" title="webpack及vue-cli"></a>webpack及vue-cli</h2>
           
         
       
@@ -2258,161 +2112,6 @@
 </li>
 </ul>
 <p>测试一下</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/微服务/次级/搭建后台管理前端/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahao Wang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jhmarryme's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/13/微服务/次级/搭建后台管理前端/" itemprop="url">搭建后台管理前端</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T16:09:29Z">
-                2019-05-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/微服务项目存档/" itemprop="url" rel="index">
-                    <span itemprop="name">微服务项目存档</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="1-搭建后台管理前端"><a href="#1-搭建后台管理前端" class="headerlink" title="1.搭建后台管理前端"></a>1.搭建后台管理前端</h1><h2 id="1-1-导入已有资源"><a href="#1-1-导入已有资源" class="headerlink" title="1.1.导入已有资源"></a>1.1.导入已有资源</h2><p>导入已有项目leyou-manage-web</p>
-<h2 id="1-2-安装依赖"><a href="#1-2-安装依赖" class="headerlink" title="1.2.安装依赖"></a>1.2.安装依赖</h2><p>没有node_modules文件夹。不过package.json中依然定义了所需的一切依赖：</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day6/assets/1530368695265.png" alt="1530368695265"></p>
-<p>打开终端，进入项目目录，输入：<code>npm install</code>命令，即可安装这些依赖。</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day6/assets/1530374769782.png" alt="1530374769782"></p>
-<p>大概需要几分钟。</p>
-<p><strong>如果安装过程出现以下问题</strong>：</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day6/assets/1530374827792.png" alt="1530374827792"></p>
-<p>删除node_modules目录，重新安装。</p>
-<h2 id="1-3-运行一下看看"><a href="#1-3-运行一下看看" class="headerlink" title="1.3.运行一下看看"></a>1.3.运行一下看看</h2><p>输入命令：<code>npm run dev</code></p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day6/assets/1530374954209.png" alt="1530374954209"></p>
-<p>发现默认的端口是9001。访问：<a href="http://localhost:9001" target="_blank" rel="noopener">http://localhost:9001</a></p>
-<p>会自动进行跳转：</p>
-<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day6/assets/1530375152204.png" alt="1525958950616"></p>
 
           
         
@@ -2684,6 +2383,161 @@
 <li>Access-Control-Max-Age：本次许可的有效时长，单位是秒，<strong>过期之前的ajax请求就无需再次进行预检了</strong></li>
 </ul>
 <p>如果浏览器得到上述响应，则认定为可以跨域，后续就跟简单请求的处理是一样的了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/微服务/次级/搭建后台管理前端/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/13/微服务/次级/搭建后台管理前端/" itemprop="url">搭建后台管理前端</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T16:09:29Z">
+                2019-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/微服务项目存档/" itemprop="url" rel="index">
+                    <span itemprop="name">微服务项目存档</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-搭建后台管理前端"><a href="#1-搭建后台管理前端" class="headerlink" title="1.搭建后台管理前端"></a>1.搭建后台管理前端</h1><h2 id="1-1-导入已有资源"><a href="#1-1-导入已有资源" class="headerlink" title="1.1.导入已有资源"></a>1.1.导入已有资源</h2><p>导入已有项目leyou-manage-web</p>
+<h2 id="1-2-安装依赖"><a href="#1-2-安装依赖" class="headerlink" title="1.2.安装依赖"></a>1.2.安装依赖</h2><p>没有node_modules文件夹。不过package.json中依然定义了所需的一切依赖：</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day6/assets/1530368695265.png" alt="1530368695265"></p>
+<p>打开终端，进入项目目录，输入：<code>npm install</code>命令，即可安装这些依赖。</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day6/assets/1530374769782.png" alt="1530374769782"></p>
+<p>大概需要几分钟。</p>
+<p><strong>如果安装过程出现以下问题</strong>：</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day6/assets/1530374827792.png" alt="1530374827792"></p>
+<p>删除node_modules目录，重新安装。</p>
+<h2 id="1-3-运行一下看看"><a href="#1-3-运行一下看看" class="headerlink" title="1.3.运行一下看看"></a>1.3.运行一下看看</h2><p>输入命令：<code>npm run dev</code></p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day6/assets/1530374954209.png" alt="1530374954209"></p>
+<p>发现默认的端口是9001。访问：<a href="http://localhost:9001" target="_blank" rel="noopener">http://localhost:9001</a></p>
+<p>会自动进行跳转：</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day6/assets/1530375152204.png" alt="1525958950616"></p>
 
           
         
