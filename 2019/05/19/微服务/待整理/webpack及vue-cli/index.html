@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="8.webpackWebpack 是一个前端资源的打包工具，它可以将js、image、css等资源当成一个模块进行打包。 中文官方网站：https://www.webpackjs.com/  官网给出的解释：  本质上，webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler)。当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dep">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jhmarryme&#39;s blog">
+<meta property="og:url" content="https://wangdaye7.github.io/2019/05/19/微服务/待整理/webpack及vue-cli/index.html">
+<meta property="og:site_name" content="jhmarryme&#39;s blog">
+<meta property="og:description" content="8.webpackWebpack 是一个前端资源的打包工具，它可以将js、image、css等资源当成一个模块进行打包。 中文官方网站：https://www.webpackjs.com/  官网给出的解释：  本质上，webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler)。当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dep">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530168661348.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530187524815.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530187744149.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1525873343908.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530199761226.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530200787599.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530201612391.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530203361613.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530203406462.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530203465737.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530203553915.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530203880056.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530204068192.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530204160848.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530204780240.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530204813013.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530205423730.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530205504104.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530207035782.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530206990349.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530207132261.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530207667660.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530207505226.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208068828.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208139922.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208650256.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208708000.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208850418.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208897063.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208932814.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530209062090.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530209146349.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530209503007.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530209769323.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530210016103.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530210411076.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530210349704.png">
+<meta property="og:updated_time" content="2019-05-19T14:25:56.522Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jhmarryme&#39;s blog">
+<meta name="twitter:description" content="8.webpackWebpack 是一个前端资源的打包工具，它可以将js、image、css等资源当成一个模块进行打包。 中文官方网站：https://www.webpackjs.com/  官网给出的解释：  本质上，webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler)。当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dep">
+<meta name="twitter:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530168661348.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wangdaye7.github.io/2019/05/19/微服务/待整理/webpack及vue-cli/">
+
+
+
+
+
+  <title> | jhmarryme's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/wangdaye7" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jhmarryme's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/19/微服务/待整理/webpack及vue-cli/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-19T22:25:50+08:00">
+                2019-05-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="8-webpack"><a href="#8-webpack" class="headerlink" title="8.webpack"></a>8.webpack</h1><p>Webpack 是一个前端资源的打包工具，它可以将js、image、css等资源当成一个模块进行打包。</p>
+<p>中文官方网站：<a href="https://www.webpackjs.com/" target="_blank" rel="noopener">https://www.webpackjs.com/</a></p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530168661348.png" alt="1530168661348"></p>
+<p>官网给出的解释：</p>
+<blockquote>
+<p>本质上，<em>webpack</em> 是一个现代 JavaScript 应用程序的<em>静态模块打包器(module bundler)</em>。当 webpack 处理应用程序时，它会递归地构建一个<em>依赖关系图(dependency graph)</em>，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 <em>bundle</em>。 </p>
+</blockquote>
+<p>为什么需要打包？</p>
+<ul>
+<li>将许多碎小文件打包成一个整体，减少单页面内的衍生请求次数，提高网站效率。</li>
+<li>将ES6的高级语法进行转换编译，以兼容老版本的浏览器。</li>
+<li>将代码打包的同时进行混淆，提高代码的安全性。</li>
+</ul>
+<h2 id="8-1-安装"><a href="#8-1-安装" class="headerlink" title="8.1.安装"></a>8.1.安装</h2><p>webpack支持全局安装和本地安装，官方推荐是本地安装，我们按照官方的来。</p>
+<p>安装最新版本webpack，输入命令：<code>npm install --save-dev webpack</code></p>
+<p> webpack 4+ 版本，你还需要安装 CLI ，输入命令：<code>npm install webpack webpack-cli --save-dev</code></p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530187524815.png" alt="1530187524815"></p>
+<p>此时，我们注意下项目中文件夹下，会有一个package.json文件。（其实早就有了）</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530187744149.png" alt="1530187744149"></p>
+<p>打开文件，可以看到我们之前用npm安装过的文件都会出现在这里：</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1525873343908.png" alt="1525873343908"></p>
+<h2 id="8-2-核心概念"><a href="#8-2-核心概念" class="headerlink" title="8.2.核心概念"></a>8.2.核心概念</h2><p>学习Webpack，你需要先理解四个<strong>核心概念</strong>：</p>
+<ul>
+<li><p>入口(entry)</p>
+<p>webpack打包的起点，可以有一个或多个，一般是js文件。webpack会从启点文件开始，寻找启点直接或间接依赖的其它所有的依赖，包括JS、CSS、图片资源等，作为将来打包的原始数据</p>
+</li>
+<li><p>输出(output)</p>
+<p>出口一般包含两个属性：path和filename。用来告诉webpack打包的目标文件夹，以及文件的名称。目的地也可以有多个。</p>
+</li>
+<li><p>加载器（loader）</p>
+<p>webpack本身只识别Js文件，如果要加载非JS文件，必须指定一些额外的加载器（loader），例如css-loader。然后将这些文件转为webpack能处理的有效模块，最后利用webpack的打包能力去处理。</p>
+</li>
+<li><p>插件(plugins)</p>
+<p>插件可以扩展webpack的功能，让webpack不仅仅是完成打包，甚至各种更复杂的功能，或者是对打包功能进行优化、压缩，提高效率。</p>
+</li>
+</ul>
+<h2 id="8-3-编写webpack配置"><a href="#8-3-编写webpack配置" class="headerlink" title="8.3.编写webpack配置"></a>8.3.编写webpack配置</h2><p>接下来，我们编写一个webpack的配置，来指定一些打包的配置项。配置文件的名称，默认就是webpack.config.js，我们放到hello-vue的根目录：</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530199761226.png" alt="1530199761226"></p>
+<p>配置文件中就是要指定上面说的四个核心概念，入口、出口、加载器、插件。</p>
+<p>不过，加载器和插件是可选的。我们先编写入口和出口</p>
+<h3 id="8-3-1-入口entry"><a href="#8-3-1-入口entry" class="headerlink" title="8.3.1.入口entry"></a>8.3.1.入口entry</h3><p>webpack打包的启点，可以有一个或多个，一般是js文件。现在思考一下我们有没有一个入口？貌似没有，我们所有的东西都集中在index.html，不是一个js，那怎么办？</p>
+<p>我们新建一个js，把index.html中的部分内容进行集中，然后在index.html中引用这个js不就OK了！</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530200787599.png" alt="1530200787599"></p>
+<p>然后把原来index.html中的js代码全部移动到index.js中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用es6的语法导入js模块</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'../node_modules/vue/dist/vue'</span>;</span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">'../node_modules/vue-router/dist/vue-router'</span>;</span><br><span class="line"><span class="keyword">import</span> loginForm <span class="keyword">from</span> <span class="string">'./user/login'</span>;</span><br><span class="line"><span class="keyword">import</span> registerForm <span class="keyword">from</span> <span class="string">'./user/register'</span>;</span><br><span class="line"></span><br><span class="line">Vue.use(VueRouter);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建vue对象</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">    routes: [ <span class="comment">// 编写路由规则</span></span><br><span class="line">        <span class="comment">// path: 路由请求路径；component：组件名称</span></span><br><span class="line">        &#123;<span class="attr">path</span>: <span class="string">"/login"</span>, <span class="attr">component</span>: loginForm&#125;,</span><br><span class="line">        &#123;<span class="attr">path</span>: <span class="string">"/register"</span>, <span class="attr">component</span>: registerForm&#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">"#app"</span>,</span><br><span class="line">    components: &#123;</span><br><span class="line">        loginForm,</span><br><span class="line">        registerForm</span><br><span class="line">    &#125;,</span><br><span class="line">    router</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>原来的index.html中引入了很多其它js，在这里我们使用es6的import语法进行导入。</p>
+</li>
+<li><p>​</p>
+<p>注意，要使用import，就需要在login.js和register.js中添加export导出语句：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> loginForm=&#123;</span><br><span class="line">    template: <span class="string">'\</span></span><br><span class="line"><span class="string">       &lt;div&gt;\</span></span><br><span class="line"><span class="string">            &lt;h2&gt;登陆页&lt;/h2&gt;\</span></span><br><span class="line"><span class="string">            用户名：&lt;input type="text"&gt;&lt;br&gt;\</span></span><br><span class="line"><span class="string">            密&amp;emsp;码：&lt;input type="password"&gt;\</span></span><br><span class="line"><span class="string">       &lt;/div&gt;'</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> loginForm;</span><br></pre></td></tr></table></figure>
+<p>register.js:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> registerForm = &#123;</span><br><span class="line">    template:<span class="string">'\</span></span><br><span class="line"><span class="string">    &lt;div&gt;\</span></span><br><span class="line"><span class="string">    &lt;h2&gt;注册页&lt;/h2&gt; \</span></span><br><span class="line"><span class="string">    用&amp;ensp;户&amp;ensp;名：&lt;input type="text"&gt;&lt;br/&gt;\</span></span><br><span class="line"><span class="string">    密&amp;emsp;&amp;emsp;码：&lt;input type="password"&gt;&lt;br/&gt;\</span></span><br><span class="line"><span class="string">    确认密码：&lt;input type="password"&gt;&lt;br/&gt;\</span></span><br><span class="line"><span class="string">    &lt;/div&gt;\</span></span><br><span class="line"><span class="string">    '</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> registerForm;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>vue-router使用模块化加载后，必须增加一句：Vue.use(VueRouter)</p>
+</li>
+</ul>
+<p>这样，index.js就成了我们整个配置的入口了。</p>
+<p>我们在webpack.config.js中添加以下内容：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">    entry:<span class="string">'./src/index.js'</span>,  <span class="comment">//指定打包的入口文件</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="8-3-2-出口output"><a href="#8-3-2-出口output" class="headerlink" title="8.3.2.出口output"></a>8.3.2.出口output</h3><p>出口，就是输出的目的地。一般我们会用一个dist目录，作为打包输出的文件夹：</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530201612391.png" alt="1530201612391"></p>
+<p>然后，编写webpack.config.js，添加出口配置：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">    entry:<span class="string">'./src/main.js'</span>,  <span class="comment">//指定打包的入口文件</span></span><br><span class="line">    output:&#123;</span><br><span class="line">        <span class="comment">// path: 输出的目录，__dirname是相对于webpack.config.js配置文件的绝对路径</span></span><br><span class="line">        path : __dirname+<span class="string">'/dist'</span>,  </span><br><span class="line">        filename:<span class="string">'build.js'</span>	 <span class="comment">//输出的js文件名</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="8-4-执行打包"><a href="#8-4-执行打包" class="headerlink" title="8.4.执行打包"></a>8.4.执行打包</h2><p>在控制台输入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx webpack --config webpack.config.js</span><br></pre></td></tr></table></figure>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530203361613.png" alt="1530203361613"></p>
+<p>随后，查看dist目录：</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530203406462.png" alt="1530203406462"></p>
+<p>尝试打开build.js，你根本看不懂：</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530203465737.png" alt="1530203465737"></p>
+<p>所有的js合并为1个，并且对变量名进行了随机打乱，这样就起到了 压缩、混淆的作用。</p>
+<h2 id="8-5-测试运行"><a href="#8-5-测试运行" class="headerlink" title="8.5.测试运行"></a>8.5.测试运行</h2><p>在index.html中引入刚刚生成的build.js文件，</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--router-link来指定跳转的路径--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/login"</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/register"</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--vue-router的锚点--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../dist/build.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后运行：</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530203553915.png" alt="1530203553915"></p>
+<h2 id="8-6-打包CSS"><a href="#8-6-打包CSS" class="headerlink" title="8.6.打包CSS"></a>8.6.打包CSS</h2><p>我们来编写一段CSS代码，对index的样式做一些美化：</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530203880056.png" alt="1530203880056"></p>
+<p>内容：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#app</span> <span class="selector-tag">a</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">30px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: dodgerblue;</span><br><span class="line">    <span class="attribute">color</span>: white;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">    <span class="attribute">text-decoration</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#app</span> <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: whitesmoke;</span><br><span class="line">    <span class="attribute">color</span>: dodgerblue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#app</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#app</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">305px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid dodgerblue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="8-6-1-安装加载器"><a href="#8-6-1-安装加载器" class="headerlink" title="8.6.1.安装加载器"></a>8.6.1.安装加载器</h3><p>前面说过，webpack默认只支持js加载。要加载CSS文件，必须安装加载器：</p>
+<p>命令：<code>npm install style-loader css-loader --save-dev</code></p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530204068192.png" alt="1530204068192"></p>
+<p>此时，在package.json中能看到新安装的：</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530204160848.png" alt="1530204160848"></p>
+<h3 id="8-6-3-index-js引入css文件"><a href="#8-6-3-index-js引入css文件" class="headerlink" title="8.6.3.index.js引入css文件"></a>8.6.3.index.js引入css文件</h3><p>因为入口在index.js，因此css文件也要在这里引入。依然使用ES6 的模块语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'./css/main.css'</span></span><br></pre></td></tr></table></figure>
+<h3 id="8-6-4-配置加载器"><a href="#8-6-4-配置加载器" class="headerlink" title="8.6.4.配置加载器"></a>8.6.4.配置加载器</h3><p>在webpack.config.js配置文件中配置css的加载器</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: <span class="string">'./src/main.js'</span>,  <span class="comment">//指定打包的入口文件</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        path: __dirname + <span class="string">'/dist'</span>, <span class="comment">// 注意：__dirname表示webpack.config.js所在目录的绝对路径</span></span><br><span class="line">        filename: <span class="string">'build.js'</span>  <span class="comment">//输出文件</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.css$/</span>, <span class="comment">// 通过正则表达式匹配所有以.css后缀的文件</span></span><br><span class="line">                use: [ <span class="comment">// 要使用的加载器，这两个顺序一定不要乱</span></span><br><span class="line">                    <span class="string">'style-loader'</span>,</span><br><span class="line">                    <span class="string">'css-loader'</span></span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="8-6-5-重新打包"><a href="#8-6-5-重新打包" class="headerlink" title="8.6.5.重新打包"></a>8.6.5.重新打包</h3><p>再次输入打包指令：<code>npx webpack --config webpack.config.js</code></p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530204780240.png" alt="1530204780240"></p>
+<p>效果：</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530204813013.png" alt="1530204813013"></p>
+<h2 id="8-7-script脚本"><a href="#8-7-script脚本" class="headerlink" title="8.7.script脚本"></a>8.7.script脚本</h2><p>我们每次使用npm安装，都会在package.json中留下痕迹，事实上，package.json中不仅可以记录安装的内容，还可编写脚本，让我们运行命令更加快捷。</p>
+<p>我们可以把webpack的命令编入其中：</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530205423730.png" alt="1530205423730"></p>
+<p>以后，如果要打包，就可以直接输入：<code>npm run build</code>即可。</p>
+<p><code>npm run</code> ：执行npm脚本，后面跟的是配置脚本的名称<code>build</code></p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530205504104.png" alt="1530205504104"></p>
+<h2 id="8-8-打包HTML"><a href="#8-8-打包HTML" class="headerlink" title="8.8.打包HTML"></a>8.8.打包HTML</h2><p>之前的打包过程中，除了HTML文件外的其它文件都被打包了，当在线上部署时，我们还得自己复制HTML到dist，然后手动添加生成的js到HTML中，这非常不友好。</p>
+<p>webpack中的一个插件：html-webpack-plugin，可以解决这个问题。</p>
+<p>1）安装插件：<code>npm install --save-dev html-webpack-plugin</code></p>
+<p>需要在webpack.config.js中添加插件：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: <span class="string">'./src/main.js'</span>,  <span class="comment">//指定打包的入口文件</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        path: __dirname + <span class="string">'/dist'</span>,  <span class="comment">// 注意：__dirname表示webpack.config.js所在目录的绝对路径</span></span><br><span class="line">        filename: <span class="string">'build.js'</span>		   <span class="comment">//输出文件</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.css$/</span>, <span class="comment">// 通过正则表达式匹配所有以.css后缀的文件</span></span><br><span class="line">                use: [ <span class="comment">// 要使用的加载器，这两个顺序一定不要乱</span></span><br><span class="line">                    <span class="string">'style-loader'</span>,</span><br><span class="line">                    <span class="string">'css-loader'</span></span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins:[</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">            title: <span class="string">'首页'</span>,  <span class="comment">//生成的页面标题&lt;head&gt;&lt;title&gt;首页&lt;/title&gt;&lt;/head&gt;</span></span><br><span class="line">            filename: <span class="string">'index.html'</span>, <span class="comment">// dist目录下生成的文件名</span></span><br><span class="line">            template: <span class="string">'./src/index.html'</span> <span class="comment">// 我们原来的index.html，作为模板</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2）将原来HTML中的引入js代码删除：</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530207035782.png" alt="1530207035782"></p>
+<p>3）再次打包：<code>npm run build</code></p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530206990349.png" alt="1530206990349"></p>
+<p>4）查看dist目录：</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530207132261.png" alt="1530207132261"></p>
+<p>打开index.html，发现已经自动添加了当前目录下的build.js</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--router-link来指定跳转的路径--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/login"</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/register"</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--vue-router的锚点--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"build.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="8-9-热更新的web服务"><a href="#8-9-热更新的web服务" class="headerlink" title="8.9.热更新的web服务"></a>8.9.热更新的web服务</h2><p>刚才的案例中，每次修改任何js或css内容，都必须重新打包，非常麻烦。</p>
+<p>webpack给我们提供了一个插件，可以帮我们运行一个web服务，加载页面内容，并且修改js后不需要重新加载就能看到最新结果：</p>
+<p>1）安装插件：<code>npm install webpack-dev-server --save-dev</code></p>
+<p>2）添加启动脚本</p>
+<p>在package.json中配置script</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"dev"</span>: <span class="string">"webpack-dev-server --inline --hot --open --port 8080 --host 127.0.0.1"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>–inline：自动刷新</p>
+<p>–hot：热加载</p>
+<p>–port：指定端口</p>
+<p>–open：自动在默认浏览器打开</p>
+<p>–host：可以指定服务器的 ip，不指定则为127.0.0.1</p>
+<p>3）运行脚本：<code>npm run dev</code></p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530207667660.png" alt="1530207667660"></p>
+<p>4）效果：</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530207505226.png" alt="1530207505226"></p>
+<h1 id="9-vue-cli"><a href="#9-vue-cli" class="headerlink" title="9.vue-cli"></a>9.vue-cli</h1><h2 id="9-1-介绍和安装"><a href="#9-1-介绍和安装" class="headerlink" title="9.1.介绍和安装"></a>9.1.介绍和安装</h2><p>在开发中，需要打包的东西不止是js、css、html。还有更多的东西要处理，这些插件和加载器如果我们一一去添加就会比较麻烦。</p>
+<p>幸好，vue官方提供了一个快速搭建vue项目的脚手架：vue-cli</p>
+<p>使用它能快速的构建一个web工程模板。</p>
+<p>官网：<a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">https://github.com/vuejs/vue-cli</a></p>
+<p>安装命令：<code>npm install -g vue-cli</code></p>
+<h2 id="9-2-快速上手"><a href="#9-2-快速上手" class="headerlink" title="9.2.快速上手"></a>9.2.快速上手</h2><p>我们新建一个module：</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208068828.png" alt="1530208068828"></p>
+<p>切换到该目录：</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208139922.png" alt="1530208139922"></p>
+<p>用vue-cli命令，快速搭建一个webpack的项目：<code>vue init webpack</code></p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208650256.png" alt="1530208556831"></p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208708000.png" alt="1530208708000"></p>
+<p>前面几项都走默认或yes</p>
+<p>下面这些我们选no</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208850418.png" alt="1530208850418"></p>
+<p>最后，再选yes，使用 npm安装</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208897063.png" alt="1530208897063"></p>
+<p>开始初始化项目，并安装依赖，可能需要</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530208932814.png" alt="1530208932814"></p>
+<p>安装成功！</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530209062090.png" alt="1530209062090"></p>
+<p>可以使用<code>npm run dev</code>命令启动。</p>
+<h2 id="9-3-项目结构"><a href="#9-3-项目结构" class="headerlink" title="9.3.项目结构"></a>9.3.项目结构</h2><p>安装好的项目结构：</p>
+<p> <img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530209146349.png" alt="1530209146349"></p>
+<p>入口文件：main.js</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530209503007.png" alt="1525913687860"></p>
+<h2 id="9-4-单文件组件"><a href="#9-4-单文件组件" class="headerlink" title="9.4.单文件组件"></a>9.4.单文件组件</h2><p>需要注意的是，我们看到有一类后缀名为.vue的文件，我们称为单文件组件</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530209769323.png" alt="1530209769323"></p>
+<p>每一个.vue文件，就是一个独立的vue组件。类似于我们刚才写的login.js和register.js</p>
+<p>只不过，我们在js中编写 html模板和样式非常的不友好，而且没有语法提示和高亮。</p>
+<p>而单文件组件中包含三部分内容：</p>
+<ul>
+<li>template：模板，支持html语法高亮和提示</li>
+<li>script：js脚本，这里编写的就是vue的组件对象，还可以有data(){}等</li>
+<li>style：样式，支持CSS语法高亮和提示</li>
+</ul>
+<p>每个组件都有自己独立的html、JS、CSS，互不干扰，真正做到可独立复用。</p>
+<h2 id="9-5-运行"><a href="#9-5-运行" class="headerlink" title="9.5.运行"></a>9.5.运行</h2><p>看看生成的package.json：</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530210016103.png" alt="1530210016103"></p>
+<ul>
+<li>可以看到这引入了非常多的依赖，绝大多数都是开发期依赖，比如大量的加载器。</li>
+<li>运行时依赖只有vue和vue-router</li>
+<li>脚本有三个：<ul>
+<li>dev：使用了webpack-dev-server命令，开发时热部署使用</li>
+<li>start：使用了npm run dev命令，与上面的dev效果完全一样，当脚本名为“start”时，可以省略“run”。 </li>
+<li>build：等同于webpack的打包功能，会打包到dist目录下。</li>
+</ul>
+</li>
+</ul>
+<p>我们执行<code>npm run dev</code> 或者 <code>npm start</code> 都可以启动项目：</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530210411076.png" alt="1530210411076"></p>
+<p>页面：</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/springboot%E5%BE%AE%E6%9C%8D%E5%8A%A1/day5/assets/1530210349704.png" alt="1530210349704"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/19/微服务/待整理/centos安装FastDFS/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/19/微服务/待整理/品牌新增vue界面搭建/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg" alt="Jiahao Wang">
+            
+              <p class="site-author-name" itemprop="name">Jiahao Wang</p>
+              <p class="site-description motion-element" itemprop="description">blog</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#8-webpack"><span class="nav-number">1.</span> <span class="nav-text">8.webpack</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-安装"><span class="nav-number">1.1.</span> <span class="nav-text">8.1.安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-核心概念"><span class="nav-number">1.2.</span> <span class="nav-text">8.2.核心概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-编写webpack配置"><span class="nav-number">1.3.</span> <span class="nav-text">8.3.编写webpack配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-1-入口entry"><span class="nav-number">1.3.1.</span> <span class="nav-text">8.3.1.入口entry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-2-出口output"><span class="nav-number">1.3.2.</span> <span class="nav-text">8.3.2.出口output</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-4-执行打包"><span class="nav-number">1.4.</span> <span class="nav-text">8.4.执行打包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-5-测试运行"><span class="nav-number">1.5.</span> <span class="nav-text">8.5.测试运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-6-打包CSS"><span class="nav-number">1.6.</span> <span class="nav-text">8.6.打包CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-6-1-安装加载器"><span class="nav-number">1.6.1.</span> <span class="nav-text">8.6.1.安装加载器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-6-3-index-js引入css文件"><span class="nav-number">1.6.2.</span> <span class="nav-text">8.6.3.index.js引入css文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-6-4-配置加载器"><span class="nav-number">1.6.3.</span> <span class="nav-text">8.6.4.配置加载器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-6-5-重新打包"><span class="nav-number">1.6.4.</span> <span class="nav-text">8.6.5.重新打包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-7-script脚本"><span class="nav-number">1.7.</span> <span class="nav-text">8.7.script脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-8-打包HTML"><span class="nav-number">1.8.</span> <span class="nav-text">8.8.打包HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-9-热更新的web服务"><span class="nav-number">1.9.</span> <span class="nav-text">8.9.热更新的web服务</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-vue-cli"><span class="nav-number">2.</span> <span class="nav-text">9.vue-cli</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#9-1-介绍和安装"><span class="nav-number">2.1.</span> <span class="nav-text">9.1.介绍和安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-2-快速上手"><span class="nav-number">2.2.</span> <span class="nav-text">9.2.快速上手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-3-项目结构"><span class="nav-number">2.3.</span> <span class="nav-text">9.3.项目结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-4-单文件组件"><span class="nav-number">2.4.</span> <span class="nav-text">9.4.单文件组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-5-运行"><span class="nav-number">2.5.</span> <span class="nav-text">9.5.运行</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiahao Wang</span>
+	
+	<div class="powered-by">
+	<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+	  本站访客数:<span id="busuanzi_value_site_uv"></span>
+	</span>
+	</div>
+
+  
+</div>
+
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+<!--
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
