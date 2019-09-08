@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="0.1. 获取源码 0.2. 配置 0.3. 编译源码 0.4. 错误参考 0.5. 至此 编译成功 0.6. 编译完成之后 0.7. 总结   ubuntu16 环境下: 0.1. 获取源码 依赖 先安装一些依赖:  书上给出的依赖如下:  1sudo apt-get install build-essential gawk m4 openjdk-6-jdk libasound2-dev l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录一次jdk编译-ubuntu16.04编译JDK7">
+<meta property="og:url" content="https://wangdaye7.github.io/2019/06/20/note/jvm/记录一次jdk编译/index.html">
+<meta property="og:site_name" content="jhmarryme&#39;s blog">
+<meta property="og:description" content="0.1. 获取源码 0.2. 配置 0.3. 编译源码 0.4. 错误参考 0.5. 至此 编译成功 0.6. 编译完成之后 0.7. 总结   ubuntu16 环境下: 0.1. 获取源码 依赖 先安装一些依赖:  书上给出的依赖如下:  1sudo apt-get install build-essential gawk m4 openjdk-6-jdk libasound2-dev l">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/javaVirtualMachine/Ubuntu-2019-06-20-10-47-08.png">
+<meta property="og:updated_time" content="2019-07-24T13:39:55.578Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记录一次jdk编译-ubuntu16.04编译JDK7">
+<meta name="twitter:description" content="0.1. 获取源码 0.2. 配置 0.3. 编译源码 0.4. 错误参考 0.5. 至此 编译成功 0.6. 编译完成之后 0.7. 总结   ubuntu16 环境下: 0.1. 获取源码 依赖 先安装一些依赖:  书上给出的依赖如下:  1sudo apt-get install build-essential gawk m4 openjdk-6-jdk libasound2-dev l">
+<meta name="twitter:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/javaVirtualMachine/Ubuntu-2019-06-20-10-47-08.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wangdaye7.github.io/2019/06/20/note/jvm/记录一次jdk编译/">
+
+
+
+
+
+  <title>记录一次jdk编译-ubuntu16.04编译JDK7 | jhmarryme's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/wangdaye7" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jhmarryme's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/06/20/note/jvm/记录一次jdk编译/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">记录一次jdk编译-ubuntu16.04编译JDK7</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-20T04:23:15+08:00">
+                2019-06-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java虚拟机读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">java虚拟机读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <!-- TOC -->
+<ul>
+<li><a href="#01-%e8%8e%b7%e5%8f%96%e6%ba%90%e7%a0%81">0.1. 获取源码</a></li>
+<li><a href="#02-%e9%85%8d%e7%bd%ae">0.2. 配置</a></li>
+<li><a href="#03-%e7%bc%96%e8%af%91%e6%ba%90%e7%a0%81">0.3. 编译源码</a></li>
+<li><a href="#04-%e9%94%99%e8%af%af%e5%8f%82%e8%80%83">0.4. 错误参考</a></li>
+<li><a href="#05-%e8%87%b3%e6%ad%a4-%e7%bc%96%e8%af%91%e6%88%90%e5%8a%9f">0.5. 至此 编译成功</a></li>
+<li><a href="#06-%e7%bc%96%e8%af%91%e5%ae%8c%e6%88%90%e4%b9%8b%e5%90%8e">0.6. 编译完成之后</a></li>
+<li><a href="#07-%e6%80%bb%e7%bb%93">0.7. 总结</a></li>
+</ul>
+<!-- /TOC -->
+<p>ubuntu16 环境下:</p>
+<h2 id="0-1-获取源码"><a href="#0-1-获取源码" class="headerlink" title="0.1. 获取源码"></a>0.1. 获取源码</h2><ol>
+<li><p>依赖<br> 先安装一些依赖:</p>
+<p> 书上给出的依赖如下:</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential gawk m4 openjdk-6-jdk libasound2-dev libcups2-dev libxrender-dev xorg-dev xutils-dev x11proto-print-dev binutils libmotif3 libmotif-dev ant</span><br></pre></td></tr></table></figure>
+<p> 其中，openjdk-6-jdk 是不能直接apt-get 的，google以后Github-bmaupin给出了一个解决方案，我们可以直接去到<a href="http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html" target="_blank" rel="noopener">openjdk</a>，选择合适的包下载。下载前还需要注册一个Oracle帐号。下载好jdk-6u45-linux-x64.bin后复制到想要的目录并运行，相同目录下就会创建一个包含有jdk的文件夹。</p>
+<p> libmotif3也不能直接安装，需要从<a href="https://launchpad.net/ubuntu/xenial/amd64/libmotif3/2.3.4-8ubuntu1" target="_blank" rel="noopener">libmotif3</a>下载, 但是我是通过这种方式安装一直失败, 报错. 后来通过<strong>ubuntu的应用商店</strong>安装.</p>
+<p> 网上查阅的依赖如下:</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install build-essential gawk m4 libasound2-dev libcups2-dev libxrender-dev xorg-dev xutils-dev x11proto-print-dev binutils libmotif-common ant</span><br></pre></td></tr></table></figure>
+<p> <strong>这里我两种依赖都运行过, 书上给的依赖问题比较多, 所以随后我又安装这个依赖</strong>  </p>
+</li>
+<li><p>这里通过下载好的源码进行:<br> 首先是openjdk:</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /home/jhmarryme/workspace</span><br><span class="line">sudo apt-get install unar</span><br><span class="line">sudo unar openjdk-7-fcs-src-b147-27_jun_2011.zip</span><br><span class="line">sudo mv openjdk /usr/openjdk</span><br></pre></td></tr></table></figure>
+<p> 运行jdk.bin:</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod u+x jdk-6u45-linux-x64.bin</span><br><span class="line">sudo ./jdk-6u45-linux-x64.bin</span><br><span class="line">cd /usr</span><br><span class="line">sudo mkdir java</span><br><span class="line">cd -</span><br><span class="line">sudo mv jdk1.6.0_45 /usr/java/</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="0-2-配置"><a href="#0-2-配置" class="headerlink" title="0.2. 配置"></a>0.2. 配置</h2><p>配置文件:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br></pre></td></tr></table></figure>
+<p>在后面追加如下内容:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#</span></span></span><br><span class="line">export LANG=C</span><br><span class="line"><span class="meta">#</span><span class="bash">BootStrap-JDK</span></span><br><span class="line">export ALT_BOOTDIR=/usr/java/jdk1.6.0_45</span><br><span class="line"><span class="meta">#</span><span class="bash">OracleJDK</span></span><br><span class="line">export ALT_JDK_IMPORT_PATH=/usr/java/jdk1.6.0_45</span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line">export ALLOW_DOWNLOADS=true</span><br><span class="line"><span class="meta">#</span><span class="bash">与你的CPU核数对应即可</span></span><br><span class="line">export HOTSPOT_BUILD_JOBS=1</span><br><span class="line">export ALT_PARALLEL_COMPILE_JOBS=1</span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line">export USE_PRECOMPILED_HEADER=true</span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line">export BUILD_LANGTOOLS=true</span><br><span class="line">export BUILD_JAXWS=false</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="built_in">export</span> BUILD_JAXP=<span class="literal">false</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="built_in">export</span> BUILD_CORBA=<span class="literal">false</span></span></span><br><span class="line">export BUILD_HOTSPOT=true</span><br><span class="line"></span><br><span class="line">export BUILD_JDK=true</span><br><span class="line"></span><br><span class="line">export SKIP_COMPARE_IMAGES=true</span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line">BUILD_DEPLOY=false</span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line">BUILD_INSTALL=false</span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line">export ALT_OUTPUTDIR=/usr/openjdk/build</span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line">unset JAVA_HOME</span><br><span class="line">unset CLASSPATH</span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line">make 2&gt;&amp;1 | tee $ALT_OUTPUTDIR/build.log</span><br></pre></td></tr></table></figure>
+<h2 id="0-3-编译源码"><a href="#0-3-编译源码" class="headerlink" title="0.3. 编译源码"></a>0.3. 编译源码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/openjdk/</span><br><span class="line">make sanity</span><br></pre></td></tr></table></figure>
+<p>末尾出现Sanity check passed. 则验证通过.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+<h2 id="0-4-错误参考"><a href="#0-4-错误参考" class="headerlink" title="0.4. 错误参考"></a>0.4. 错误参考</h2><p>编译期间遇到一大堆错误, 逐个解决, 参考如下:<br><a href="https://www.jianshu.com/p/32dc1a850e23" target="_blank" rel="noopener">主要安装参考1</a><br><a href="https://zhuanlan.zhihu.com/p/26088612" target="_blank" rel="noopener">参考2</a><br><a href="https://juejin.im/post/5c949a92f265da60e21bfc2f" target="_blank" rel="noopener">参考3</a> </p>
+<p>需要注意的是</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">错误</span></span><br><span class="line">error:"__LEAF"redefined [-Werror]</span><br><span class="line"><span class="meta">#</span><span class="bash">define __LEAF(result_type, header) \</span></span><br><span class="line">^</span><br></pre></td></tr></table></figure>
+<p>网上都说是在openjdk/hotspot/src/share/vm/runtime/interfaceSupport.hpp文件后追加, 但我修改之后没有效果, <strong>我选择的是在该文件430行左右开始, 替换掉原本的定义. 不再报错.</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// LEAF routines do not lock, GC or throw exceptions </span><br><span class="line"><span class="meta">#</span><span class="bash">ifdef __LEAF </span></span><br><span class="line"><span class="meta">#</span><span class="bash">undef __LEAF </span></span><br><span class="line"><span class="meta">#</span><span class="bash">define __LEAF(result_type, header) \</span></span><br><span class="line">TRACE_CALL(result_type, header) \</span><br><span class="line">debug_only(NoHandleMark __hm;) \</span><br><span class="line">/* begin of body */ </span><br><span class="line"><span class="meta">#</span><span class="bash">endif</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">错误</span></span><br><span class="line">/usr/openjdk/hotspot/src/share/vm/oops/constantPoolOop.cpp:272:39: error: converting 'false' to pointer type 'methodOop &#123;aka methodOopDesc*&#125;' [-Werror=conversion-null]</span><br><span class="line">   if (cpool-&gt;cache() == NULL)  return false;  // nothing to load yet</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">错误</span></span><br><span class="line">/usr/openjdk/hotspot/src/share/vm/opto/loopnode.cpp:896:49: error: converting 'false' to pointer type 'Node*' [-Werror=conversion-null]</span><br><span class="line">   if (expr == NULL || expr-&gt;req() != 3)  return false;</span><br></pre></td></tr></table></figure>
+<h2 id="0-5-至此-编译成功"><a href="#0-5-至此-编译成功" class="headerlink" title="0.5. 至此 编译成功"></a>0.5. 至此 编译成功</h2><p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/javaVirtualMachine/Ubuntu-2019-06-20-10-47-08.png" alt="ubuntu"></p>
+<h2 id="0-6-编译完成之后"><a href="#0-6-编译完成之后" class="headerlink" title="0.6. 编译完成之后"></a>0.6. 编译完成之后</h2><ol>
+<li><p>相关设置: </p>
+<p> 编译完成之后,进入OpenJDK源码下的build/j2sdk-image目录(或者build-debug、build- fastdebug这两个目录),这是整个JDK的完整编译结果,复制到JAVA_HOME目录,就可以作为一个完整的JDK使用,编译出来的虚拟机,在-version命令中带有用户的机器名。<br> 操作如下:</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/bin</span><br><span class="line">ln -s -f /usr/openjdk/build/j2sdk-image/bin/java</span><br><span class="line">ln -s -f /usr/openjdk/build/j2sdk-image/bin/javac</span><br><span class="line">java -version</span><br><span class="line"><span class="meta">#</span><span class="bash">此时显示</span></span><br><span class="line">openjdk version "1.7.0-internal"</span><br><span class="line">OpenJDK Runtime Environment (build 1.7.0-internal-root_2019_06_20_02_16-b00)</span><br><span class="line">OpenJDK 64-Bit Server VM (build 21.0-b17, mixed mode)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行虚拟机<br> 在product下边（看网上都是在jvmg下边，我的jvmg下边没有gamma）的env.sh下加入, 完整路径/usr/openjdk/build/hotspot/outputdir/linux_amd64_compiler2/product</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LD_LIBRARY_PATH=.:$&#123;JAVA_HOME&#125;/jre/lib/amd64/native_threads:$&#123;JAVA_HOME&#125;/jre/lib/amd64:</span><br><span class="line"></span><br><span class="line">export LD_LIBRARY_PATH</span><br></pre></td></tr></table></figure>
+<p> 我的是存在上述代码, 将export多余内容删除</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">source ./env.sh</span><br><span class="line">./gamma -version</span><br><span class="line"><span class="meta">#</span><span class="bash">出现内容如下</span></span><br><span class="line">Using java runtime at: /usr/openjdk/build/j2sdk-image//jre</span><br><span class="line">openjdk version "1.7.0-internal"</span><br><span class="line">OpenJDK Runtime Environment (build 1.7.0-internal-root_2019_06_20_02_16-b00)</span><br><span class="line">OpenJDK 64-Bit Server VM (build 21.0-b17, mixed mode)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="0-7-总结"><a href="#0-7-总结" class="headerlink" title="0.7. 总结"></a>0.7. 总结</h2><p>在选择获取jdk和openjdk源码时, 使用打包好的文件进行安装最为方便, 之前选用在线下载的方式时, 遇到了很多问题, 随后改为压缩包安装. 在整个编译的过程中, make的时候出现了很多问题, 我是一个一个去解决的, 其实这样太花时间了, 应该按照参考的错误解决方式全部修改后, 再次make. 会节约很多的时间.  </p>
+<p>最好是不要修改/etc/profile文件, 容易产生很多问题, 而是通过用户的sh完成. 但这里我还是修改的profile文件.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/17/note/jvm/深入理解java虚拟机读书笔记/" rel="next" title="深入理解java虚拟机读书笔记">
+                <i class="fa fa-chevron-left"></i> 深入理解java虚拟机读书笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/21/note/designPattern/HFDesignPattern1/" rel="prev" title="HeadFirst设计模式读书笔记">
+                HeadFirst设计模式读书笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg" alt="Jiahao Wang">
+            
+              <p class="site-author-name" itemprop="name">Jiahao Wang</p>
+              <p class="site-description motion-element" itemprop="description">blog</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-1-获取源码"><span class="nav-number">1.</span> <span class="nav-text">0.1. 获取源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-2-配置"><span class="nav-number">2.</span> <span class="nav-text">0.2. 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-3-编译源码"><span class="nav-number">3.</span> <span class="nav-text">0.3. 编译源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-4-错误参考"><span class="nav-number">4.</span> <span class="nav-text">0.4. 错误参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-5-至此-编译成功"><span class="nav-number">5.</span> <span class="nav-text">0.5. 至此 编译成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-6-编译完成之后"><span class="nav-number">6.</span> <span class="nav-text">0.6. 编译完成之后</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-7-总结"><span class="nav-number">7.</span> <span class="nav-text">0.7. 总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiahao Wang</span>
+	
+	<div class="powered-by">
+	<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+	  本站访客数:<span id="busuanzi_value_site_uv"></span>
+	</span>
+	</div>
+
+  
+</div>
+
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+<!--
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
