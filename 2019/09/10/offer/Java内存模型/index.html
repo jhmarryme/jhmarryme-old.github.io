@@ -79,17 +79,32 @@
 
 
 
-<meta name="description" content="Linux体系结构 查看当前系统shell版本echo $SHELL 查看支持的所有shellcat /etc/shells 切换shell版本chsh -s 版本  实际切换无效.  查找特定的文件 find path [options] params  123find ~ -name &quot;JsonToString*&quot; 从用户家目录下查找find / -name &quot;JsonToString*&quot; 从">
+<meta name="description" content="内存相关的概念  JVM架构图 Java的内存模型 指的就是上图中的Runtime Data Area 区域    程序计数器    java虚拟机栈   虚拟机栈中的局部变量表与操作数栈:   局部变量与操作数栈之间的交换变量指令操作通过字节码频繁执行   本地方法栈    元空间     堆   分析依次add方法的执行过程123456789101112package imooc.javaBa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux补充">
-<meta property="og:url" content="https://wangdaye7.github.io/2019/07/15/linux/Linux补充/index.html">
+<meta property="og:title" content="Java内存模型">
+<meta property="og:url" content="https://wangdaye7.github.io/2019/09/10/offer/Java内存模型/index.html">
 <meta property="og:site_name" content="jhmarryme&#39;s blog">
-<meta property="og:description" content="Linux体系结构 查看当前系统shell版本echo $SHELL 查看支持的所有shellcat /etc/shells 切换shell版本chsh -s 版本  实际切换无效.  查找特定的文件 find path [options] params  123find ~ -name &quot;JsonToString*&quot; 从用户家目录下查找find / -name &quot;JsonToString*&quot; 从">
+<meta property="og:description" content="内存相关的概念  JVM架构图 Java的内存模型 指的就是上图中的Runtime Data Area 区域    程序计数器    java虚拟机栈   虚拟机栈中的局部变量表与操作数栈:   局部变量与操作数栈之间的交换变量指令操作通过字节码频繁执行   本地方法栈    元空间     堆   分析依次add方法的执行过程123456789101112package imooc.javaBa">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-08T14:25:18.107Z">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/%E5%86%85%E5%AD%98%E7%9A%84%E7%AE%80%E4%BB%8B.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4%E7%9A%84%E5%88%92%E5%88%86.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/JVM%E6%9E%B6%E6%9E%84%E5%9B%BE.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B-%E7%BA%BF%E7%A8%8B%E8%A7%92%E5%BA%A6.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E8%A1%A8.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/metaSpace.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/metaSpace%E4%BC%98%E5%8A%BF.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/java%E5%A0%86.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/%E9%83%A8%E5%88%86%E5%8F%8D%E7%BC%96%E8%AF%91%E4%BB%A3%E7%A0%81.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/%E6%89%A7%E8%A1%8Cadd.png">
+<meta property="og:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/%E5%BC%82%E5%B8%B8%E4%BB%A3%E7%A0%81.png">
+<meta property="og:updated_time" content="2019-09-09T12:23:59.555Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux补充">
-<meta name="twitter:description" content="Linux体系结构 查看当前系统shell版本echo $SHELL 查看支持的所有shellcat /etc/shells 切换shell版本chsh -s 版本  实际切换无效.  查找特定的文件 find path [options] params  123find ~ -name &quot;JsonToString*&quot; 从用户家目录下查找find / -name &quot;JsonToString*&quot; 从">
+<meta name="twitter:title" content="Java内存模型">
+<meta name="twitter:description" content="内存相关的概念  JVM架构图 Java的内存模型 指的就是上图中的Runtime Data Area 区域    程序计数器    java虚拟机栈   虚拟机栈中的局部变量表与操作数栈:   局部变量与操作数栈之间的交换变量指令操作通过字节码频繁执行   本地方法栈    元空间     堆   分析依次add方法的执行过程123456789101112package imooc.javaBa">
+<meta name="twitter:image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/%E5%86%85%E5%AD%98%E7%9A%84%E7%AE%80%E4%BB%8B.png">
 
 
 
@@ -119,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://wangdaye7.github.io/2019/07/15/linux/Linux补充/">
+  <link rel="canonical" href="https://wangdaye7.github.io/2019/09/10/offer/Java内存模型/">
 
 
 
 
 
-  <title>Linux补充 | jhmarryme's blog</title>
+  <title>Java内存模型 | jhmarryme's blog</title>
   
 
 
@@ -263,7 +278,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/07/15/linux/Linux补充/">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/09/10/offer/Java内存模型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -280,7 +295,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux补充</h1>
+          <h1 class="post-title" itemprop="name headline">Java内存模型</h1>
         
 
         <div class="post-meta">
@@ -292,8 +307,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-15T04:34:03+08:00">
-                2019-07-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-09T19:01:25Z">
+                2019-09-09
               </time>
             
 
@@ -302,6 +317,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java基础/" itemprop="url" rel="index">
+                    <span itemprop="name">java基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -330,27 +367,60 @@
       
 
       
-        <h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h2><ol>
-<li>查看当前系统shell版本<br>echo $SHELL</li>
-<li>查看支持的所有shell<br>cat /etc/shells</li>
-<li>切换shell版本<br>chsh -s 版本  实际切换无效.</li>
+        <h2 id="内存相关的概念"><a href="#内存相关的概念" class="headerlink" title="内存相关的概念"></a>内存相关的概念</h2><p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/%E5%86%85%E5%AD%98%E7%9A%84%E7%AE%80%E4%BB%8B.png" alt></p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4%E7%9A%84%E5%88%92%E5%88%86.png" alt></p>
+<h2 id="JVM架构图"><a href="#JVM架构图" class="headerlink" title="JVM架构图"></a>JVM架构图</h2><p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/JVM%E6%9E%B6%E6%9E%84%E5%9B%BE.png" alt></p>
+<h2 id="Java的内存模型"><a href="#Java的内存模型" class="headerlink" title="Java的内存模型"></a>Java的内存模型</h2><blockquote>
+<p>指的就是上图中的Runtime Data Area 区域</p>
+</blockquote>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B-%E7%BA%BF%E7%A8%8B%E8%A7%92%E5%BA%A6.png" alt></p>
+<ol>
+<li>程序计数器</li>
 </ol>
-<h2 id="查找特定的文件"><a href="#查找特定的文件" class="headerlink" title="查找特定的文件"></a>查找特定的文件</h2><blockquote>
-<p>find path [options] params</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8.png" alt></p>
+<ol start="2">
+<li>java虚拟机栈</li>
+</ol>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88.png" alt></p>
+<pre><code>虚拟机栈中的局部变量表与操作数栈:
+</code></pre><p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E8%A1%A8.png" alt></p>
+<blockquote>
+<p>局部变量与操作数栈之间的交换变量指令操作通过字节码频繁执行</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find ~ -name "JsonToString*" 从用户家目录下查找</span><br><span class="line">find / -name "JsonToString*" 从根目录下查找</span><br><span class="line">find -name "JsonToString*" 从当前目录下</span><br></pre></td></tr></table></figure>
-<p>参数-iname 则表示忽略大小写</p>
-<h2 id="检索文件内容"><a href="#检索文件内容" class="headerlink" title="检索文件内容"></a>检索文件内容</h2><blockquote>
-<p>grep [options] pattern file</p>
+<ol start="3">
+<li>本地方法栈</li>
+</ol>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88.png" alt></p>
+<ol start="4">
+<li>元空间</li>
+</ol>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/metaSpace.png" alt></p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/metaSpace%E4%BC%98%E5%8A%BF.png" alt></p>
+<ol start="5">
+<li>堆</li>
+</ol>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/java%E5%A0%86.png" alt></p>
+<h2 id="分析依次add方法的执行过程"><a href="#分析依次add方法的执行过程" class="headerlink" title="分析依次add方法的执行过程"></a>分析依次add方法的执行过程</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imooc.javaBasic.jvm.mode;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> jhmarryme.cn</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/9/9 19:49</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ByteCodeSample</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> c = <span class="number">0</span>;</span><br><span class="line">        c = a + b;</span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>先编译<figure class="highlight plain"><figcaption><span>ByteCodeSample.java```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">再反编译(-verbose 口语化)```javap -verbose ByteCodeSample.class</span><br></pre></td></tr></table></figure></p>
+<p>下面是部分反编译代码:</p>
+<p><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/%E9%83%A8%E5%88%86%E5%8F%8D%E7%BC%96%E8%AF%91%E4%BB%A3%E7%A0%81.png" alt></p>
+<p>分析执行add的过程:<br><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/%E6%89%A7%E8%A1%8Cadd.png" alt></p>
+<blockquote>
+<p>一个长条代表一个栈帧, 共有七个栈帧, 虚拟机栈会按照程序计数器大小依次压入, 然后从小到大去执行<br>iconst_0将int值0压入操作数栈, istore_2将操作数栈中的数据弹出, 存入局部变量表第2号位置, iload_0将表中第0号位置数据压入操作数栈中….<br>store 将操作数栈数据弹出, load将数据压入操作数栈</p>
 </blockquote>
-<p>全称: Global Regular Expression Print<br>作用: 查找文件里符合条件的字符串</p>
-<p>| 可以结合管道操作符使用</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">grep "moo" targe* 查找以targe开头的文件并内容包含moo的文件</span><br><span class="line"></span><br><span class="line">find ~ | grep "target" 等同于 find ~ -name "target*"</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">grep "partial\[ture\]" log.info 查看日志中包含"partial[true]"的行 其中[] 需要转义</span><br><span class="line"></span><br><span class="line">grep "partial\[true\]" log.info | grep -o "engine\[[[:alnum:]]*\]" 再次进行过滤, 只显示"partial[true]"并且包含"engine[任意数字字母]"的行的 engine[xxxx] 部分, -o 表示只显示匹配的部分</span><br><span class="line">grep "partial\[true\]" log.info | grep -o "engine\[[0-9a-z]*\]"</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ps -ef | grep tomcat 查看tomcat信息  但是因为本条指令也在查询tomcat, 所以本条查询进程也会显示出来</span><br><span class="line"></span><br><span class="line">ps -ef | grep tomcat | grep -v "grep" 过滤掉该指令本身</span><br></pre></td></tr></table></figure>
-<h2 id="对内容做统计"><a href="#对内容做统计" class="headerlink" title="对内容做统计"></a>对内容做统计</h2><blockquote>
-<p>awk [options] ‘cmd’ file</p>
+<h2 id="可能会出现的问题"><a href="#可能会出现的问题" class="headerlink" title="可能会出现的问题"></a>可能会出现的问题</h2><ol>
+<li><p>递归为什么会引发java.lang.StackOverFlowError异常</p>
+<blockquote>
+<p>递归过深, 栈帧数超过虚拟栈深度<br> 比如将斐波那契函数递归到1000000层.</p>
 </blockquote>
-<p>一次读取一行文本, 按分隔符进行切片<br>切片保存在内建的变量中 $1 $2 … $0为整行<br><strong>单引号</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 先从/var/<span class="built_in">log</span>目录下copy一份日志文件 这里选择的是dpkg.log</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看第一, 四列的数据</span></span><br><span class="line">awk '&#123;print $1 $4&#125;' dpkg.log</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看 第二列满足条件 或 第一行的数据</span></span><br><span class="line">awk '($2=="14:42:45") || NR==1 &#123;print $0&#125;' dpkg.log</span><br><span class="line"><span class="meta">#</span><span class="bash"> 根据第二列的值统计出现过的次数</span></span><br><span class="line">awk '&#123;arr[$2]++&#125;END&#123;for(i in arr) print i "\t" arr[i]&#125;' dpkg.log</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>虚拟机栈过多会引发java.lang.OutOfMemoryError异常</p>
+<blockquote>
+<p>会导致死机, 需谨慎操作<br><img src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/java/immocOffer/%E5%BC%82%E5%B8%B8%E4%BB%A3%E7%A0%81.png" alt></p>
+</blockquote>
+</li>
+</ol>
+
       
     </div>
     
@@ -374,8 +444,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/09/note/cyc2018/thread/线程/" rel="next" title="线程">
-                <i class="fa fa-chevron-left"></i> 线程
+              <a href="/2019/09/09/note/summary/idea/" rel="next" title="IDEA的快捷键">
+                <i class="fa fa-chevron-left"></i> IDEA的快捷键
               </a>
             
           </div>
@@ -383,10 +453,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/15/note/cyc2018/lambda/lambda简单使用/" rel="prev" title="lambda简单使用">
-                lambda简单使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -520,7 +586,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux"><span class="nav-number">1.</span> <span class="nav-text">Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#体系结构"><span class="nav-number">1.1.</span> <span class="nav-text">体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找特定的文件"><span class="nav-number">1.2.</span> <span class="nav-text">查找特定的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检索文件内容"><span class="nav-number">1.3.</span> <span class="nav-text">检索文件内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对内容做统计"><span class="nav-number">1.4.</span> <span class="nav-text">对内容做统计</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#内存相关的概念"><span class="nav-number">1.</span> <span class="nav-text">内存相关的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM架构图"><span class="nav-number">2.</span> <span class="nav-text">JVM架构图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java的内存模型"><span class="nav-number">3.</span> <span class="nav-text">Java的内存模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析依次add方法的执行过程"><span class="nav-number">4.</span> <span class="nav-text">分析依次add方法的执行过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可能会出现的问题"><span class="nav-number">5.</span> <span class="nav-text">可能会出现的问题</span></a></li></ol></div>
             
 
           </div>
