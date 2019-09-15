@@ -430,7 +430,7 @@ www.jd.com:8080 与 www.jd.com:8081
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/项目记录/实时刷新界面及静态图片访问/">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/项目记录/使用域名访问本地项目/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -449,7 +449,7 @@ www.jd.com:8080 与 www.jd.com:8081
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/实时刷新界面及静态图片访问/" itemprop="url">实时刷新界面及静态图片访问</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/使用域名访问本地项目/" itemprop="url">使用域名访问本地项目</a></h1>
         
 
         <div class="post-meta">
@@ -523,12 +523,15 @@ www.jd.com:8080 与 www.jd.com:8081
       
         
           
-          实时刷新问题因为访问的路径中带有了9001端口, 所以在nginx中配置manage.leyou.com 9001端口的监听, 代理路径与manage.leyou.com配置一致
-访问虚拟机中静态资源图片的配置现在虚拟机中建立相应文件夹 /leyou/static再将图片压缩包image.zip导入
+          4.使用域名访问本地项目域名解析
+Windows下的hosts文件地址：C:/Windows/System32/drivers/etc/hosts
+Linux下的hosts文件所在路径： /etc/hosts 
+
+解决域名解析问题使用SwitchHosts伪造本地的hosts文件，实现对域名的解析。
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/实时刷新界面及静态图片访问/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/使用域名访问本地项目/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -579,7 +582,7 @@ www.jd.com:8080 与 www.jd.com:8081
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/项目记录/品牌新增vue界面搭建/">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/项目记录/后台管理系统前端项目结构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -598,7 +601,7 @@ www.jd.com:8080 与 www.jd.com:8081
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/品牌新增vue界面搭建/" itemprop="url">品牌新增vue界面搭建</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/后台管理系统前端项目结构/" itemprop="url">后台管理系统前端项目结构</a></h1>
         
 
         <div class="post-meta">
@@ -672,19 +675,18 @@ www.jd.com:8080 与 www.jd.com:8081
       
         
           
-          
-title: 品牌新增vue界面搭建date: 2019-05-12 16:09:29categories:
+          3.项目结构开始编码前，我们先了解下项目的结构。
+3.1.目录结构首先是目录结构图：
+3.2.调用关系我们最主要理清index.html、main.js、App.vue之间的关系：
 
-微服务项目存档tags:
-javaWeb
+理一下：
 
-
-1.品牌的新增昨天我们完成了品牌的查询，接下来就是新增功能。
-1.1.页面实现1.1.1.初步编写弹窗当我们点击新增按钮，应该出现一个弹窗，
+index.html：html模板文件。定义了空的div，其id为app。
+main.js：实例化vue
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/品牌新增vue界面搭建/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/后台管理系统前端项目结构/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -940,8 +942,8 @@ javaWeb
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/微服务项目存档/" itemprop="url" rel="index">
-                    <span itemprop="name">微服务项目存档</span>
+                  <a href="/categories/前端框架/" itemprop="url" rel="index">
+                    <span itemprop="name">前端框架</span>
                   </a>
                 </span>
 
@@ -1044,7 +1046,7 @@ javaWeb
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/项目记录/图片上传实现/">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/项目记录/商品分类查询后端实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -1063,7 +1065,7 @@ javaWeb
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/图片上传实现/" itemprop="url">实现图片上传</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/商品分类查询后端实现/" itemprop="url">商品分类查询后端实现</a></h1>
         
 
         <div class="post-meta">
@@ -1137,15 +1139,20 @@ javaWeb
       
         
           
-          2.实现图片上传刚才的新增实现中，我们并没有上传图片，接下来我们一起完成图片上传逻辑。
-文件的上传并不只是在品牌管理中有需求，以后的其它服务也可能需要，因此我们创建一个独立的微服务，专门处理各种上传。
-2.1.搭建项目2.1.1.创建module
+          5.实现商品分类查询商城的核心自然是商品，而商品多了以后，肯定要进行分类，并且不同的商品会有不同的品牌信息，其关系如图所示：
 
-2.1.2.依赖我们需要EurekaClient和
+
+一个商品分类下有很多商品
+一个商品分类下有很多品牌
+而一个品牌，可能属于不同的分类
+一个品牌下也会有很多商品
+
+依次去完成：商品分类、品牌、商品的开发。
+5.1.导入数据
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/图片上传实现/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/商品分类查询后端实现/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1850,7 +1857,7 @@ javaWeb
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
