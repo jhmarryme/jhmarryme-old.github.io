@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="链表与双指针的练习双指针快慢首尾 可以用在有序的数组中, 很方便的处理求指定和的情况 也可以在中点使用, 目的是在两端往中间逼近先后走 让一个指针先走指定的步数 可用于求倒数第N个数的时候谁小动谁  双指针练习题目167. 有序数组的 Two Sum633. 两数平方和345. 反转字符串中的元音字符680. 回文字符串88. 归并两个有序数组141. 判断链表是否存在环524. 最长子序列哑结点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="链表与双指针的练习">
+<meta property="og:url" content="https://wangdaye7.github.io/2019/08/27/offer/链表与双指针的练习/index.html">
+<meta property="og:site_name" content="jhmarryme&#39;s blog">
+<meta property="og:description" content="链表与双指针的练习双指针快慢首尾 可以用在有序的数组中, 很方便的处理求指定和的情况 也可以在中点使用, 目的是在两端往中间逼近先后走 让一个指针先走指定的步数 可用于求倒数第N个数的时候谁小动谁  双指针练习题目167. 有序数组的 Two Sum633. 两数平方和345. 反转字符串中的元音字符680. 回文字符串88. 归并两个有序数组141. 判断链表是否存在环524. 最长子序列哑结点">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-15T15:40:47.777Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="链表与双指针的练习">
+<meta name="twitter:description" content="链表与双指针的练习双指针快慢首尾 可以用在有序的数组中, 很方便的处理求指定和的情况 也可以在中点使用, 目的是在两端往中间逼近先后走 让一个指针先走指定的步数 可用于求倒数第N个数的时候谁小动谁  双指针练习题目167. 有序数组的 Two Sum633. 两数平方和345. 反转字符串中的元音字符680. 回文字符串88. 归并两个有序数组141. 判断链表是否存在环524. 最长子序列哑结点">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wangdaye7.github.io/2019/08/27/offer/链表与双指针的练习/">
+
+
+
+
+
+  <title>链表与双指针的练习 | jhmarryme's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/wangdaye7" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jhmarryme's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/08/27/offer/链表与双指针的练习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">链表与双指针的练习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-26T20:34:03Z">
+                2019-08-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/剑指offer笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">剑指offer笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="链表与双指针的练习"><a href="#链表与双指针的练习" class="headerlink" title="链表与双指针的练习"></a>链表与双指针的练习</h1><h2 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h2><h3 id="快慢"><a href="#快慢" class="headerlink" title="快慢"></a>快慢</h3><h3 id="首尾"><a href="#首尾" class="headerlink" title="首尾"></a>首尾</h3><ul>
+<li>可以用在有序的数组中, 很方便的处理求指定和的情况</li>
+<li>也可以在中点使用, 目的是在两端往中间逼近<h3 id="先后走"><a href="#先后走" class="headerlink" title="先后走"></a>先后走</h3></li>
+<li>让一个指针先走指定的步数</li>
+<li>可用于求倒数第N个数的时候<h3 id="谁小动谁"><a href="#谁小动谁" class="headerlink" title="谁小动谁"></a>谁小动谁</h3></li>
+</ul>
+<h2 id="双指针练习题目"><a href="#双指针练习题目" class="headerlink" title="双指针练习题目"></a>双指针练习题目</h2><h3 id="167-有序数组的-Two-Sum"><a href="#167-有序数组的-Two-Sum" class="headerlink" title="167. 有序数组的 Two Sum"></a>167. 有序数组的 Two Sum</h3><h3 id="633-两数平方和"><a href="#633-两数平方和" class="headerlink" title="633. 两数平方和"></a>633. 两数平方和</h3><h3 id="345-反转字符串中的元音字符"><a href="#345-反转字符串中的元音字符" class="headerlink" title="345. 反转字符串中的元音字符"></a>345. 反转字符串中的元音字符</h3><h3 id="680-回文字符串"><a href="#680-回文字符串" class="headerlink" title="680. 回文字符串"></a>680. 回文字符串</h3><h3 id="88-归并两个有序数组"><a href="#88-归并两个有序数组" class="headerlink" title="88. 归并两个有序数组"></a>88. 归并两个有序数组</h3><h3 id="141-判断链表是否存在环"><a href="#141-判断链表是否存在环" class="headerlink" title="141. 判断链表是否存在环"></a>141. 判断链表是否存在环</h3><h3 id="524-最长子序列"><a href="#524-最长子序列" class="headerlink" title="524. 最长子序列"></a>524. 最长子序列</h3><h2 id="哑结点"><a href="#哑结点" class="headerlink" title="哑结点"></a>哑结点</h2><blockquote>
+<p>为头结点添加一个前驱节点, 有效的应对需要处理头结点的各种情况</p>
+</blockquote>
+<h2 id="空指针的预防"><a href="#空指针的预防" class="headerlink" title="空指针的预防"></a>空指针的预防</h2><h3 id="用最远的节点作为判断条件"><a href="#用最远的节点作为判断条件" class="headerlink" title="用最远的节点作为判断条件"></a>用最远的节点作为判断条件</h3><p>比如fast和slow指针, 用fast.next fast.next.next fast 作为空判断的条件</p>
+<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="两种单链表寻找交点的办法"><a href="#两种单链表寻找交点的办法" class="headerlink" title="两种单链表寻找交点的办法"></a>两种单链表寻找交点的办法</h3><ul>
+<li>两次遍历<ul>
+<li><ol>
+<li>得到两个链表的长度差</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>让长的先走差值</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>不为空之前相遇则是交点</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>另一种方法<ul>
+<li>设 A 的长度为 a + c，B 的长度为 b + c，其中 c 为尾部公共部分长度，可知 a + c + b = b + c + a。</li>
+<li>在走完a和c的距离之后, 再从b开始走, 如果有交点则会相遇, 没有就会走到空</li>
+<li>先遍历完A链表, 指针回到B重新开始遍历<h3 id="递归在链表中的应用"><a href="#递归在链表中的应用" class="headerlink" title="递归在链表中的应用"></a>递归在链表中的应用</h3></li>
+</ul>
+</li>
+<li>链表反转<ul>
+<li>将末尾节点依次向上返回</li>
+</ul>
+</li>
+<li>归并两个有序的链表<ul>
+<li>将当前节点返回</li>
+</ul>
+</li>
+</ul>
+<h2 id="链表练习题目"><a href="#链表练习题目" class="headerlink" title="链表练习题目"></a>链表练习题目</h2><h3 id="160-找出两个链表的交点"><a href="#160-找出两个链表的交点" class="headerlink" title="160. 找出两个链表的交点"></a>160. 找出两个链表的交点</h3><h3 id="206-链表反转"><a href="#206-链表反转" class="headerlink" title="206. 链表反转"></a>206. 链表反转</h3><ul>
+<li><p>递归处理<br>  这里我理解的思路是首先确定递归完成的条件 -&gt; 最后一个节点  </p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  递归的过程中, 返回的结果是逆序后的头结点, 也就是原序中的尾结点.<br>  将该节点一直向上返回即可, 然后是顺序的调整. 在每次递归中, 调整链表的顺序.</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ListNode next = head.next;</span><br><span class="line">ListNode newHead = reverseList(next);</span><br><span class="line">next.next = head;</span><br><span class="line">head.next = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">return</span> newHead;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>头插法<br>  利用前置节点, 当前节点, 下一节点 完成</p>
+</li>
+</ul>
+<h3 id="21-归并两个有序的链表"><a href="#21-归并两个有序的链表" class="headerlink" title="21. 归并两个有序的链表"></a>21. 归并两个有序的链表</h3><ul>
+<li><p>递归处理<br>  递归完成的条件 -&gt; 直到两个链表都为空</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (l1 == <span class="keyword">null</span>) <span class="keyword">return</span> l2;</span><br><span class="line"><span class="keyword">if</span> (l2 == <span class="keyword">null</span>) <span class="keyword">return</span> l1;</span><br></pre></td></tr></table></figure>
+<p>  接着将下一个节点设置为正确的节点即可,  因为每次递归返回的都是当前位置相应最小的节点</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (l1.val &lt; l2.val) &#123;</span><br><span class="line">    l1.next = mergeTwoLists(l1.next, l2);</span><br><span class="line">    <span class="keyword">return</span> l1;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    l2.next = mergeTwoLists(l1, l2.next);</span><br><span class="line">    <span class="keyword">return</span> l2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="83-从有序链表中删除重复节点"><a href="#83-从有序链表中删除重复节点" class="headerlink" title="83. 从有序链表中删除重复节点"></a>83. 从有序链表中删除重复节点</h3><h3 id="19-删除链表的倒数第-n-个节点"><a href="#19-删除链表的倒数第-n-个节点" class="headerlink" title="19. 删除链表的倒数第 n 个节点"></a>19. 删除链表的倒数第 n 个节点</h3><p>两个指针fast, slow<br>让fast 先走n步, 接着slow开始走, 当fast.next等于null时, 代表走到了最后一个节点, 此时slow停在的位置, 就是需要删除的节点的前一个位置, 处理完即可<br>需要注意的是, 当删除的是头结点时, fast先走n步, 此时fast就为null了, 需要提前处理这种情况</p>
+<h3 id="24-交换链表中的相邻结点"><a href="#24-交换链表中的相邻结点" class="headerlink" title="24. 交换链表中的相邻结点"></a>24. 交换链表中的相邻结点</h3><p>借用哑结点的帮助, 思路与链表逆序相同, 只是需要多一个临时变量.</p>
+<p>首先让哑结点指向正确的顺序, 再调整其他的位置.</p>
+<h3 id="445-链表求和"><a href="#445-链表求和" class="headerlink" title="445. 链表求和"></a>445. 链表求和</h3><h3 id="234-回文链表"><a href="#234-回文链表" class="headerlink" title="234. 回文链表"></a>234. 回文链表</h3><h3 id="725-分隔链表"><a href="#725-分隔链表" class="headerlink" title="725. 分隔链表"></a>725. 分隔链表</h3><h3 id="328-链表元素按奇偶聚集"><a href="#328-链表元素按奇偶聚集" class="headerlink" title="328. 链表元素按奇偶聚集"></a>328. 链表元素按奇偶聚集</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/25/offer/refAndClassLoader/" rel="next" title="JVM学习">
+                <i class="fa fa-chevron-left"></i> JVM学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/09/note/summary/idea/" rel="prev" title="IDEA的快捷键">
+                IDEA的快捷键 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg" alt="Jiahao Wang">
+            
+              <p class="site-author-name" itemprop="name">Jiahao Wang</p>
+              <p class="site-description motion-element" itemprop="description">blog</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#链表与双指针的练习"><span class="nav-number">1.</span> <span class="nav-text">链表与双指针的练习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#双指针"><span class="nav-number">1.1.</span> <span class="nav-text">双指针</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快慢"><span class="nav-number">1.1.1.</span> <span class="nav-text">快慢</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首尾"><span class="nav-number">1.1.2.</span> <span class="nav-text">首尾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#先后走"><span class="nav-number">1.1.3.</span> <span class="nav-text">先后走</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#谁小动谁"><span class="nav-number">1.1.4.</span> <span class="nav-text">谁小动谁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双指针练习题目"><span class="nav-number">1.2.</span> <span class="nav-text">双指针练习题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#167-有序数组的-Two-Sum"><span class="nav-number">1.2.1.</span> <span class="nav-text">167. 有序数组的 Two Sum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#633-两数平方和"><span class="nav-number">1.2.2.</span> <span class="nav-text">633. 两数平方和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#345-反转字符串中的元音字符"><span class="nav-number">1.2.3.</span> <span class="nav-text">345. 反转字符串中的元音字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#680-回文字符串"><span class="nav-number">1.2.4.</span> <span class="nav-text">680. 回文字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#88-归并两个有序数组"><span class="nav-number">1.2.5.</span> <span class="nav-text">88. 归并两个有序数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#141-判断链表是否存在环"><span class="nav-number">1.2.6.</span> <span class="nav-text">141. 判断链表是否存在环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#524-最长子序列"><span class="nav-number">1.2.7.</span> <span class="nav-text">524. 最长子序列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哑结点"><span class="nav-number">1.3.</span> <span class="nav-text">哑结点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#空指针的预防"><span class="nav-number">1.4.</span> <span class="nav-text">空指针的预防</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用最远的节点作为判断条件"><span class="nav-number">1.4.1.</span> <span class="nav-text">用最远的节点作为判断条件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表"><span class="nav-number">1.5.</span> <span class="nav-text">链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#两种单链表寻找交点的办法"><span class="nav-number">1.5.1.</span> <span class="nav-text">两种单链表寻找交点的办法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归在链表中的应用"><span class="nav-number">1.5.2.</span> <span class="nav-text">递归在链表中的应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表练习题目"><span class="nav-number">1.6.</span> <span class="nav-text">链表练习题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#160-找出两个链表的交点"><span class="nav-number">1.6.1.</span> <span class="nav-text">160. 找出两个链表的交点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#206-链表反转"><span class="nav-number">1.6.2.</span> <span class="nav-text">206. 链表反转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-归并两个有序的链表"><span class="nav-number">1.6.3.</span> <span class="nav-text">21. 归并两个有序的链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#83-从有序链表中删除重复节点"><span class="nav-number">1.6.4.</span> <span class="nav-text">83. 从有序链表中删除重复节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-删除链表的倒数第-n-个节点"><span class="nav-number">1.6.5.</span> <span class="nav-text">19. 删除链表的倒数第 n 个节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24-交换链表中的相邻结点"><span class="nav-number">1.6.6.</span> <span class="nav-text">24. 交换链表中的相邻结点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#445-链表求和"><span class="nav-number">1.6.7.</span> <span class="nav-text">445. 链表求和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#234-回文链表"><span class="nav-number">1.6.8.</span> <span class="nav-text">234. 回文链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#725-分隔链表"><span class="nav-number">1.6.9.</span> <span class="nav-text">725. 分隔链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#328-链表元素按奇偶聚集"><span class="nav-number">1.6.10.</span> <span class="nav-text">328. 链表元素按奇偶聚集</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiahao Wang</span>
+	
+	<div class="powered-by">
+	<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+	  本站访客数:<span id="busuanzi_value_site_uv"></span>
+	</span>
+	</div>
+
+  
+</div>
+
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+<!--
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
