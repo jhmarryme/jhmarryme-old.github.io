@@ -352,7 +352,7 @@
 <p>awk [options] ‘cmd’ file</p>
 </blockquote>
 <p>一次读取一行文本, 按分隔符进行切片<br>切片保存在内建的变量中 $1 $2 … $0为整行<br><strong>单引号</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 先从/var/<span class="built_in">log</span>目录下copy一份日志文件 这里选择的是dpkg.log</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看第一, 四列的数据</span></span><br><span class="line">awk '&#123;print $1 $4&#125;' dpkg.log</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看 第二列满足条件 或 第一行的数据</span></span><br><span class="line">awk '($2=="14:42:45") || NR==1 &#123;print $0&#125;' dpkg.log</span><br><span class="line"><span class="meta">#</span><span class="bash"> 根据第二列的值统计出现过的次数</span></span><br><span class="line">awk '&#123;arr[$2]++&#125;END&#123;for(i in arr) print i "\t" arr[i]&#125;' dpkg.log</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 先从/var/log目录下copy一份日志文件 这里选择的是dpkg.log</span><br><span class="line"><span class="meta">#</span> 查看第一, 四列的数据</span><br><span class="line">awk '&#123;print $1 $4&#125;' dpkg.log</span><br><span class="line"><span class="meta">#</span> 查看 第二列满足条件 或 第一行的数据</span><br><span class="line">awk '($2=="14:42:45") || NR==1 &#123;print $0&#125;' dpkg.log</span><br><span class="line"><span class="meta">#</span> 根据第二列的值统计出现过的次数</span><br><span class="line">awk '&#123;arr[$2]++&#125;END&#123;for(i in arr) print i "\t" arr[i]&#125;' dpkg.log</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -376,8 +376,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/09/note/cyc2018/exception/异常学习及简单应用/" rel="next" title="异常学习及简单应用">
-                <i class="fa fa-chevron-left"></i> 异常学习及简单应用
+              <a href="/2019/07/09/note/cyc2018/thread/线程/" rel="next" title="线程">
+                <i class="fa fa-chevron-left"></i> 线程
               </a>
             
           </div>
@@ -467,7 +467,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

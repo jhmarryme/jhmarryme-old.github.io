@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/项目记录/品牌新增后的关闭弹窗/">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/项目记录/修改品牌(未完成)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -282,7 +282,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/品牌新增后的关闭弹窗/" itemprop="url">新增完成后关闭窗口</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/修改品牌(未完成)/" itemprop="url">修改品牌</a></h1>
         
 
         <div class="post-meta">
@@ -356,14 +356,182 @@
       
         
           
-          1.4.新增完成后关闭窗口我们发现有一个问题：新增不管成功还是失败，窗口都一致在这里，不会关闭。
-这样很不友好，我们希望如果新增失败，窗口保持；但是新增成功，窗口关闭才对。
-因此，我们需要在新增的ajax请求完成以后，关闭窗口
-但问题在于，控制窗口是否显示的标记在父组件：MyBrand.vue中。子
+          4.修改品牌（作业）修改的难点在于回显。
+当我们点击编辑按钮，希望弹出窗口的同时，看到原来的数据：
+
+4.1.点击编辑出现弹窗这个比较简单，修改show属性为true即可实现，我们绑定一个点击事件：
+1&lt;v-btn color="info" @click="editBrand"&gt;编辑&l
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/品牌新增后的关闭弹窗/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/修改品牌(未完成)/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/项目记录/跨域分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/13/项目记录/跨域分析/" itemprop="url">跨域分析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T16:09:29Z">
+                2019-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/微服务项目存档/" itemprop="url" rel="index">
+                    <span itemprop="name">微服务项目存档</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          6.跨域问题跨域：浏览器对于javascript的同源策略的限制 。
+以下情况都属于跨域：
+
+
+
+跨域原因说明
+示例
+
+
+
+
+域名不同
+www.jd.com 与 www.taobao.com
+
+
+域名相同，端口不同
+www.jd.com:8080 与 www.jd.com:8081
+
+
+二级域名不同
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/13/项目记录/跨域分析/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -569,7 +737,7 @@ main.js：实例化vue
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/项目记录/使用域名访问本地项目/">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/项目记录/品牌查询Vue界面搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -588,7 +756,7 @@ main.js：实例化vue
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/使用域名访问本地项目/" itemprop="url">使用域名访问本地项目</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/品牌查询Vue界面搭建/" itemprop="url">品牌查询Vue界面搭建</a></h1>
         
 
         <div class="post-meta">
@@ -662,15 +830,17 @@ main.js：实例化vue
       
         
           
-          4.使用域名访问本地项目域名解析
-Windows下的hosts文件地址：C:/Windows/System32/drivers/etc/hosts
-Linux下的hosts文件所在路径： /etc/hosts 
+          7.从0开始品牌的查询先看看我们要实现的效果：
 
-解决域名解析问题使用SwitchHosts伪造本地的hosts文件，实现对域名的解析。
+从0开始，实现下从前端到后端的完整开发。
+7.1.设计前端页面为了方便看到效果，我们新建一个MyBrand.vue（注意先停掉服务器），从0开始搭建。
+ 
+内容利用模板初始化
+改变router新的index.js，将路由地址指向MyBrand.vue
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/使用域名访问本地项目/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/品牌查询Vue界面搭建/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -721,7 +891,7 @@ Linux下的hosts文件所在路径： /etc/hosts
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/项目记录/webpack及vue框架相关i/">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/项目记录/利用Cors解决跨域问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -740,7 +910,7 @@ Linux下的hosts文件所在路径： /etc/hosts
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/webpack及vue框架相关i/" itemprop="url">webpack及vue-cli</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/利用Cors解决跨域问题/" itemprop="url">利用Cors解决跨域问题</a></h1>
         
 
         <div class="post-meta">
@@ -775,8 +945,8 @@ Linux下的hosts文件所在路径： /etc/hosts
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端框架/" itemprop="url" rel="index">
-                    <span itemprop="name">前端框架</span>
+                  <a href="/categories/微服务项目存档/" itemprop="url" rel="index">
+                    <span itemprop="name">微服务项目存档</span>
                   </a>
                 </span>
 
@@ -814,21 +984,12 @@ Linux下的hosts文件所在路径： /etc/hosts
       
         
           
-          1. 学习目标
-了解vue-router使用
-了解webpack使用
-会使用vue-cli搭建项目
-独立搭建后台管理系统
-了解系统基本结构
-
-2. 路由vue-router2.1. 场景模拟现在我们来实现这样一个功能：
-一个页面，包含登录和注册，点击不同按钮，实现登录和注册页切换：
- 
-2.1.1.
+          6.3.3.实现非常简单在leyou-gateway中编写一个配置类，并且注册CorsFilter：
+123456789101112131415161718192021222324252627282930313233343536import org.springframework.context.a
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/webpack及vue框架相关i/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/利用Cors解决跨域问题/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1036,7 +1197,7 @@ Linux下的hosts文件所在路径： /etc/hosts
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/项目记录/图片上传实现/">
+    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/05/13/项目记录/webpack及vue框架相关i/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -1055,7 +1216,7 @@ Linux下的hosts文件所在路径： /etc/hosts
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/图片上传实现/" itemprop="url">实现图片上传</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/webpack及vue框架相关i/" itemprop="url">webpack及vue-cli</a></h1>
         
 
         <div class="post-meta">
@@ -1090,8 +1251,8 @@ Linux下的hosts文件所在路径： /etc/hosts
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/微服务项目存档/" itemprop="url" rel="index">
-                    <span itemprop="name">微服务项目存档</span>
+                  <a href="/categories/前端框架/" itemprop="url" rel="index">
+                    <span itemprop="name">前端框架</span>
                   </a>
                 </span>
 
@@ -1129,15 +1290,21 @@ Linux下的hosts文件所在路径： /etc/hosts
       
         
           
-          2.实现图片上传刚才的新增实现中，我们并没有上传图片，接下来我们一起完成图片上传逻辑。
-文件的上传并不只是在品牌管理中有需求，以后的其它服务也可能需要，因此我们创建一个独立的微服务，专门处理各种上传。
-2.1.搭建项目2.1.1.创建module
+          1. 学习目标
+了解vue-router使用
+了解webpack使用
+会使用vue-cli搭建项目
+独立搭建后台管理系统
+了解系统基本结构
 
-2.1.2.依赖我们需要EurekaClient和
+2. 路由vue-router2.1. 场景模拟现在我们来实现这样一个功能：
+一个页面，包含登录和注册，点击不同按钮，实现登录和注册页切换：
+ 
+2.1.1.
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/图片上传实现/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/webpack及vue框架相关i/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1623,158 +1790,6 @@ Linux下的hosts文件所在路径： /etc/hosts
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdaye7.github.io/2019/03/17/note/algorithm/LeetCode记录/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahao Wang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jhmarryme's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/17/note/algorithm/LeetCode记录/" itemprop="url">LeetCode记录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T12:46:21Z">
-                2019-03-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          leetCode清单解答HashMap相关
-两数之和
-
-题目:给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。
-示例:给定 nums = [2, 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/17/note/algorithm/LeetCode记录/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1827,7 +1842,7 @@ Linux下的hosts文件所在路径： /etc/hosts
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
