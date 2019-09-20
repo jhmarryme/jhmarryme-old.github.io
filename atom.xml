@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://jhmarryme.cn/"/>
+  <link href="http://jhmarryme.cn/"/>
   <updated>2019-09-18T02:27:48.038Z</updated>
-  <id>https://jhmarryme.cn/</id>
+  <id>http://jhmarryme.cn/</id>
   
   <author>
     <name>Jiahao Wang</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>gc相关</title>
-    <link href="https://jhmarryme.cn/2019/09/18/offer/gc%E7%9B%B8%E5%85%B3/"/>
-    <id>https://jhmarryme.cn/2019/09/18/offer/gc相关/</id>
+    <link href="http://jhmarryme.cn/2019/09/18/offer/gc%E7%9B%B8%E5%85%B3/"/>
+    <id>http://jhmarryme.cn/2019/09/18/offer/gc相关/</id>
     <published>2019-09-18T10:21:59.000Z</published>
     <updated>2019-09-18T02:27:48.038Z</updated>
     
@@ -27,15 +27,15 @@
     
     </summary>
     
-      <category term="java基础" scheme="https://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
+      <category term="java基础" scheme="http://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
     
     
   </entry>
   
   <entry>
     <title>计算机网络思维导图</title>
-    <link href="https://jhmarryme.cn/2019/09/12/offer/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    <id>https://jhmarryme.cn/2019/09/12/offer/计算机网络/</id>
+    <link href="http://jhmarryme.cn/2019/09/12/offer/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <id>http://jhmarryme.cn/2019/09/12/offer/计算机网络/</id>
     <published>2019-09-12T14:26:24.000Z</published>
     <updated>2019-09-12T06:51:09.793Z</updated>
     
@@ -53,15 +53,15 @@
     
     </summary>
     
-      <category term="计算机网络" scheme="https://jhmarryme.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+      <category term="计算机网络" scheme="http://jhmarryme.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
   </entry>
   
   <entry>
     <title>Java内存模型常见问题</title>
-    <link href="https://jhmarryme.cn/2019/09/11/offer/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
-    <id>https://jhmarryme.cn/2019/09/11/offer/Java内存模型常见问题/</id>
+    <link href="http://jhmarryme.cn/2019/09/11/offer/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
+    <id>http://jhmarryme.cn/2019/09/11/offer/Java内存模型常见问题/</id>
     <published>2019-09-11T14:55:08.000Z</published>
     <updated>2019-09-12T05:58:55.880Z</updated>
     
@@ -80,15 +80,15 @@
     
     </summary>
     
-      <category term="java基础" scheme="https://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
+      <category term="java基础" scheme="http://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
     
     
   </entry>
   
   <entry>
     <title>Java内存模型和简单分析一次add方法执行的过程</title>
-    <link href="https://jhmarryme.cn/2019/09/10/offer/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"/>
-    <id>https://jhmarryme.cn/2019/09/10/offer/Java内存模型/</id>
+    <link href="http://jhmarryme.cn/2019/09/10/offer/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"/>
+    <id>http://jhmarryme.cn/2019/09/10/offer/Java内存模型/</id>
     <published>2019-09-09T19:01:25.000Z</published>
     <updated>2019-09-12T05:59:51.782Z</updated>
     
@@ -107,15 +107,15 @@
     
     </summary>
     
-      <category term="java基础" scheme="https://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
+      <category term="java基础" scheme="http://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
     
     
   </entry>
   
   <entry>
     <title>IDEA的快捷键</title>
-    <link href="https://jhmarryme.cn/2019/09/09/note/summary/idea/"/>
-    <id>https://jhmarryme.cn/2019/09/09/note/summary/idea/</id>
+    <link href="http://jhmarryme.cn/2019/09/09/note/summary/idea/"/>
+    <id>http://jhmarryme.cn/2019/09/09/note/summary/idea/</id>
     <published>2019-09-09T10:34:03.000Z</published>
     <updated>2019-09-09T02:33:30.368Z</updated>
     
@@ -130,15 +130,15 @@
     
     </summary>
     
-      <category term="IDEA" scheme="https://jhmarryme.cn/categories/IDEA/"/>
+      <category term="IDEA" scheme="http://jhmarryme.cn/categories/IDEA/"/>
     
     
   </entry>
   
   <entry>
     <title>链表与双指针的练习</title>
-    <link href="https://jhmarryme.cn/2019/08/27/offer/%E9%93%BE%E8%A1%A8%E4%B8%8E%E5%8F%8C%E6%8C%87%E9%92%88%E7%9A%84%E7%BB%83%E4%B9%A0/"/>
-    <id>https://jhmarryme.cn/2019/08/27/offer/链表与双指针的练习/</id>
+    <link href="http://jhmarryme.cn/2019/08/27/offer/%E9%93%BE%E8%A1%A8%E4%B8%8E%E5%8F%8C%E6%8C%87%E9%92%88%E7%9A%84%E7%BB%83%E4%B9%A0/"/>
+    <id>http://jhmarryme.cn/2019/08/27/offer/链表与双指针的练习/</id>
     <published>2019-08-26T20:34:03.000Z</published>
     <updated>2019-09-15T15:40:47.777Z</updated>
     
@@ -153,15 +153,15 @@
     
     </summary>
     
-      <category term="剑指offer笔记" scheme="https://jhmarryme.cn/categories/%E5%89%91%E6%8C%87offer%E7%AC%94%E8%AE%B0/"/>
+      <category term="剑指offer笔记" scheme="http://jhmarryme.cn/categories/%E5%89%91%E6%8C%87offer%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
   
   <entry>
     <title>JVM学习</title>
-    <link href="https://jhmarryme.cn/2019/08/25/offer/refAndClassLoader/"/>
-    <id>https://jhmarryme.cn/2019/08/25/offer/refAndClassLoader/</id>
+    <link href="http://jhmarryme.cn/2019/08/25/offer/refAndClassLoader/"/>
+    <id>http://jhmarryme.cn/2019/08/25/offer/refAndClassLoader/</id>
     <published>2019-08-24T20:34:03.000Z</published>
     <updated>2019-09-10T01:54:52.980Z</updated>
     
@@ -179,15 +179,15 @@
     
     </summary>
     
-      <category term="java基础" scheme="https://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
+      <category term="java基础" scheme="http://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
     
     
   </entry>
   
   <entry>
     <title>牛客算法学习2</title>
-    <link href="https://jhmarryme.cn/2019/07/29/note/algorithm/%E7%89%9B%E5%AE%A2%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A02/"/>
-    <id>https://jhmarryme.cn/2019/07/29/note/algorithm/牛客算法学习2/</id>
+    <link href="http://jhmarryme.cn/2019/07/29/note/algorithm/%E7%89%9B%E5%AE%A2%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A02/"/>
+    <id>http://jhmarryme.cn/2019/07/29/note/algorithm/牛客算法学习2/</id>
     <published>2019-07-28T19:34:47.000Z</published>
     <updated>2019-09-08T14:21:58.182Z</updated>
     
@@ -202,15 +202,15 @@
     
     </summary>
     
-      <category term="算法" scheme="https://jhmarryme.cn/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="http://jhmarryme.cn/categories/%E7%AE%97%E6%B3%95/"/>
     
     
   </entry>
   
   <entry>
     <title>方法引用</title>
-    <link href="https://jhmarryme.cn/2019/07/24/note/cyc2018/stream/%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8/"/>
-    <id>https://jhmarryme.cn/2019/07/24/note/cyc2018/stream/方法引用/</id>
+    <link href="http://jhmarryme.cn/2019/07/24/note/cyc2018/stream/%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8/"/>
+    <id>http://jhmarryme.cn/2019/07/24/note/cyc2018/stream/方法引用/</id>
     <published>2019-07-24T14:19:23.000Z</published>
     <updated>2019-07-24T06:24:44.427Z</updated>
     
@@ -230,15 +230,15 @@
     
     </summary>
     
-      <category term="java基础" scheme="https://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
+      <category term="java基础" scheme="http://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
     
     
   </entry>
   
   <entry>
     <title>stream与函数式接口</title>
-    <link href="https://jhmarryme.cn/2019/07/24/note/cyc2018/stream/stream%E4%B8%8E%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3/"/>
-    <id>https://jhmarryme.cn/2019/07/24/note/cyc2018/stream/stream与函数式接口/</id>
+    <link href="http://jhmarryme.cn/2019/07/24/note/cyc2018/stream/stream%E4%B8%8E%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3/"/>
+    <id>http://jhmarryme.cn/2019/07/24/note/cyc2018/stream/stream与函数式接口/</id>
     <published>2019-07-24T14:03:02.000Z</published>
     <updated>2019-09-11T16:07:40.816Z</updated>
     
@@ -256,15 +256,15 @@
     
     </summary>
     
-      <category term="java基础" scheme="https://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
+      <category term="java基础" scheme="http://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
     
     
   </entry>
   
   <entry>
     <title>socket网络编程</title>
-    <link href="https://jhmarryme.cn/2019/07/22/note/cyc2018/socket/socket%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    <id>https://jhmarryme.cn/2019/07/22/note/cyc2018/socket/socket网络编程/</id>
+    <link href="http://jhmarryme.cn/2019/07/22/note/cyc2018/socket/socket%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+    <id>http://jhmarryme.cn/2019/07/22/note/cyc2018/socket/socket网络编程/</id>
     <published>2019-07-21T19:37:33.000Z</published>
     <updated>2019-07-21T14:05:39.825Z</updated>
     
@@ -282,15 +282,15 @@
     
     </summary>
     
-      <category term="java基础" scheme="https://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
+      <category term="java基础" scheme="http://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
     
     
   </entry>
   
   <entry>
     <title>几个简单的递归练习</title>
-    <link href="https://jhmarryme.cn/2019/07/21/note/cyc2018/recursion/%E5%87%A0%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E9%80%92%E5%BD%92%E7%BB%83%E4%B9%A0/"/>
-    <id>https://jhmarryme.cn/2019/07/21/note/cyc2018/recursion/几个简单的递归练习/</id>
+    <link href="http://jhmarryme.cn/2019/07/21/note/cyc2018/recursion/%E5%87%A0%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E9%80%92%E5%BD%92%E7%BB%83%E4%B9%A0/"/>
+    <id>http://jhmarryme.cn/2019/07/21/note/cyc2018/recursion/几个简单的递归练习/</id>
     <published>2019-07-21T14:40:28.000Z</published>
     <updated>2019-07-21T06:41:51.872Z</updated>
     
@@ -305,15 +305,15 @@
     
     </summary>
     
-      <category term="java基础" scheme="https://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
+      <category term="java基础" scheme="http://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
     
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://jhmarryme.cn/2019/07/21/allTemp/hello-world/"/>
-    <id>https://jhmarryme.cn/2019/07/21/allTemp/hello-world/</id>
+    <link href="http://jhmarryme.cn/2019/07/21/allTemp/hello-world/"/>
+    <id>http://jhmarryme.cn/2019/07/21/allTemp/hello-world/</id>
     <published>2019-07-21T01:59:52.488Z</published>
     <updated>2019-05-21T03:34:11.139Z</updated>
     
@@ -333,8 +333,8 @@
   
   <entry>
     <title>通用mapper使用记录</title>
-    <link href="https://jhmarryme.cn/2019/07/19/allTemp/%E9%80%9A%E7%94%A8mapper%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/"/>
-    <id>https://jhmarryme.cn/2019/07/19/allTemp/通用mapper使用记录/</id>
+    <link href="http://jhmarryme.cn/2019/07/19/allTemp/%E9%80%9A%E7%94%A8mapper%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/"/>
+    <id>http://jhmarryme.cn/2019/07/19/allTemp/通用mapper使用记录/</id>
     <published>2019-07-18T18:33:58.000Z</published>
     <updated>2019-09-15T15:50:10.859Z</updated>
     
@@ -350,15 +350,15 @@
     
     </summary>
     
-      <category term="ssm" scheme="https://jhmarryme.cn/categories/ssm/"/>
+      <category term="ssm" scheme="http://jhmarryme.cn/categories/ssm/"/>
     
     
   </entry>
   
   <entry>
     <title>通用异常处理</title>
-    <link href="https://jhmarryme.cn/2019/07/19/note/temp/%E9%80%9A%E7%94%A8%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/"/>
-    <id>https://jhmarryme.cn/2019/07/19/note/temp/通用异常处理/</id>
+    <link href="http://jhmarryme.cn/2019/07/19/note/temp/%E9%80%9A%E7%94%A8%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/"/>
+    <id>http://jhmarryme.cn/2019/07/19/note/temp/通用异常处理/</id>
     <published>2019-07-18T16:14:19.000Z</published>
     <updated>2019-09-08T14:23:31.851Z</updated>
     
@@ -375,15 +375,15 @@
     
     </summary>
     
-      <category term="待整理" scheme="https://jhmarryme.cn/categories/%E5%BE%85%E6%95%B4%E7%90%86/"/>
+      <category term="待整理" scheme="http://jhmarryme.cn/categories/%E5%BE%85%E6%95%B4%E7%90%86/"/>
     
     
   </entry>
   
   <entry>
     <title>命令备忘</title>
-    <link href="https://jhmarryme.cn/2019/07/18/note/temp/%E5%91%BD%E4%BB%A4%E5%A4%87%E5%BF%98/"/>
-    <id>https://jhmarryme.cn/2019/07/18/note/temp/命令备忘/</id>
+    <link href="http://jhmarryme.cn/2019/07/18/note/temp/%E5%91%BD%E4%BB%A4%E5%A4%87%E5%BF%98/"/>
+    <id>http://jhmarryme.cn/2019/07/18/note/temp/命令备忘/</id>
     <published>2019-07-18T15:42:19.000Z</published>
     <updated>2019-09-08T14:23:21.084Z</updated>
     
@@ -399,15 +399,15 @@
     
     </summary>
     
-      <category term="待整理" scheme="https://jhmarryme.cn/categories/%E5%BE%85%E6%95%B4%E7%90%86/"/>
+      <category term="待整理" scheme="http://jhmarryme.cn/categories/%E5%BE%85%E6%95%B4%E7%90%86/"/>
     
     
   </entry>
   
   <entry>
     <title>File与流</title>
-    <link href="https://jhmarryme.cn/2019/07/17/note/cyc2018/File/File%E5%8F%8A%E5%9F%BA%E6%9C%AC%E6%B5%81%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
-    <id>https://jhmarryme.cn/2019/07/17/note/cyc2018/File/File及基本流学习记录/</id>
+    <link href="http://jhmarryme.cn/2019/07/17/note/cyc2018/File/File%E5%8F%8A%E5%9F%BA%E6%9C%AC%E6%B5%81%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    <id>http://jhmarryme.cn/2019/07/17/note/cyc2018/File/File及基本流学习记录/</id>
     <published>2019-07-17T11:52:41.000Z</published>
     <updated>2019-07-24T13:30:35.958Z</updated>
     
@@ -426,15 +426,15 @@
     
     </summary>
     
-      <category term="java基础" scheme="https://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
+      <category term="java基础" scheme="http://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
     
     
   </entry>
   
   <entry>
     <title>生产者消费者问题简单模拟</title>
-    <link href="https://jhmarryme.cn/2019/07/15/note/cyc2018/thread/%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/"/>
-    <id>https://jhmarryme.cn/2019/07/15/note/cyc2018/thread/生产者消费者问题简单模拟/</id>
+    <link href="http://jhmarryme.cn/2019/07/15/note/cyc2018/thread/%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/"/>
+    <id>http://jhmarryme.cn/2019/07/15/note/cyc2018/thread/生产者消费者问题简单模拟/</id>
     <published>2019-07-15T11:34:56.000Z</published>
     <updated>2019-07-24T06:34:11.869Z</updated>
     
@@ -451,15 +451,15 @@
     
     </summary>
     
-      <category term="java基础" scheme="https://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
+      <category term="java基础" scheme="http://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
     
     
   </entry>
   
   <entry>
     <title>lambda简单使用</title>
-    <link href="https://jhmarryme.cn/2019/07/15/note/cyc2018/lambda/lambda%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
-    <id>https://jhmarryme.cn/2019/07/15/note/cyc2018/lambda/lambda简单使用/</id>
+    <link href="http://jhmarryme.cn/2019/07/15/note/cyc2018/lambda/lambda%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
+    <id>http://jhmarryme.cn/2019/07/15/note/cyc2018/lambda/lambda简单使用/</id>
     <published>2019-07-15T11:11:23.000Z</published>
     <updated>2019-07-24T06:34:32.303Z</updated>
     
@@ -474,15 +474,15 @@
     
     </summary>
     
-      <category term="java基础" scheme="https://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
+      <category term="java基础" scheme="http://jhmarryme.cn/categories/java%E5%9F%BA%E7%A1%80/"/>
     
     
   </entry>
   
   <entry>
     <title>Linux补充</title>
-    <link href="https://jhmarryme.cn/2019/07/15/linux/Linux%E8%A1%A5%E5%85%85/"/>
-    <id>https://jhmarryme.cn/2019/07/15/linux/Linux补充/</id>
+    <link href="http://jhmarryme.cn/2019/07/15/linux/Linux%E8%A1%A5%E5%85%85/"/>
+    <id>http://jhmarryme.cn/2019/07/15/linux/Linux补充/</id>
     <published>2019-07-14T20:34:03.000Z</published>
     <updated>2019-09-10T01:50:37.310Z</updated>
     

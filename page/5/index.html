@@ -82,7 +82,7 @@
 <meta name="description" content="blog">
 <meta property="og:type" content="website">
 <meta property="og:title" content="jhmarryme&#39;s blog">
-<meta property="og:url" content="https://jhmarryme.cn/page/5/index.html">
+<meta property="og:url" content="http://jhmarryme.cn/page/5/index.html">
 <meta property="og:site_name" content="jhmarryme&#39;s blog">
 <meta property="og:description" content="blog">
 <meta property="og:locale" content="zh-Hans">
@@ -118,7 +118,7 @@
 
 
 
-  <link rel="canonical" href="https://jhmarryme.cn/page/5/">
+  <link rel="canonical" href="http://jhmarryme.cn/page/5/">
 
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/allTemp/springboot微服务坑/">
+    <link itemprop="mainEntityOfPage" href="http://jhmarryme.cn/2019/05/13/allTemp/springboot微服务坑/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -413,7 +413,7 @@ application.yml文件格式问题File–&gt;Settings–&gt
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/allTemp/springcloud配置积累/">
+    <link itemprop="mainEntityOfPage" href="http://jhmarryme.cn/2019/05/13/allTemp/springcloud配置积累/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -564,7 +564,7 @@ spring123spring:  application:    name: eureka-server # 应用名称，会在Eur
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/后台管理系统前端项目结构/">
+    <link itemprop="mainEntityOfPage" href="http://jhmarryme.cn/2019/05/13/项目记录/微服务笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -583,7 +583,7 @@ spring123spring:  application:    name: eureka-server # 应用名称，会在Eur
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/后台管理系统前端项目结构/" itemprop="url">后台管理系统前端项目结构</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/微服务笔记/" itemprop="url">微服务笔记(待整理)</a></h1>
         
 
         <div class="post-meta">
@@ -657,18 +657,12 @@ spring123spring:  application:    name: eureka-server # 应用名称，会在Eur
       
         
           
-          3.项目结构开始编码前，我们先了解下项目的结构。
-3.1.目录结构首先是目录结构图：
-3.2.调用关系我们最主要理清index.html、main.js、App.vue之间的关系：
-
-理一下：
-
-index.html：html模板文件。定义了空的div，其id为app。
-main.js：实例化vue
+          REST请求
+请求规范GET         /zoos：列出所有动物园POST        /zoos：新建一个动物园GET         /zoos/ID：获取某个指定动物园的信息PUT         /zoos/ID：更新某个指定动物园的信息（提供该动物园的全部信息）PATCH     
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/后台管理系统前端项目结构/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/微服务笔记/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -719,7 +713,7 @@ main.js：实例化vue
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/品牌新增vue界面搭建/">
+    <link itemprop="mainEntityOfPage" href="http://jhmarryme.cn/2019/05/13/项目记录/品牌新增vue界面搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -875,7 +869,7 @@ javaWeb
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/品牌新增后端实现/">
+    <link itemprop="mainEntityOfPage" href="http://jhmarryme.cn/2019/05/13/项目记录/利用Cors解决跨域问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -894,7 +888,7 @@ javaWeb
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/品牌新增后端实现/" itemprop="url">品牌新增后端实现</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/利用Cors解决跨域问题/" itemprop="url">利用Cors解决跨域问题</a></h1>
         
 
         <div class="post-meta">
@@ -968,19 +962,12 @@ javaWeb
       
         
           
-          1.2.后台实现新增1.2.1.controller还是一样，先分析四个内容：
-
-请求方式：刚才看到了是POST
-请求路径：/brand
-请求参数：brand对象，外加商品分类的id数组cids
-返回值：无
-
-代码：
-12345678910/** * 新增品牌 * @param brand * @r
+          6.3.3.实现非常简单在leyou-gateway中编写一个配置类，并且注册CorsFilter：
+123456789101112131415161718192021222324252627282930313233343536import org.springframework.context.a
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/品牌新增后端实现/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/利用Cors解决跨域问题/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1031,7 +1018,7 @@ javaWeb
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/实时刷新界面及静态图片访问/">
+    <link itemprop="mainEntityOfPage" href="http://jhmarryme.cn/2019/05/13/项目记录/使用域名访问本地项目/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -1050,7 +1037,7 @@ javaWeb
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/实时刷新界面及静态图片访问/" itemprop="url">实时刷新界面及静态图片访问</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/使用域名访问本地项目/" itemprop="url">使用域名访问本地项目</a></h1>
         
 
         <div class="post-meta">
@@ -1124,12 +1111,15 @@ javaWeb
       
         
           
-          实时刷新问题因为访问的路径中带有了9001端口, 所以在nginx中配置manage.leyou.com 9001端口的监听, 代理路径与manage.leyou.com配置一致
-访问虚拟机中静态资源图片的配置现在虚拟机中建立相应文件夹 /leyou/static再将图片压缩包image.zip导入
+          4.使用域名访问本地项目域名解析
+Windows下的hosts文件地址：C:/Windows/System32/drivers/etc/hosts
+Linux下的hosts文件所在路径： /etc/hosts 
+
+解决域名解析问题使用SwitchHosts伪造本地的hosts文件，实现对域名的解析。
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/实时刷新界面及静态图片访问/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/使用域名访问本地项目/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1180,7 +1170,7 @@ javaWeb
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/搭建后台管理前端/">
+    <link itemprop="mainEntityOfPage" href="http://jhmarryme.cn/2019/05/13/项目记录/修改品牌(未完成)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -1199,7 +1189,7 @@ javaWeb
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/搭建后台管理前端/" itemprop="url">搭建后台管理前端</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/修改品牌(未完成)/" itemprop="url">修改品牌</a></h1>
         
 
         <div class="post-meta">
@@ -1273,17 +1263,15 @@ javaWeb
       
         
           
-          1.搭建后台管理前端1.1.导入已有资源导入已有项目leyou-manage-web
-1.2.安装依赖没有node_modules文件夹。不过package.json中依然定义了所需的一切依赖：
+          4.修改品牌（作业）修改的难点在于回显。
+当我们点击编辑按钮，希望弹出窗口的同时，看到原来的数据：
 
-打开终端，进入项目目录，输入：npm install命令，即可安装这些依赖。
-
-大概需要几分钟。
-如果
+4.1.点击编辑出现弹窗这个比较简单，修改show属性为true即可实现，我们绑定一个点击事件：
+1&lt;v-btn color="info" @click="editBrand"&gt;编辑&l
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/搭建后台管理前端/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/修改品牌(未完成)/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1334,7 +1322,7 @@ javaWeb
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/微服务笔记/">
+    <link itemprop="mainEntityOfPage" href="http://jhmarryme.cn/2019/05/13/项目记录/后台管理系统前端项目结构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -1353,7 +1341,7 @@ javaWeb
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/微服务笔记/" itemprop="url">微服务笔记(待整理)</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/后台管理系统前端项目结构/" itemprop="url">后台管理系统前端项目结构</a></h1>
         
 
         <div class="post-meta">
@@ -1427,12 +1415,18 @@ javaWeb
       
         
           
-          REST请求
-请求规范GET         /zoos：列出所有动物园POST        /zoos：新建一个动物园GET         /zoos/ID：获取某个指定动物园的信息PUT         /zoos/ID：更新某个指定动物园的信息（提供该动物园的全部信息）PATCH     
+          3.项目结构开始编码前，我们先了解下项目的结构。
+3.1.目录结构首先是目录结构图：
+3.2.调用关系我们最主要理清index.html、main.js、App.vue之间的关系：
+
+理一下：
+
+index.html：html模板文件。定义了空的div，其id为app。
+main.js：实例化vue
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/微服务笔记/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/后台管理系统前端项目结构/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1483,7 +1477,7 @@ javaWeb
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/品牌查询Vue界面搭建/">
+    <link itemprop="mainEntityOfPage" href="http://jhmarryme.cn/2019/05/13/项目记录/品牌查询Vue界面搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -1637,7 +1631,7 @@ javaWeb
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/跨域分析/">
+    <link itemprop="mainEntityOfPage" href="http://jhmarryme.cn/2019/05/13/项目记录/品牌新增后的关闭弹窗/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -1656,7 +1650,7 @@ javaWeb
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/跨域分析/" itemprop="url">跨域分析</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/品牌新增后的关闭弹窗/" itemprop="url">新增完成后关闭窗口</a></h1>
         
 
         <div class="post-meta">
@@ -1730,30 +1724,14 @@ javaWeb
       
         
           
-          6.跨域问题跨域：浏览器对于javascript的同源策略的限制 。
-以下情况都属于跨域：
-
-
-
-跨域原因说明
-示例
-
-
-
-
-域名不同
-www.jd.com 与 www.taobao.com
-
-
-域名相同，端口不同
-www.jd.com:8080 与 www.jd.com:8081
-
-
-二级域名不同
+          1.4.新增完成后关闭窗口我们发现有一个问题：新增不管成功还是失败，窗口都一致在这里，不会关闭。
+这样很不友好，我们希望如果新增失败，窗口保持；但是新增成功，窗口关闭才对。
+因此，我们需要在新增的ajax请求完成以后，关闭窗口
+但问题在于，控制窗口是否显示的标记在父组件：MyBrand.vue中。子
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/跨域分析/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/品牌新增后的关闭弹窗/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
