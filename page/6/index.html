@@ -417,7 +417,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jhmarryme.cn/2019/05/13/项目记录/图片上传实现/">
+    <link itemprop="mainEntityOfPage" href="http://jhmarryme.cn/2019/05/13/项目记录/使用域名访问本地项目/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -436,7 +436,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/图片上传实现/" itemprop="url">实现图片上传</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/使用域名访问本地项目/" itemprop="url">使用域名访问本地项目</a></h1>
         
 
         <div class="post-meta">
@@ -510,182 +510,15 @@
       
         
           
-          2.实现图片上传刚才的新增实现中，我们并没有上传图片，接下来我们一起完成图片上传逻辑。
-文件的上传并不只是在品牌管理中有需求，以后的其它服务也可能需要，因此我们创建一个独立的微服务，专门处理各种上传。
-2.1.搭建项目2.1.1.创建module
+          4.使用域名访问本地项目域名解析
+Windows下的hosts文件地址：C:/Windows/System32/drivers/etc/hosts
+Linux下的hosts文件所在路径： /etc/hosts 
 
-2.1.2.依赖我们需要EurekaClient和
+解决域名解析问题使用SwitchHosts伪造本地的hosts文件，实现对域名的解析。
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/图片上传实现/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jhmarryme.cn/2019/05/13/项目记录/跨域分析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahao Wang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jhmarryme's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/13/项目记录/跨域分析/" itemprop="url">跨域分析</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T16:09:29Z">
-                2019-05-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/微服务项目存档/" itemprop="url" rel="index">
-                    <span itemprop="name">微服务项目存档</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          6.跨域问题跨域：浏览器对于javascript的同源策略的限制 。
-以下情况都属于跨域：
-
-
-
-跨域原因说明
-示例
-
-
-
-
-域名不同
-www.jd.com 与 www.taobao.com
-
-
-域名相同，端口不同
-www.jd.com:8080 与 www.jd.com:8081
-
-
-二级域名不同
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/跨域分析/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/使用域名访问本地项目/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -838,6 +671,310 @@ www.jd.com:8080 与 www.jd.com:8081
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/05/13/项目记录/修改品牌(未完成)/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jhmarryme.cn/2019/05/13/项目记录/利用Cors解决跨域问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/13/项目记录/利用Cors解决跨域问题/" itemprop="url">利用Cors解决跨域问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T16:09:29Z">
+                2019-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/微服务项目存档/" itemprop="url" rel="index">
+                    <span itemprop="name">微服务项目存档</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          6.3.3.实现非常简单在leyou-gateway中编写一个配置类，并且注册CorsFilter：
+123456789101112131415161718192021222324252627282930313233343536import org.springframework.context.a
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/13/项目记录/利用Cors解决跨域问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jhmarryme.cn/2019/05/13/项目记录/后台管理系统前端项目结构/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/13/项目记录/后台管理系统前端项目结构/" itemprop="url">后台管理系统前端项目结构</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T16:09:29Z">
+                2019-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/微服务项目存档/" itemprop="url" rel="index">
+                    <span itemprop="name">微服务项目存档</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          3.项目结构开始编码前，我们先了解下项目的结构。
+3.1.目录结构首先是目录结构图：
+3.2.调用关系我们最主要理清index.html、main.js、App.vue之间的关系：
+
+理一下：
+
+index.html：html模板文件。定义了空的div，其id为app。
+main.js：实例化vue
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/13/项目记录/后台管理系统前端项目结构/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1046,7 +1183,7 @@ www.jd.com:8080 与 www.jd.com:8081
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jhmarryme.cn/2019/05/13/项目记录/微服务笔记/">
+    <link itemprop="mainEntityOfPage" href="http://jhmarryme.cn/2019/05/13/项目记录/商品分类查询后端实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -1065,7 +1202,7 @@ www.jd.com:8080 与 www.jd.com:8081
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/微服务笔记/" itemprop="url">微服务笔记(待整理)</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/商品分类查询后端实现/" itemprop="url">商品分类查询后端实现</a></h1>
         
 
         <div class="post-meta">
@@ -1139,167 +1276,20 @@ www.jd.com:8080 与 www.jd.com:8081
       
         
           
-          REST请求
-请求规范GET         /zoos：列出所有动物园POST        /zoos：新建一个动物园GET         /zoos/ID：获取某个指定动物园的信息PUT         /zoos/ID：更新某个指定动物园的信息（提供该动物园的全部信息）PATCH     
+          5.实现商品分类查询商城的核心自然是商品，而商品多了以后，肯定要进行分类，并且不同的商品会有不同的品牌信息，其关系如图所示：
+
+
+一个商品分类下有很多商品
+一个商品分类下有很多品牌
+而一个品牌，可能属于不同的分类
+一个品牌下也会有很多商品
+
+依次去完成：商品分类、品牌、商品的开发。
+5.1.导入数据
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/微服务笔记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jhmarryme.cn/2019/05/13/项目记录/后台管理系统前端项目结构/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahao Wang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jhmarryme's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/13/项目记录/后台管理系统前端项目结构/" itemprop="url">后台管理系统前端项目结构</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T16:09:29Z">
-                2019-05-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/微服务项目存档/" itemprop="url" rel="index">
-                    <span itemprop="name">微服务项目存档</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          3.项目结构开始编码前，我们先了解下项目的结构。
-3.1.目录结构首先是目录结构图：
-3.2.调用关系我们最主要理清index.html、main.js、App.vue之间的关系：
-
-理一下：
-
-index.html：html模板文件。定义了空的div，其id为app。
-main.js：实例化vue
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/后台管理系统前端项目结构/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/商品分类查询后端实现/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
