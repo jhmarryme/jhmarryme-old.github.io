@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/跨域分析/">
+    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/图片上传实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -282,7 +282,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/跨域分析/" itemprop="url">跨域分析</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/图片上传实现/" itemprop="url">实现图片上传</a></h1>
         
 
         <div class="post-meta">
@@ -356,30 +356,15 @@
       
         
           
-          6.跨域问题跨域：浏览器对于javascript的同源策略的限制 。
-以下情况都属于跨域：
+          2.实现图片上传刚才的新增实现中，我们并没有上传图片，接下来我们一起完成图片上传逻辑。
+文件的上传并不只是在品牌管理中有需求，以后的其它服务也可能需要，因此我们创建一个独立的微服务，专门处理各种上传。
+2.1.搭建项目2.1.1.创建module
 
-
-
-跨域原因说明
-示例
-
-
-
-
-域名不同
-www.jd.com 与 www.taobao.com
-
-
-域名相同，端口不同
-www.jd.com:8080 与 www.jd.com:8081
-
-
-二级域名不同
+2.1.2.依赖我们需要EurekaClient和
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/跨域分析/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/图片上传实现/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -430,7 +415,7 @@ www.jd.com:8080 与 www.jd.com:8081
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/修改品牌(未完成)/">
+    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/品牌新增后的关闭弹窗/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -449,7 +434,7 @@ www.jd.com:8080 与 www.jd.com:8081
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/修改品牌(未完成)/" itemprop="url">修改品牌</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/品牌新增后的关闭弹窗/" itemprop="url">新增完成后关闭窗口</a></h1>
         
 
         <div class="post-meta">
@@ -523,15 +508,14 @@ www.jd.com:8080 与 www.jd.com:8081
       
         
           
-          4.修改品牌（作业）修改的难点在于回显。
-当我们点击编辑按钮，希望弹出窗口的同时，看到原来的数据：
-
-4.1.点击编辑出现弹窗这个比较简单，修改show属性为true即可实现，我们绑定一个点击事件：
-1&lt;v-btn color="info" @click="editBrand"&gt;编辑&l
+          1.4.新增完成后关闭窗口我们发现有一个问题：新增不管成功还是失败，窗口都一致在这里，不会关闭。
+这样很不友好，我们希望如果新增失败，窗口保持；但是新增成功，窗口关闭才对。
+因此，我们需要在新增的ajax请求完成以后，关闭窗口
+但问题在于，控制窗口是否显示的标记在父组件：MyBrand.vue中。子
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/修改品牌(未完成)/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/品牌新增后的关闭弹窗/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -582,7 +566,7 @@ www.jd.com:8080 与 www.jd.com:8081
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/利用Cors解决跨域问题/">
+    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/后台管理系统前端项目结构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -601,7 +585,7 @@ www.jd.com:8080 与 www.jd.com:8081
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/利用Cors解决跨域问题/" itemprop="url">利用Cors解决跨域问题</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/后台管理系统前端项目结构/" itemprop="url">后台管理系统前端项目结构</a></h1>
         
 
         <div class="post-meta">
@@ -675,12 +659,18 @@ www.jd.com:8080 与 www.jd.com:8081
       
         
           
-          6.3.3.实现非常简单在leyou-gateway中编写一个配置类，并且注册CorsFilter：
-123456789101112131415161718192021222324252627282930313233343536import org.springframework.context.a
+          3.项目结构开始编码前，我们先了解下项目的结构。
+3.1.目录结构首先是目录结构图：
+3.2.调用关系我们最主要理清index.html、main.js、App.vue之间的关系：
+
+理一下：
+
+index.html：html模板文件。定义了空的div，其id为app。
+main.js：实例化vue
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/利用Cors解决跨域问题/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/后台管理系统前端项目结构/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -883,7 +873,7 @@ Linux下的hosts文件所在路径： /etc/hosts
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/后台管理系统前端项目结构/">
+    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/利用Cors解决跨域问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -902,7 +892,7 @@ Linux下的hosts文件所在路径： /etc/hosts
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/后台管理系统前端项目结构/" itemprop="url">后台管理系统前端项目结构</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/利用Cors解决跨域问题/" itemprop="url">利用Cors解决跨域问题</a></h1>
         
 
         <div class="post-meta">
@@ -976,18 +966,12 @@ Linux下的hosts文件所在路径： /etc/hosts
       
         
           
-          3.项目结构开始编码前，我们先了解下项目的结构。
-3.1.目录结构首先是目录结构图：
-3.2.调用关系我们最主要理清index.html、main.js、App.vue之间的关系：
-
-理一下：
-
-index.html：html模板文件。定义了空的div，其id为app。
-main.js：实例化vue
+          6.3.3.实现非常简单在leyou-gateway中编写一个配置类，并且注册CorsFilter：
+123456789101112131415161718192021222324252627282930313233343536import org.springframework.context.a
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/后台管理系统前端项目结构/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/利用Cors解决跨域问题/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1195,7 +1179,7 @@ main.js：实例化vue
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/webpack及vue框架相关i/">
+    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/实时刷新界面及静态图片访问/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -1214,7 +1198,7 @@ main.js：实例化vue
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/webpack及vue框架相关i/" itemprop="url">webpack及vue-cli</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/实时刷新界面及静态图片访问/" itemprop="url">实时刷新界面及静态图片访问</a></h1>
         
 
         <div class="post-meta">
@@ -1249,8 +1233,8 @@ main.js：实例化vue
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端框架/" itemprop="url" rel="index">
-                    <span itemprop="name">前端框架</span>
+                  <a href="/categories/微服务项目存档/" itemprop="url" rel="index">
+                    <span itemprop="name">微服务项目存档</span>
                   </a>
                 </span>
 
@@ -1288,21 +1272,12 @@ main.js：实例化vue
       
         
           
-          1. 学习目标
-了解vue-router使用
-了解webpack使用
-会使用vue-cli搭建项目
-独立搭建后台管理系统
-了解系统基本结构
-
-2. 路由vue-router2.1. 场景模拟现在我们来实现这样一个功能：
-一个页面，包含登录和注册，点击不同按钮，实现登录和注册页切换：
- 
-2.1.1.
+          实时刷新问题因为访问的路径中带有了9001端口, 所以在nginx中配置manage.leyou.com 9001端口的监听, 代理路径与manage.leyou.com配置一致
+访问虚拟机中静态资源图片的配置现在虚拟机中建立相应文件夹 /leyou/static再将图片压缩包image.zip导入
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/webpack及vue框架相关i/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/实时刷新界面及静态图片访问/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
