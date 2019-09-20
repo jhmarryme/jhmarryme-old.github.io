@@ -564,7 +564,7 @@ spring123spring:  application:    name: eureka-server # 应用名称，会在Eur
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/webpack及vue框架相关i/">
+    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/后台管理系统前端项目结构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -583,7 +583,7 @@ spring123spring:  application:    name: eureka-server # 应用名称，会在Eur
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/webpack及vue框架相关i/" itemprop="url">webpack及vue-cli</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/后台管理系统前端项目结构/" itemprop="url">后台管理系统前端项目结构</a></h1>
         
 
         <div class="post-meta">
@@ -618,8 +618,8 @@ spring123spring:  application:    name: eureka-server # 应用名称，会在Eur
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端框架/" itemprop="url" rel="index">
-                    <span itemprop="name">前端框架</span>
+                  <a href="/categories/微服务项目存档/" itemprop="url" rel="index">
+                    <span itemprop="name">微服务项目存档</span>
                   </a>
                 </span>
 
@@ -657,21 +657,18 @@ spring123spring:  application:    name: eureka-server # 应用名称，会在Eur
       
         
           
-          1. 学习目标
-了解vue-router使用
-了解webpack使用
-会使用vue-cli搭建项目
-独立搭建后台管理系统
-了解系统基本结构
+          3.项目结构开始编码前，我们先了解下项目的结构。
+3.1.目录结构首先是目录结构图：
+3.2.调用关系我们最主要理清index.html、main.js、App.vue之间的关系：
 
-2. 路由vue-router2.1. 场景模拟现在我们来实现这样一个功能：
-一个页面，包含登录和注册，点击不同按钮，实现登录和注册页切换：
- 
-2.1.1.
+理一下：
+
+index.html：html模板文件。定义了空的div，其id为app。
+main.js：实例化vue
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/webpack及vue框架相关i/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/后台管理系统前端项目结构/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -878,7 +875,7 @@ javaWeb
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/跨域分析/">
+    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/品牌新增后端实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -897,7 +894,7 @@ javaWeb
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/跨域分析/" itemprop="url">跨域分析</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/品牌新增后端实现/" itemprop="url">品牌新增后端实现</a></h1>
         
 
         <div class="post-meta">
@@ -971,30 +968,19 @@ javaWeb
       
         
           
-          6.跨域问题跨域：浏览器对于javascript的同源策略的限制 。
-以下情况都属于跨域：
+          1.2.后台实现新增1.2.1.controller还是一样，先分析四个内容：
 
+请求方式：刚才看到了是POST
+请求路径：/brand
+请求参数：brand对象，外加商品分类的id数组cids
+返回值：无
 
-
-跨域原因说明
-示例
-
-
-
-
-域名不同
-www.jd.com 与 www.taobao.com
-
-
-域名相同，端口不同
-www.jd.com:8080 与 www.jd.com:8081
-
-
-二级域名不同
+代码：
+12345678910/** * 新增品牌 * @param brand * @r
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/跨域分析/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/品牌新增后端实现/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1045,7 +1031,7 @@ www.jd.com:8080 与 www.jd.com:8081
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/品牌查询Vue界面搭建/">
+    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/实时刷新界面及静态图片访问/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -1064,7 +1050,7 @@ www.jd.com:8080 与 www.jd.com:8081
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/品牌查询Vue界面搭建/" itemprop="url">品牌查询Vue界面搭建</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/实时刷新界面及静态图片访问/" itemprop="url">实时刷新界面及静态图片访问</a></h1>
         
 
         <div class="post-meta">
@@ -1138,169 +1124,12 @@ www.jd.com:8080 与 www.jd.com:8081
       
         
           
-          7.从0开始品牌的查询先看看我们要实现的效果：
-
-从0开始，实现下从前端到后端的完整开发。
-7.1.设计前端页面为了方便看到效果，我们新建一个MyBrand.vue（注意先停掉服务器），从0开始搭建。
- 
-内容利用模板初始化
-改变router新的index.js，将路由地址指向MyBrand.vue
+          实时刷新问题因为访问的路径中带有了9001端口, 所以在nginx中配置manage.leyou.com 9001端口的监听, 代理路径与manage.leyou.com配置一致
+访问虚拟机中静态资源图片的配置现在虚拟机中建立相应文件夹 /leyou/static再将图片压缩包image.zip导入
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/品牌查询Vue界面搭建/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/修改品牌(未完成)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahao Wang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jhmarryme's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/13/项目记录/修改品牌(未完成)/" itemprop="url">修改品牌</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T16:09:29Z">
-                2019-05-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/微服务项目存档/" itemprop="url" rel="index">
-                    <span itemprop="name">微服务项目存档</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          4.修改品牌（作业）修改的难点在于回显。
-当我们点击编辑按钮，希望弹出窗口的同时，看到原来的数据：
-
-4.1.点击编辑出现弹窗这个比较简单，修改show属性为true即可实现，我们绑定一个点击事件：
-1&lt;v-btn color="info" @click="editBrand"&gt;编辑&l
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/修改品牌(未完成)/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/实时刷新界面及静态图片访问/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1654,7 +1483,7 @@ www.jd.com:8080 与 www.jd.com:8081
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/品牌新增后端实现/">
+    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/品牌查询Vue界面搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahao Wang">
@@ -1673,7 +1502,7 @@ www.jd.com:8080 与 www.jd.com:8081
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/13/项目记录/品牌新增后端实现/" itemprop="url">品牌新增后端实现</a></h1>
+                <a class="post-title-link" href="/2019/05/13/项目记录/品牌查询Vue界面搭建/" itemprop="url">品牌查询Vue界面搭建</a></h1>
         
 
         <div class="post-meta">
@@ -1747,19 +1576,184 @@ www.jd.com:8080 与 www.jd.com:8081
       
         
           
-          1.2.后台实现新增1.2.1.controller还是一样，先分析四个内容：
+          7.从0开始品牌的查询先看看我们要实现的效果：
 
-请求方式：刚才看到了是POST
-请求路径：/brand
-请求参数：brand对象，外加商品分类的id数组cids
-返回值：无
-
-代码：
-12345678910/** * 新增品牌 * @param brand * @r
+从0开始，实现下从前端到后端的完整开发。
+7.1.设计前端页面为了方便看到效果，我们新建一个MyBrand.vue（注意先停掉服务器），从0开始搭建。
+ 
+内容利用模板初始化
+改变router新的index.js，将路由地址指向MyBrand.vue
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/项目记录/品牌新增后端实现/#more" rel="contents">
+            <a class="btn" href="/2019/05/13/项目记录/品牌查询Vue界面搭建/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jhmarryme.cn/2019/05/13/项目记录/跨域分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahao Wang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://jhmarryme-1257584644.cos.ap-chengdu.myqcloud.com/hexo/jhmarryme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jhmarryme's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/13/项目记录/跨域分析/" itemprop="url">跨域分析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T16:09:29Z">
+                2019-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/微服务项目存档/" itemprop="url" rel="index">
+                    <span itemprop="name">微服务项目存档</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          6.跨域问题跨域：浏览器对于javascript的同源策略的限制 。
+以下情况都属于跨域：
+
+
+
+跨域原因说明
+示例
+
+
+
+
+域名不同
+www.jd.com 与 www.taobao.com
+
+
+域名相同，端口不同
+www.jd.com:8080 与 www.jd.com:8081
+
+
+二级域名不同
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/13/项目记录/跨域分析/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
