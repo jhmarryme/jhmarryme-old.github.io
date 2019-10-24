@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jhmarryme.cn/2019/10/23/SpringBoot%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/</loc>
+    
+    <lastmod>2019-10-23T06:33:07.722Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jhmarryme.cn/2019/08/25/offer/refAndClassLoader/</loc>
+    
+    <lastmod>2019-10-18T09:51:19.890Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jhmarryme.cn/2019/07/09/note/basic/thread/%E7%BA%BF%E7%A8%8B/</loc>
+    
+    <lastmod>2019-10-17T06:31:40.848Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jhmarryme.cn/2019/09/09/note/summary/idea/</loc>
     
-    <lastmod>2019-09-20T08:30:34.821Z</lastmod>
+    <lastmod>2019-10-13T05:23:55.855Z</lastmod>
     
   </url>
   
@@ -163,16 +184,9 @@
   </url>
   
   <url>
-    <loc>http://jhmarryme.cn/2019/07/24/note/cyc2018/stream/stream%E4%B8%8E%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3/</loc>
+    <loc>http://jhmarryme.cn/2019/07/24/note/basic/stream/stream%E4%B8%8E%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3/</loc>
     
     <lastmod>2019-09-11T16:07:40.816Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jhmarryme.cn/2019/08/25/offer/refAndClassLoader/</loc>
-    
-    <lastmod>2019-09-10T01:54:52.980Z</lastmod>
     
   </url>
   
@@ -187,13 +201,6 @@
     <loc>http://jhmarryme.cn/2019/05/14/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</loc>
     
     <lastmod>2019-09-10T01:41:14.074Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jhmarryme.cn/2019/07/09/note/cyc2018/thread/%E7%BA%BF%E7%A8%8B/</loc>
-    
-    <lastmod>2019-09-08T14:24:07.649Z</lastmod>
     
   </url>
   
@@ -247,49 +254,49 @@
   </url>
   
   <url>
-    <loc>http://jhmarryme.cn/2019/07/17/note/cyc2018/File/File%E5%8F%8A%E5%9F%BA%E6%9C%AC%E6%B5%81%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</loc>
+    <loc>http://jhmarryme.cn/2019/07/17/note/basic/File/File%E5%8F%8A%E5%9F%BA%E6%9C%AC%E6%B5%81%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</loc>
     
     <lastmod>2019-07-24T13:30:35.958Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jhmarryme.cn/2019/07/09/note/cyc2018/exception/%E5%BC%82%E5%B8%B8%E5%AD%A6%E4%B9%A0%E5%8F%8A%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/</loc>
+    <loc>http://jhmarryme.cn/2019/07/09/note/basic/exception/%E5%BC%82%E5%B8%B8%E5%AD%A6%E4%B9%A0%E5%8F%8A%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/</loc>
     
     <lastmod>2019-07-24T13:13:45.812Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jhmarryme.cn/2019/07/15/note/cyc2018/lambda/lambda%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    <loc>http://jhmarryme.cn/2019/07/15/note/basic/lambda/lambda%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
     
     <lastmod>2019-07-24T06:34:32.303Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jhmarryme.cn/2019/07/15/note/cyc2018/thread/%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/</loc>
+    <loc>http://jhmarryme.cn/2019/07/15/note/basic/thread/%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/</loc>
     
     <lastmod>2019-07-24T06:34:11.869Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jhmarryme.cn/2019/07/24/note/cyc2018/stream/%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8/</loc>
+    <loc>http://jhmarryme.cn/2019/07/24/note/basic/stream/%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8/</loc>
     
     <lastmod>2019-07-24T06:24:44.427Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jhmarryme.cn/2019/07/22/note/cyc2018/socket/socket%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</loc>
+    <loc>http://jhmarryme.cn/2019/07/22/note/basic/socket/socket%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</loc>
     
     <lastmod>2019-07-21T14:05:39.825Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jhmarryme.cn/2019/07/21/note/cyc2018/recursion/%E5%87%A0%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E9%80%92%E5%BD%92%E7%BB%83%E4%B9%A0/</loc>
+    <loc>http://jhmarryme.cn/2019/07/21/note/basic/recursion/%E5%87%A0%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E9%80%92%E5%BD%92%E7%BB%83%E4%B9%A0/</loc>
     
     <lastmod>2019-07-21T06:41:51.872Z</lastmod>
     
